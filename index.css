@@ -1,6 +1,8 @@
 body{
     background-image:url('sql_index.png');
-}
-h1{
-    color:red;
+    /*: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    
 }
