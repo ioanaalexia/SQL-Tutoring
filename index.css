@@ -1,8 +1,5 @@
 body{
     background-image:url('sql_index.png');
-    /*: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-size: cover;
     
 }
