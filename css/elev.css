@@ -59,7 +59,7 @@ header{
 
 .navbar .logo a{
     font-weight: 700;
-    font-size:40px;
+    font-size:70px;
     font-weight: bold;
 }
 
@@ -139,11 +139,11 @@ header{
 }
 
 .dropdown_menu.open{
-    height: 240px;
+    height: 300px;
 }
 
 .dropdown_menu li{
-    padding: 0.7rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
