@@ -1,10 +1,13 @@
 body{
     margin:0;
     padding: 0;
-    align-items: center;
+    display:flex;
+    justify-content: center;
+    align-items:center;
     min-height: 100vh;
     font-family: 'Jost',sans-serif;
     background: linear-gradient(to bottom,#835999,#a887bc,#bfa3cc);
+
 }
 
 .main{
@@ -52,7 +55,6 @@ input{
     border-radius:5px;
 
 }
-
 button{
     width:60%;
     height: 40px;
@@ -67,9 +69,30 @@ button{
     outline:none;
     border:none;
     border-radius:5px;
-    transition:.2s ease-in;
+    transition: S.2s ease-in;
     cursor:pointer;
 }
 button:hover{
-    background:#6d44b8;
+    background:#210e2a;
+}
+.login{
+    height: 460px;
+    background:#eee;
+    border-radius:60% / 10% ;
+    transform:translateY(-180px);
+    transition:.8s ease-in-out;
+}
+
+.login label{
+    color:#6b4082;
+    transform: scale(.6);
+}
+#chk:checked~.login{
+    transform:translateY(-500px);
+}
+#chk:checked~.login label{
+    transform: scale(1);
+}
+#chk:checked~.signup label{
+    transform: scale(.6);
 }
