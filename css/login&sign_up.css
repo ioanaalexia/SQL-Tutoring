@@ -72,7 +72,8 @@ button{
     transition: S.2s ease-in;
     cursor:pointer;
 }
-button:hover{
+.login button:hover,
+.signup button:hover{
     background:#210e2a;
 }
 .login{
