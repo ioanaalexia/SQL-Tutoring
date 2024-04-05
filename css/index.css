@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+
+.logo{
+    color:#fff;
+    font-weight: 700;
+    text-decoration:none;
+    font-size:40px;
+    text-transform:2px;
+}
+
+.navbar {
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    width: 100%;
+    color:white;
+    padding:20px 20px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* Asigură că conținutul este afișat peste peliculă */
+}
+
+.nav-links{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links li{
+    list-style:none;
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none; 
+    font-size: 30px;
+    padding: 6px 40px;
+    color:#fff;
+    border-radius: 20px;
+}
+
+/* Stilul pentru hover al link-urilor */
+.nav-links li a:hover,
+.nav-links li a.active{
+    background-color:#fff;
+    color:#2b1055
+}
+
+header{
+    width: 100vw;
+    height: 100vh;
+    background-image:url('sql_index.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin:auto;  
+}
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/*mobile device*/
+@media only screen and(max-width:850px){
+    .navbar{
+        padding: 0;
+    }
+
+    .logo{
+        position:absolute;
+        top: 30px;
+        left: 30px;
+    }
+
+    .nav-links{
+        flex-direction:column;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        background-color: #2b1055;
+    }
+}
