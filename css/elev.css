@@ -59,7 +59,7 @@ header{
 
 .navbar .logo a{
     font-weight: 700;
-    font-size:70px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -68,7 +68,6 @@ header{
     gap: 1rem;
     border-radius: 20px;
 }
-
 
 .navbar .toggle_btn{
     z-index: 3;
@@ -80,8 +79,8 @@ header{
 
 .navbar .links li a {
     text-decoration: none;
-    font-size: 20px;
-    padding: 6px 20px;
+    font-size: 30px;
+    padding: 3px 20px;
     color: #fff;
     border-radius: 20px;
 }
