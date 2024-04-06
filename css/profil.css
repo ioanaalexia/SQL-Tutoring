@@ -148,6 +148,50 @@ i{
     justify-content: center;
 }
 
+
+/* Așează coloanele pe rând și centrați conținutul vertical */
+.cols_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh; /* Înălțimea containerului va fi de 100% din viewport */
+}
+
+/* Stiluri pentru coloana stângă (de exemplu, chenarul utilizatorului) */
+.left_col {
+    width: 400px; /* sau cât dorești să fie lățimea */
+    margin-right: 50px; /* adaugă un spațiu la dreapta */
+    background: #fff; /* sau orice culoare de fundal dorești */
+    border-radius: 8px; /* colțuri rotunjite */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* umbră pentru efect de elevație */
+    padding: 0px; /* spațiu în interiorul chenarului */
+    display: flex;
+    flex-direction: column; /* ordonează elementele în coloană */
+    align-items: center; /* centrați-le orizontal */
+    text-align: center; /* asigură că textul este de asemenea centrat */
+}
+
+.probleme li{
+    
+    margin-top: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: left;
+    margin-left: -100px;
+    margin-bottom: 10px;
+}
+
+/* Stiluri pentru imagine */
+.img_container {
+    margin-bottom: 0px; /* spațiu sub imagine */
+}
+
+.img_container img {
+    width: 100%; /* poți să setezi o lățime specifică dacă preferi */
+    height: auto; /* menține proporțiile imaginii */
+    border-radius: 50%; /* rotunjește colțurile pentru a face imaginea circulară */
+}
+
 /*Resposive_Design*/
 
 @media(max-width: 992px){
