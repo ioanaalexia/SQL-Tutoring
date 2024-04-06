@@ -23,7 +23,7 @@ body::after {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 2; /* Corectat pentru a se asigura că este sub navbar */
+    z-index: 2;
 }
 
 li{
@@ -157,6 +157,61 @@ header{
     display: flex;
     justify-content: center;
 }
+
+main{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: columns;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+#hero h1 {
+    position: relative;
+    color: white; /* Setează culoarea textului la alb */
+    font-style: italic;
+    font-weight: bold; /* corectează proprietatea pentru a fi bold */
+    font-size: 2rem;
+    letter-spacing: 0.05em; 
+}
+
+h1{
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.line {
+    margin-top:10px;
+    height: 3px; /* Înălțimea liniei */
+    background-color: #2b1055; /* Culoarea liniei */
+    width: 70%; /* Lățimea liniei */
+    margin: 0 auto; /* Centrează div-ul pe orizontală */
+}
+
+
+.ctn {
+    background-color: white; /* Fundal alb */
+    color: black; /* Text negru */
+    border-radius: 20px; /* Butoane rotunde */
+    font-size: 1.5rem; /* Mărimea fontului pentru textul din buton */
+    font-weight: bold; /* Greutatea fontului pentru a fi bold */
+    padding: 10px 30px; /* Padding-ul determină înălțimea și lățimea butonului */
+    margin-top: 30px; /* Spațiu deasupra butonului */
+    display: block; /* Așează butonul ca un bloc */
+    margin-left: auto; /* Aliniere la mijloc */
+    margin-right: auto; /* Aliniere la mijloc */
+    text-align: center; 
+}
+
+.ctn:hover {
+    background-color: #2b1055; /* Schimbă culoarea de fundal la hover */
+    color: white; /* Schimbă culoarea textului la hover */
+}
+
 
 /*Resposive_Design*/
 

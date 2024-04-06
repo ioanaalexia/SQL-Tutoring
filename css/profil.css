@@ -7,8 +7,8 @@
  
 body {
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-image: url('sql_index.png');
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -47,11 +47,10 @@ header{
     padding: 0 2rem;
 }
 
-
 .navbar{
     width: 100%;
     height: 60px;
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -66,11 +65,9 @@ header{
 
 .navbar .links{
     display:flex;
-    align-items: center;
-    gap: 2;
-    border-radius: 40px;
+    gap: 1rem;
+    border-radius: 20px;
 }
-
 
 .navbar .toggle_btn{
     z-index: 3;
@@ -81,19 +78,17 @@ header{
 }
 
 .navbar .links li a {
-    margin-left:40px;
-    justify-content: space-around;
+    text-decoration: none;
     font-size: 30px;
-    padding: 6px 10px;
+    padding: 3px 20px;
     color: #fff;
     border-radius: 20px;
 }
-
 .navbar .links li a:hover,
 .navbar .links li a.active {
     background-color: #fff;
     color: #2b1055;
-    border: 2px solid #fff; 
+    border: 2px solid #fff; /* Adăugă contur alb */
 }
 
 .navbar .toggle_btn {
@@ -110,7 +105,7 @@ header{
     border: none;
     outline: none;
     border-radius: 20px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: scale 0.2 ease;
@@ -125,8 +120,8 @@ header{
     scale: 0.95;
 }
 
-/*Dropdown Menu*/
 
+/*Dropdown Menu*/
 .dropdown_menu{
     display: none;
     z-index: 3;
@@ -143,7 +138,7 @@ header{
 }
 
 .dropdown_menu.open{
-    height: 170px;
+    height: 329px;
 }
 
 .dropdown_menu li{
@@ -162,7 +157,6 @@ header{
     display: flex;
     justify-content: center;
 }
-
 /*Resposive_Design*/
 
 @media(max-width: 992px){
