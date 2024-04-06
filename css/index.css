@@ -140,7 +140,7 @@ header{
 }
 
 .dropdown_menu.open{
-    height: 150px;
+    height: 170px;
 }
 
 .dropdown_menu li{
@@ -148,6 +148,10 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.dropdown_menu li a {
+    font-size: 1.25rem; /* Ajustează dimensiunea după preferințe */
 }
 
 .dropdown_menu .action_btn{
