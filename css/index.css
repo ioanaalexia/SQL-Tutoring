@@ -155,6 +155,10 @@ header{
     justify-content: center;
 }
 
+.dropdown_menu li a {
+    font-size: 1.25rem; /* Ajustează dimensiunea după preferințe */
+}
+
 .dropdown_menu .action_btn{
     width: 100%;
     display: flex;
