@@ -7,25 +7,12 @@
  
 body {
     height: 100vh;
-    background: rgba(255, 255, 255, 0.1);
+    background: #e8e6f1;
     backdrop-filter: blur(15px);
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
 }
-
-body::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 2; /* Corectat pentru a se asigura că este sub navbar */
-}
-
 li{
     list-style: none;
 }
@@ -34,7 +21,7 @@ a{
     position: relative;
     z-index: 3;
     text-decoration: none;
-    color: #fff;
+    color: black;
     font-size: 1rem;
 }
 
@@ -69,6 +56,9 @@ header{
     border-radius: 20px;
 }
 
+i{
+    color: black;
+}
 .navbar .toggle_btn{
     z-index: 3;
     color: white;
@@ -81,7 +71,7 @@ header{
     text-decoration: none;
     font-size: 30px;
     padding: 3px 20px;
-    color: #fff;
+    color: black;
     border-radius: 20px;
 }
 .navbar .links li a:hover,
@@ -157,6 +147,7 @@ header{
     display: flex;
     justify-content: center;
 }
+
 /*Resposive_Design*/
 
 @media(max-width: 992px){
