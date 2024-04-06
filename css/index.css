@@ -44,7 +44,7 @@ a:hover{
 
 header{
     position: relative;
-    padding: 1.5 2rem;
+    padding: 0 2rem;
 }
 
 
@@ -81,7 +81,8 @@ header{
 }
 
 .navbar .links li a {
-    margin-left:40px;
+    margin-left:30px;
+    margin-right: 10px;
     justify-content: space-around;
     font-size: 30px;
     padding: 6px 10px;
@@ -104,6 +105,7 @@ header{
     display: none;
 }
 .action_btn{
+    
     background-color: purple;
     color: #fff;
     padding: 0.5rem 1rem;
