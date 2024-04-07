@@ -13,7 +13,7 @@ body{
 }
 .side-nav{
     width: 110px;
-    height: 100%;
+    height: 97%;
     position:fixed;
     top:0;
     left: 0;
@@ -114,3 +114,228 @@ ul li p{
 .side-nav:hover ul li {
     justify-content: flex-start;
 }
+/*Partea de grid*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px auto; /* Coloana de meniu și zona de conținut */
+    grid-template-rows: 60px 1fr auto; /* "About" se ajustează la conținut */
+    height: 100vh;
+    gap:10px;
+    
+  }
+  
+
+  .menu {
+    grid-row: 1 / span 3; /* Se întinde pe toate cele 3 rânduri */
+    
+  }
+  
+  .navbar{
+    width: 98%;
+    height: 60px;
+    max-width: 1900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+}
+  
+  .content {
+   
+    overflow: auto; /* Pentru a permite scroll dacă este necesar */
+  }
+  
+  .about {
+    font-size:19px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end:3; 
+    background-color: #e6ccff; /* Doar pentru a evidenția zona */
+  }
+
+  /*partea de butoane*/
+  
+
+
+.navbar .links{
+    display:flex;
+    gap: 1rem;
+    border-radius: 20px;
+}
+
+i{
+    color: black;
+}
+
+.navbar .toggle_btn{
+    
+    color: white;
+    font-size: 1.5rem;
+    cursor:pointer;
+    display:none;
+}
+
+.navbar .links li a {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 3px 20px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+/*
+.navbar .links li{
+    list-style: none;
+    display:flex;
+    gap: 1rem;
+    border-radius: 20px;
+
+}
+
+.navbar .links a{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}*/
+
+.navbar .links a:hover{
+    color: purple;
+}
+
+.navbar .links li a:hover,
+.navbar .links li a.active {
+    background-color: #fff;
+    color: #2b1055;
+    border: 2px solid #fff; /* Adăugă contur alb */
+}
+
+.navbar .toggle_btn {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+.action_btn{
+    background-color: purple;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale: 1.05;
+    color:#fff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+
+/*Dropdown Menu*/
+.dropdown_menu{
+    display: none;
+    z-index: 3;
+    position:absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+    height: 329px;
+}
+
+.dropdown_menu li{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu li a {
+    font-size: 1.25rem; /* Ajustează dimensiunea după preferințe */
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.line {
+    margin-top:10px;
+    height: 3px; /* Înălțimea liniei */
+    background-color: #2b1055; /* Culoarea liniei */
+    width: 70%; /* Lățimea liniei */
+    margin: 0 auto; /* Centrează div-ul pe orizontală */
+}
+
+
+.ctn {
+    background-color: white; /* Fundal alb */
+    color: black; /* Text negru */
+    border-radius: 20px; /* Butoane rotunde */
+    font-size: 1.5rem; /* Mărimea fontului pentru textul din buton */
+    font-weight: bold; /* Greutatea fontului pentru a fi bold */
+    padding: 10px 30px; /* Padding-ul determină înălțimea și lățimea butonului */
+    margin-top: 30px; /* Spațiu deasupra butonului */
+    display: block; /* Așează butonul ca un bloc */
+    margin-left: auto; /* Aliniere la mijloc */
+    margin-right: auto; /* Aliniere la mijloc */
+    text-align: center; 
+}
+
+.ctn:hover {
+    background-color: #2b1055; /* Schimbă culoarea de fundal la hover */
+    color: white; /* Schimbă culoarea textului la hover */
+}
+
+
+/*Resposive_Design*/
+
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+        display:none;
+    }
+
+    .navbar .toggle_btn{
+        display:block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  a{
+    text-decoration:none;
+    color:black;
+  }
