@@ -37,7 +37,7 @@ header{
 .navbar{
     width: 100%;
     height: 60px;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -59,6 +59,7 @@ header{
 i{
     color: black;
 }
+
 .navbar .toggle_btn{
     z-index: 3;
     color: white;
@@ -68,9 +69,9 @@ i{
 }
 
 .navbar .links li a {
-    text-decoration: none;
+    justify-content: space-around;
     font-size: 30px;
-    padding: 3px 20px;
+    padding: 3px 30px;
     color: black;
     border-radius: 20px;
 }
@@ -148,29 +149,6 @@ i{
     justify-content: center;
 }
 
-
-/* Așează coloanele pe rând și centrați conținutul vertical */
-.cols_container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100vh; /* Înălțimea containerului va fi de 100% din viewport */
-}
-
-/* Stiluri pentru coloana stângă (de exemplu, chenarul utilizatorului) */
-.left_col {
-    width: 400px; /* sau cât dorești să fie lățimea */
-    margin-right: 50px; /* adaugă un spațiu la dreapta */
-    background: #fff; /* sau orice culoare de fundal dorești */
-    border-radius: 8px; /* colțuri rotunjite */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* umbră pentru efect de elevație */
-    padding: 0px; /* spațiu în interiorul chenarului */
-    display: flex;
-    flex-direction: column; /* ordonează elementele în coloană */
-    align-items: center; /* centrați-le orizontal */
-    text-align: center; /* asigură că textul este de asemenea centrat */
-}
-
 .probleme li{
     
     margin-top: 10px;
@@ -181,16 +159,222 @@ i{
     margin-bottom: 10px;
 }
 
-/* Stiluri pentru imagine */
+/* Resetează stilurile de bază */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    background: #e8e6f1;
+}
+
+/* Centrarea pe orizontală și verticală a cardului de profil */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px; /* Ajustează la lățimea maximă dorită */
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
+    margin-top: 60px; /* Ajustează în funcție de înălțimea navbar-ului */
+}
+
+.profile-card {
+    width: 90%;
+    max-width: 350px; /* Ajustează la lățimea cardului */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrarea elementelor din card */
+    margin-bottom: 20px; /* Spațiu la partea de jos a cardului */
+}
+
 .img_container {
-    margin-bottom: 0px; /* spațiu sub imagine */
+    width: 120px; /* Lățimea containerului imagine */
+    height: 120px; /* Înălțimea containerului imagine */
+    margin: -60px auto 20px; /* Ajustează marginile pentru a poziționa corect */
+    position: relative;
 }
 
 .img_container img {
-    width: 100%; /* poți să setezi o lățime specifică dacă preferi */
-    height: auto; /* menține proporțiile imaginii */
-    border-radius: 50%; /* rotunjește colțurile pentru a face imaginea circulară */
+    width: 100%; /* Imaginea va ocupa tot containerul */
+    height: auto; /* Aceeași dimensiune ca lățimea pentru a fi cerc */
+    border-radius: 50%; /* Rotunjește colțurile pentru formă circulară */
+    border: 3px solid #FFFFFF; /* Border alb în jurul imaginii */
+    margin-top: -60px; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra sub imagine */
+    background: #e8e6f1; /* Fundalul care să se potrivească cu pagina */
 }
+.profile-card h2 {
+    font-size: 1.5em; /* Mărimea titlului */
+    color: #333; /* Culoarea textului */
+    margin-bottom: 10px; /* Spațiu deasupra și sub nume */
+    margin-top: -70px;
+    position: center;
+    text-align: center; /* Adaugă această linie pentru a centra textul */
+}
+
+.profile-card .probleme ul {
+    list-style: none; /* Elimină marcatorii listei */
+}
+
+.profile-card .probleme li {
+    margin-top: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: left;
+    margin-left: -100px;
+    margin-bottom: 10px;}
+
+.side-nav{
+    width: 110px;
+    height: 97%;
+    position:fixed;
+    top:0;
+    left: 0;
+    padding: 30px 15px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter:blur(5px);
+    display: flex;
+    justify-content:space-between ;
+    flex-direction: column;
+    transition: width 0.5s;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    font-size:12px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right:auto ;
+    overflow: hidden;
+}
+
+.user div{
+    display:none;
+}
+.user h2{
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.user-img{
+   width:40px ;
+   border-radius: 50%;
+   margin:auto; 
+}
+
+.star-img{
+    width:20px;
+    display: none;
+}
+
+ul{
+    list-style:none;
+    padding: 0 15px;
+
+}
+
+ul li{
+    margin:30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+}
+ul li img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+ul li p{
+   white-space: nowrap; 
+   display: none;
+}
+
+.side-nav:hover{
+    width: 250px;
+
+}
+
+.side-nav:hover .user div{
+    display:block;
+}
+.side-nav:hover .user{
+    width: 100%;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(5px);
+}
+.side-nav:hover .star-img{
+    display: block;
+}
+
+.side-nav:hover .user-img{
+    margin:0;
+}
+
+.side-nav:hover ul li p{
+    display: block;
+}
+
+.side-nav:hover ul li img{
+    margin-right: 10px;
+}
+
+.side-nav:hover ul li {
+    justify-content: flex-start;
+}
+/*Partea de grid*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px auto; /* Coloana de meniu și zona de conținut */
+    grid-template-rows: 60px 1fr auto; /* "About" se ajustează la conținut */
+    height: 100vh;
+    gap:10px;
+    
+  }
+  
+
+  .menu {
+    grid-row: 1 / span 3; /* Se întinde pe toate cele 3 rânduri */
+    
+  }
+  
+  .navbar{
+    width: 98%;
+    height: 60px;
+    max-width: 1900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+}
+  
+  .content {
+   
+    overflow: auto; /* Pentru a permite scroll dacă este necesar */
+  }
+  
+  .about {
+    font-size:19px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end:3; 
+    background-color: #e6ccff; /* Doar pentru a evidenția zona */
+  }
 
 /*Resposive_Design*/
 
