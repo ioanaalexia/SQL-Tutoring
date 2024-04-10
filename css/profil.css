@@ -34,6 +34,7 @@ header{
     padding: 0 2rem;
 }
 
+
 .navbar{
     width: 100%;
     height: 60px;
@@ -52,13 +53,11 @@ header{
 
 .navbar .links{
     display:flex;
-    gap: 1rem;
-    border-radius: 20px;
+    align-items: center;
+    gap: 2;
+    border-radius: 40px;
 }
 
-i{
-    color: black;
-}
 
 .navbar .toggle_btn{
     z-index: 3;
@@ -69,17 +68,20 @@ i{
 }
 
 .navbar .links li a {
+    margin-left:30px;
+    margin-right: 10px;
     justify-content: space-around;
     font-size: 30px;
-    padding: 3px 30px;
+    padding: 6px 10px;
     color: black;
     border-radius: 20px;
 }
+
 .navbar .links li a:hover,
 .navbar .links li a.active {
     background-color: #fff;
     color: #2b1055;
-    border: 2px solid #fff; /* Adăugă contur alb */
+    border: 2px solid #fff; 
 }
 
 .navbar .toggle_btn {
@@ -90,13 +92,14 @@ i{
     display: none;
 }
 .action_btn{
+    
     background-color: purple;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
     border-radius: 20px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: scale 0.2 ease;
@@ -110,9 +113,12 @@ i{
 .action_btn:active{
     scale: 0.95;
 }
-
+i{
+    color: black;
+}
 
 /*Dropdown Menu*/
+
 .dropdown_menu{
     display: none;
     z-index: 3;
@@ -129,7 +135,7 @@ i{
 }
 
 .dropdown_menu.open{
-    height: 329px;
+    height: 230px;
 }
 
 .dropdown_menu li{
@@ -149,6 +155,7 @@ i{
     justify-content: center;
 }
 
+
 .probleme li{
     
     margin-top: 10px;
@@ -159,19 +166,6 @@ i{
     margin-bottom: 10px;
 }
 
-/* Resetează stilurile de bază */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    font-family: "Open Sans", sans-serif;
-    background: #e8e6f1;
-}
-
 /* Centrarea pe orizontală și verticală a cardului de profil */
 .main-content {
     display: flex;
@@ -180,26 +174,26 @@ body, html {
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
-    margin-top: 60px; /* Ajustează în funcție de înălțimea navbar-ului */
+    margin-top: 50px; /* Ajustează în funcție de înălțimea navbar-ului */
 }
 
 .profile-card {
-    width: 90%;
-    max-width: 350px; /* Ajustează la lățimea cardului */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding: 20px;
-    background: #FFFFFF;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrarea elementelor din card */
-    margin-bottom: 20px; /* Spațiu la partea de jos a cardului */
+    align-items: center;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 340px; /* Or the width you prefer */
+    margin-bottom: 20px;
 }
 
 .img_container {
     width: 120px; /* Lățimea containerului imagine */
     height: 120px; /* Înălțimea containerului imagine */
-    margin: -60px auto 20px; /* Ajustează marginile pentru a poziționa corect */
+    margin: -30px auto 50px; /* Ajustează marginile pentru a poziționa corect */
     position: relative;
 }
 
@@ -215,23 +209,32 @@ body, html {
 .profile-card h2 {
     font-size: 1.5em; /* Mărimea titlului */
     color: #333; /* Culoarea textului */
-    margin-bottom: 10px; /* Spațiu deasupra și sub nume */
-    margin-top: -70px;
+    margin-bottom: 30px; /* Spațiu deasupra și sub nume */
+    margin-top: -90px;
     position: center;
     text-align: center; /* Adaugă această linie pentru a centra textul */
 }
 
 .profile-card .probleme ul {
-    list-style: none; /* Elimină marcatorii listei */
+    padding: 0;
+    margin: 0;
+    list-style-position: inside; /* Adjust bullets inside the content flow */
 }
 
+.profile-card .probleme ul {
+    padding: 0;
+    margin: 0;
+    list-style-position: inside; }
+
 .profile-card .probleme li {
+    display: block; /* Stack list items vertically */
+    margin-bottom: 5px;
     margin-top: 10px;
     font-size: 20px;
-    display: flex;
-    align-items: left;
-    margin-left: -100px;
-    margin-bottom: 10px;}
+    margin-left: -70px;
+    margin-bottom: 10px;
+}
+
 
 .side-nav{
     width: 110px;
@@ -256,6 +259,7 @@ body, html {
     font-size:12px;
     padding: 10px;
     border-radius: 8px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right:auto ;
     overflow: hidden;
@@ -398,4 +402,10 @@ ul li p{
         left: 2rem;
         width: unset;
     }
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }

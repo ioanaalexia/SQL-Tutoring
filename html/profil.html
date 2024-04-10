@@ -10,45 +10,42 @@
 <body>
     <div class="page-container">
 
-        <header class="navbar">
-            <div class="logo"><a href="#">SQL - Tutoring</a></div>
-            <ul class="links">
-                <li><a href="elev.html">Acasa</a></li>
-                <li><a href="profil.html" class="active">Profil</a></li>
-                <li><a href="logout.html">Logout</a></li>
-                <li><a href="setari.html">Setari</a></li>
-                <li><a href="help.html">Ajutor</a></li>
-                <li><a href="despre.html" class="action_btn">Despre</a></li>
-            </ul>
-            <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
+        <header>
+            <div class="navbar">
+                <div class="logo"><a href="#"> SQL - Tutoring </a></div>
+                <ul class="links">
+                    <li><a href="elev.html">Acasa</a></li>
+                    <li><a href="profil.html"  class="active">Profil</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                    <li><a href="despre.html" class="action_btn">Ajutor</a></li>
+                    </ul>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
+    
             <div class="dropdown_menu">
                 <li><a href="elev.html">Acasa</a></li>
-                <li><a href="profil.html" >Profil</a></li>
-                <li><a href="logout.html">Logout</a></li>
-                <li><a href="setari.html">Setari</a></li>
-                <li><a href="help.html">Ajutor</a></li>
-                <li><a href="despre.html" class="action_btn">Despre</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><a href="despre.html" class="action_btn">Ajutor</a></li>
             </div>
-
-        </header>
+    </header>
 
         <aside class="side-nav">
             <div class="user">
                 <img src="../images/robo.png" class="user-img">
                 <div>
-                    <h2>Maxim Maria</h2>
+                    <h2>Popa Alexia</h2>
                     <p>maria@gmail.com</p>
                 </div>
                 <img src="../images/star.png" class="star-img">  
             </div>
             <ul>
-                <li><img src="../images/1.png"><a href="intrebari.html" target="_self"><p>Capitolul 1</p></a></li> 
-                <li><img src="../images/2.png"><a href="intrebari.html" target="_self"><p>Capitolul 2</p></a></li> 
-                <li><img src="../images/3.png"><a href="intrebari.html" target="_self"><p>Capitolul 3</p></a></li> 
-                <li><img src="../images/4.png"><a href="intrebari.html" target="_self"><p>Capitolul 4</p></a></li> 
-                <li><img src="../images/5.png"><a href="intrebari.html" target="_self"><p>Capitolul 5</p></a></li> 
+                <li><img src="../images/1.png"><a href="intrebari.html" target="_self"><p>Setari</p></a></li> 
+                <li><img src="../images/2.png"><a href="intrebari.html" target="_self"><p>Statistici</p></a></li> 
+                <li><img src="../images/3.png"><a href="intrebari.html" target="_self"><p>Comentarii</p></a></li> 
+                <li><img src="../images/4.png"><a href="intrebari.html" target="_self"><p>Probleme adaugate</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
@@ -61,10 +58,12 @@
                     <img src="../images/robo.png" alt="User" />
                     <span></span>
                 </div>
-                <h2>Maxim Maria</h2>
+                <h2>Popa Alexia</h2>
                 <div class="probleme">
                     <ul>
-                        <li>Scor: 0</li>
+                        <li class="scor">Scor: 0</li>
+                    </ul>
+                    <ul>
                         <li>Probleme rezolvate: 0</li>
                         <li>Probleme marcate: 0</li>
                         <li>Probleme propuse: 0</li>
@@ -87,13 +86,15 @@
             ? 'fa-solid fa-xmark'
             : 'fa-solid fa-bars'
         }
-        document.querySelector('.side-nav').addEventListener('mouseover', function() {
-    document.querySelector('.navbar .logo a').style.display = 'none';
-});
+        
 
-document.querySelector('.side-nav').addEventListener('mouseout', function() {
-    document.querySelector('.navbar .logo a').style.display = 'block';
-});
+        document.querySelector('.side-nav').addEventListener('mouseover', function() {
+            document.querySelector('.navbar .logo a').style.display = 'none';
+        });
+
+        document.querySelector('.side-nav').addEventListener('mouseout', function() {
+            document.querySelector('.navbar .logo a').style.display = 'block';
+        });
 
     </script>
 </body>
