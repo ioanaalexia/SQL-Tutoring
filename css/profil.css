@@ -208,7 +208,6 @@ i{
     width: 120px; /* Lățimea containerului imagine */
     height: 120px; /* Înălțimea containerului imagine */
     margin: -30px auto 50px; /* Ajustează marginile pentru a poziționa corect */
-    position: relative;
 }
 
 .img_container img {
