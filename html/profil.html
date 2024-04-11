@@ -12,7 +12,7 @@
 
         <header>
             <div class="navbar">
-                <div class="logo"><a href="#"> SQL - Tutoring </a></div>
+                <div class="logo">SQL - Tutoring</div>
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
                     <li><a href="profil.html"  class="active">Profil</a></li>
@@ -25,7 +25,7 @@
             </div>
     
             <div class="dropdown_menu">
-                <li><a href="elev.html">Acasa</a></li>
+                <li><a href="">Acasa</a></li>
                 <li><a href="profil.html">Profil</a></li>
                 <li><a href="index.html">Logout</a></li>
                 <li><a href="despre.html" class="action_btn">Ajutor</a></li>
@@ -51,7 +51,6 @@
                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
             </ul>
         </aside>
-
         <main class="main-content">
             <div class="profile-card">
                 <div class="img_container">
@@ -71,6 +70,8 @@
                 </div>
             </div>
         </main>
+
+        <div class="about"><a href="despre.html" class="about">Despre</a></div>
     </div>
 
     <script>
@@ -89,11 +90,11 @@
         
 
         document.querySelector('.side-nav').addEventListener('mouseover', function() {
-            document.querySelector('.navbar .logo a').style.display = 'none';
+            document.querySelector('div .logo').style.display = 'none';
         });
 
         document.querySelector('.side-nav').addEventListener('mouseout', function() {
-            document.querySelector('.navbar .logo a').style.display = 'block';
+            document.querySelector('div .logo').style.display = 'block';
         });
 
     </script>

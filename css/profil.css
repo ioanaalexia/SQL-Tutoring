@@ -41,8 +41,20 @@ header{
     max-width: 1500px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+
+div .logo{
+    color:black;
+    margin-right: 300px;
+    font-weight: 700;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    z-index: 1;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
 }
 
 .navbar .logo a{
@@ -52,10 +64,12 @@ header{
 }
 
 .navbar .links{
+    margin-top: 20px;
     display:flex;
     align-items: center;
     gap: 2;
     border-radius: 40px;
+    margin-right: -40px;
 }
 
 
@@ -92,7 +106,6 @@ header{
     display: none;
 }
 .action_btn{
-    
     background-color: purple;
     color: #fff;
     padding: 0.5rem 1rem;
@@ -115,6 +128,7 @@ header{
 }
 i{
     color: black;
+    margin-top: 20px;
 }
 
 /*Dropdown Menu*/
@@ -187,7 +201,7 @@ i{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 340px; /* Or the width you prefer */
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .img_container {
@@ -202,7 +216,7 @@ i{
     height: auto; /* Aceeași dimensiune ca lățimea pentru a fi cerc */
     border-radius: 50%; /* Rotunjește colțurile pentru formă circulară */
     border: 3px solid #FFFFFF; /* Border alb în jurul imaginii */
-    margin-top: -60px; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
+    margin-top: -50px; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra sub imagine */
     background: #e8e6f1; /* Fundalul care să se potrivească cu pagina */
 }
@@ -234,7 +248,6 @@ i{
     margin-left: -70px;
     margin-bottom: 10px;
 }
-
 
 .side-nav{
     width: 110px;
@@ -340,12 +353,12 @@ ul li p{
 .side-nav:hover ul li {
     justify-content: flex-start;
 }
-/*Partea de grid*/
 
+/*Partea de grid*/
 .grid-container {
     display: grid;
-    grid-template-columns: 250px auto; /* Coloana de meniu și zona de conținut */
-    grid-template-rows: 60px 1fr auto; /* "About" se ajustează la conținut */
+    grid-template-columns: 250px auto;
+    grid-template-rows: 60px 1fr auto;
     height: 100vh;
     gap:10px;
     
@@ -371,13 +384,17 @@ ul li p{
    
     overflow: auto; /* Pentru a permite scroll dacă este necesar */
   }
-  
+
   .about {
-    font-size:19px;
+    font-weight: 700;
+    font-weight: bold;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size:25px;
     text-align: center;
-    grid-column-start: 1;
-    grid-column-end:3; 
-    background-color: #e6ccff; /* Doar pentru a evidenția zona */
+    background-color: #e6ccff;
   }
 
 /*Resposive_Design*/
@@ -395,12 +412,26 @@ ul li p{
     .dropdown_menu{
         display: block;
     }
+    div .logo{
+        z-index: 3;
+        font-size: 25px;
+    }
+    .navbar{
+        padding: 0 1rem;
+    }
 }
 
 @media(max-width: 576px){
     .dropdown_menu{
         left: 2rem;
         width: unset;
+    }
+    div .logo {
+        font-size: px;
+        margin: 0;
+    }
+    .navbar {
+        padding: 0 0.5rem; /* Și mai puțin spațiu pe laterale */
     }
 }
 
