@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: "Open Sans", sans serif;
 }
- 
+
 body {
     height: 100vh;
     background: #e8e6f1;
@@ -13,6 +13,12 @@ body {
     background-repeat: no-repeat;
     background-position:center;
 }
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 li{
     list-style: none;
 }
@@ -46,9 +52,9 @@ header{
 
 div .logo{
     color:black;
-    margin-right: 300px;
+    margin-right: 200px;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: bold;
     margin-top: 20px;
     z-index: 1;
@@ -69,7 +75,6 @@ div .logo{
     align-items: center;
     gap: 2;
     border-radius: 40px;
-    margin-right: -40px;
 }
 
 
@@ -182,9 +187,10 @@ i{
 
 /* Centrarea pe orizontală și verticală a cardului de profil */
 .main-content {
+    flex:1;
     display: flex;
     flex-direction: column;
-    max-width: 1200px; /* Ajustează la lățimea maximă dorită */
+    max-width: 1500px; /* Ajustează la lățimea maximă dorită */
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
@@ -363,10 +369,8 @@ ul li p{
     
   }
   
-
   .menu {
     grid-row: 1 / span 3; /* Se întinde pe toate cele 3 rânduri */
-    
   }
   
   .navbar{
@@ -384,7 +388,7 @@ ul li p{
     overflow: auto; /* Pentru a permite scroll dacă este necesar */
   }
 
-  .about {
+  footer {
     font-weight: 700;
     font-weight: bold;
     width: 100%;
@@ -398,7 +402,7 @@ ul li p{
 
 /*Resposive_Design*/
 
-@media(max-width: 992px){
+@media(max-width: 994px){
     .navbar .links,
     .navbar .action_btn{
         display:none;
@@ -412,30 +416,36 @@ ul li p{
         display: block;
     }
     div .logo{
-        z-index: 3;
-        font-size: 25px;
-    }
-    .navbar{
-        padding: 0 1rem;
+        font-size: 4vw; /* Ajustează pentru tablete */
+        /* Restul stilurilor */
     }
 }
 
+@media(min-width: 1021px){
+    div .logo{
+        font-size: 4vw; /* O dimensiune mai mică de font întrucât ecranul este mai mare */
+        text-align: left;
+        white-space: nowrap; /* Previne trecerea pe linia următoare */
+    
+    }
+}
 @media(max-width: 576px){
     .dropdown_menu{
         left: 2rem;
         width: unset;
     }
-    div .logo {
-        font-size: px;
-        margin: 0;
+    div .logo{
+        font-size: 4vw; /* Ajustează pentru telefoane mobile */
+        margin-right: 50px; /* Poate doriți să ajustați și marginile */
     }
-    .navbar {
-        padding: 0 0.5rem; /* Și mai puțin spațiu pe laterale */
-    }
+    
 }
 
-.wrapper {
-    min-height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+@media(max-width: 400px){
+    div .logo{
+        font-size: 4vh; /* Sau orice dimensiune fixă pentru a evita trecerea pe două rânduri */
+        white-space: nowrap; /* Previne trecerea pe linia următoare */
+        overflow: hidden; /* Ascunde orice overflow */
+        text-overflow: ellipsis; /* Adaugă "..." dacă textul este prea lung */
+    }
 }
