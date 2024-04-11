@@ -125,7 +125,6 @@ ul li p{
     
   }
   
-
   .menu {
     grid-row: 1 / span 3; /* Se întinde pe toate cele 3 rânduri */
     
@@ -142,7 +141,6 @@ ul li p{
 }
   
   .content {
-   
     overflow: auto; /* Pentru a permite scroll dacă este necesar */
   }
   

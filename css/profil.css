@@ -52,9 +52,9 @@ header{
 
 div .logo{
     color:black;
-    margin-right: 200px;
+    margin-right: 20vw;
     font-weight: 700;
-    font-size: 5vh;
+    font-size: 4vw;
     font-weight: bold;
     margin-top: 20px;
     z-index: 1;
@@ -63,18 +63,13 @@ div .logo{
     text-decoration: none;
 }
 
-.navbar .logo a{
-    font-weight: 700;
-    font-size: 40px;
-    font-weight: bold;
-}
-
 .navbar .links{
     margin-top: 20px;
     display:flex;
     align-items: center;
     gap: 2;
     border-radius: 40px;
+    margin-right: -40px;
 }
 
 
@@ -190,7 +185,7 @@ i{
     flex:1;
     display: flex;
     flex-direction: column;
-    max-width: 1500px; /* Ajustează la lățimea maximă dorită */
+    max-width: 1200px; /* Ajustează la lățimea maximă dorită */
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
@@ -202,16 +197,15 @@ i{
     flex-direction: column;
     align-items: center;
     background: #FFFFFF;
-    padding: 20px;
+    padding: 2vw;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 340px; /* Or the width you prefer */
-    margin-bottom: 100px;
+    width: 30vw;
+    margin-bottom: 70px;
 }
 
 .img_container {
-    width: 120px; /* Lățimea containerului imagine */
+    width: 10vw; /* Lățimea containerului imagine */
     height: 120px; /* Înălțimea containerului imagine */
     margin: -30px auto 50px; /* Ajustează marginile pentru a poziționa corect */
 }
@@ -221,15 +215,16 @@ i{
     height: auto; /* Aceeași dimensiune ca lățimea pentru a fi cerc */
     border-radius: 50%; /* Rotunjește colțurile pentru formă circulară */
     border: 3px solid #FFFFFF; /* Border alb în jurul imaginii */
-    margin-top: -50px; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
+    margin-top: -4vw; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra sub imagine */
     background: #e8e6f1; /* Fundalul care să se potrivească cu pagina */
 }
+
 .profile-card h2 {
-    font-size: 1.5em; /* Mărimea titlului */
+    font-size: 4vw; /* Mărimea titlului */
     color: #333; /* Culoarea textului */
-    margin-bottom: 30px; /* Spațiu deasupra și sub nume */
-    margin-top: -90px;
+    margin-bottom: 1vw; /* Spațiu deasupra și sub nume */
+    margin-top: -7vw;
     position: center;
     text-align: center; /* Adaugă această linie pentru a centra textul */
 }
@@ -240,18 +235,13 @@ i{
     list-style-position: inside; /* Adjust bullets inside the content flow */
 }
 
-.profile-card .probleme ul {
-    padding: 0;
-    margin: 0;
-    list-style-position: inside; }
-
 .profile-card .probleme li {
-    display: block; /* Stack list items vertically */
+    display: block;
     margin-bottom: 5px;
-    margin-top: 10px;
-    font-size: 20px;
-    margin-left: -70px;
-    margin-bottom: 10px;
+    margin-top: 1vw;
+    font-size: 1.5vw;
+    margin-left: -5vw;
+    margin-bottom: 1vw;
 }
 
 .side-nav{
@@ -388,21 +378,24 @@ ul li p{
     overflow: auto; /* Pentru a permite scroll dacă este necesar */
   }
 
+  .about{
+    font-size: 3vw;
+  }
   footer {
-    font-weight: 700;
     font-weight: bold;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    font-size:25px;
+    font-size: 3vw;
     text-align: center;
     background-color: #e6ccff;
   }
 
 /*Resposive_Design*/
 
-@media(max-width: 994px){
+
+@media(max-width: 992px){
     .navbar .links,
     .navbar .action_btn{
         display:none;
@@ -415,37 +408,12 @@ ul li p{
     .dropdown_menu{
         display: block;
     }
-    div .logo{
-        font-size: 4vw; /* Ajustează pentru tablete */
-        /* Restul stilurilor */
-    }
+
 }
 
-@media(min-width: 1021px){
-    div .logo{
-        font-size: 4vw; /* O dimensiune mai mică de font întrucât ecranul este mai mare */
-        text-align: left;
-        white-space: nowrap; /* Previne trecerea pe linia următoare */
-    
-    }
-}
 @media(max-width: 576px){
     .dropdown_menu{
         left: 2rem;
         width: unset;
-    }
-    div .logo{
-        font-size: 4vw; /* Ajustează pentru telefoane mobile */
-        margin-right: 50px; /* Poate doriți să ajustați și marginile */
-    }
-    
-}
-
-@media(max-width: 400px){
-    div .logo{
-        font-size: 4vh; /* Sau orice dimensiune fixă pentru a evita trecerea pe două rânduri */
-        white-space: nowrap; /* Previne trecerea pe linia următoare */
-        overflow: hidden; /* Ascunde orice overflow */
-        text-overflow: ellipsis; /* Adaugă "..." dacă textul este prea lung */
     }
 }
