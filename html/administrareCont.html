@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/profil.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/statistici.css">
     <title>SQL -Tutoring</title>
 </head>
 <body>
@@ -43,15 +44,38 @@
             </div>
             <ul>
                 <li><img src="../images/1.png"><a href="setari.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png"><a href="intrebari.html" target="_self"><p>Statistici</p></a></li> 
-                <li><img src="../images/3.png"><a href="comentarii.html" target="_self"><p>Comentarii</p></a></li> 
-                <li><img src="../images/4.png"><a href="adaugaElev.html" target="_self"><p>Probleme adaugate</p></a></li> 
+                <li><img src="../images/2.png"><a href="statisticiAdmin.html" target="_self"><p>Statistici</p></a></li> 
+                <li><img src="../images/3.png"><a href="administrareCont.html" target="_self"><p>Administrare conturi</p></a></li>
+                <li><img src="../images/4.png"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
+                <li><img src="../images/4.png"><a href="adaugaAdmin.html" target="_self"><p>Adauga problema</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
             </ul>
         </aside>
-        
+        <main class="main-content">
+            <h1>Statistici Probleme SQL</h1>
+            <div class="filter-section">
+                <input type="text" id="searchBox" placeholder="Cauta probleme..." onkeyup="filterProblems()">
+                <select id="statusFilter" onchange="filterProblems()">
+                    <option value="all">Toate</option>
+                    <option value="solved">Rezolvate</option>
+                    <option value="unsolved">Nerezolvate</option>
+                </select>
+            </div>
+            <div class="table-responsive">
+                <table id="problemsTable">
+                    <thead>
+                        <tr>
+                            <th>Nume Problema</th>
+                            <th>Încercări Greșite</th>
+                            <th>Status</th>
+                            <th>Dificultate</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </main>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
 
