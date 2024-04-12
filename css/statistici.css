@@ -48,13 +48,13 @@ h1 {
 }
 /* Adaugă acest media query pentru a trata cazurile când side-nav-ul este retractabil */
 @media(max-width: 576px){
-    .side-nav{
-        width: 90px;
-    
-    }
+    .side-nav {
+        display: none;
+      }
+
     .main-content {
         padding: 0vw; /* Adaugă padding în jurul conținutului principal */
-        margin-left: 100px; /* Împinge conținutul principal la dreapta pentru a evita side-nav-ul */
+        margin-left: 4vw; /* Împinge conținutul principal la dreapta pentru a evita side-nav-ul */
         margin-top: -40vw; /* Lasă loc pentru navbar */
     }
     /* Stiluri pentru a face tabelul să fie afișat vertical pe ecrane mici */
