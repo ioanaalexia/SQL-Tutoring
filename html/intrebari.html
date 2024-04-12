@@ -52,6 +52,7 @@
             <li><a href="index.html">Logout</a></li>
             <li><a href="help.html">Ajutor</a></li>
         </div>
+
         <div class="container">
             <div class="row small-container">
                 <div class="image-container">
@@ -59,28 +60,25 @@
                     <div class="text">Marchează ca greșit</div>
                 </div>
             </div>            
-            <div class="row form-container">
+            <div class="form1">
+              <h2>Întrebare:</h2>
               <form class="form1" action="pagina1.php" method="post">
-                <label for="input1">Label 1:</label>
-                <input type="text" id="input1" name="input1">
-                <label for="input2">Label 2:</label>
+                <label for="input2">Introduceți răspunsul:</label>
                 <input type="text" id="input2" name="input2">
                 <button type="submit">Trimite</button>
               </form>
             </div>
-            <div class="row form-container">
+            <div class="form2">
+              <h1>Comentarii</h1>
               <form class="form2" action="pagina2.php" method="post">
-                <label for="input3">Label 3:</label>
-                <input type="text" id="input3" name="input3">
-                <label for="input4">Label 4:</label>
+                <label for="input4">Scrie-ți un comentariu:</label>
                 <input type="text" id="input4" name="input4">
                 <button type="submit">Trimite</button>
               </form>
             </div>
           </div>
-          
-         <footer class="about">Despre</footer>
     </div>
+    <footer class="about">Despre</footer>
 
             <script>
                 const toggleBtn = document.querySelector('.toggle_btn')
