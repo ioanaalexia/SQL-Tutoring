@@ -3,96 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intrebari</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/start.css">
+    <title>SQL -Tutoring</title>
 </head>
 <body>
-    <div class="grid-container">
-        <div class="menu">
-            <div class="header">
-                 <div class="side-nav">
-                    <div class="user">
-                        <img src="../images/robo.png" class="user-img">
-                        <div>
-                        <h2>Maxim Maria</h2>
-                        <p>maria@gmail.com</p>
-                         </div>
-                     <img src="../images/star.png" class="star-img">  
-                    </div>
-                    <ul>
-                        <li><img src="../images/1.png"><a href="intrebari.html" target="_self"><p>Capitolul 1</p></a></li> 
-                        <li><img src="../images/2.png"><a href="intrebari.html" target="_self"><p>Capitolul 2</p></a></li> 
-                        <li><img src="../images/3.png"><a href="intrebari.html" target="_self"><p>Capitolul 3</p></a></li> 
-                        <li><img src="../images/4.png"><a href="intrebari.html" target="_self"><p>Capitolul 4</p></a></li> 
-                        <li><img src="../images/5.png"><a href="intrebari.html" target="_self"><p>Capitolul 5</p></a></li> 
+    <div class="page-container">
+
+        <header>
+            <div class="navbar">
+                <div class="logo">SQL - Tutoring</div>
+                <ul class="links">
+                    <li><a href="elev.html">Acasa</a></li>
+                    <li><a href="profil.html"  class="active">Profil</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                    <li><a href="despre.html" class="action_btn">Ajutor</a></li>
                     </ul>
-                    <ul>
-                        <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
-                    </ul>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-         </div>
+    
+            <div class="dropdown_menu">
+                <li><a href="">Acasa</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><a href="despre.html" class="action_btn">Ajutor</a></li>
+            </div>
+    </header>
 
-        <div class="navbar">
-                    <ul class="links">
-                        <li><a href="elev.html">Acasa</a></li>
-                        <li><a href="profil.html">Pagina de administrare</a></li>
-                        <li><a href="index.html">Logout</a></li>
-                    </ul>
-                    <a href="ajutor.html" class="action_btn">Help</a>
-                    <div class="toggle_btn">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-        </div>
+        <aside class="side-nav">
+            <div class="user">
+                <img src="../images/robo.png" class="user-img">
+                <a href="profil.html"><div>
+                    <h2>Popa Alexia</h2>
+                    <p>maria@gmail.com</p>
+                </div>
+                </a>
+                <img src="../images/star.png" class="star-img">  
+            </div>
+            <ul>
+                <li><img src="../images/1.png"><a href="intrebari.html" target="_self"><p>Capitolul 1</p></a></li> 
+                <li><img src="../images/2.png"><a href="intrebari.html" target="_self"><p>Capitolul 2</p></a></li> 
+                <li><img src="../images/3.png"><a href="intrebari.html" target="_self"><p>Capitolul 3</p></a></li> 
+                <li><img src="../images/4.png"><a href="intrebari.html" target="_self"><p>Capitolul 4</p></a></li> 
+                <li><img src="../images/5.png"><a href="intrebari.html" target="_self"><p>Capitolul 5</p></a></li> 
+                </ul>
+ 
+             <ul>
+                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
+             </ul>
+        </aside>
         
-        <div class="dropdown_menu">
-            <li><a href="elev.html">Acasa</a></li>
-            <li><a href="profil.html">Pagina de administrare</a></li>
-            <li><a href="index.html">Logout</a></li>
-            <li><a href="help.html">Ajutor</a></li>
-        </div>
-
-        <div class="container">
-            <div class="row small-container">
-                <div class="image-container">
-                    <img class="wrong-button" alt="problema_gresita" src="../images/wrong.png"  width="90" height="90">
-                    <div class="text">Marchează ca greșit</div>
+        <main class="main-content">
+            <div class="pagina">
+               <div class="small-container">
+                    <div class="image-container">
+                        <img class="wrong-button" alt="problema_gresita" src="../images/wrong.png"  width="90" height="90">
+                        <div class="text">Marchează ca greșit</div>
+                    </div>
+                </div>            
+                <div class="form1">
+                  <h2>Întrebare:<p>Selectati toti studentii din baza de date.</p></h2>
+                  <form class="form1" action="pagina1.php" method="post">   
+                    <input type="text" id="intrebare" name="intrebare" placeholder="Introduceți răspunsul:">
+                    <button type="submit">Trimite</button>
+                  </form>
                 </div>
-            </div>            
-            <div class="form1">
-              <h2>Întrebare:</h2>
-              <form class="form1" action="pagina1.php" method="post">
-                <label for="input2">Introduceți răspunsul:</label>
-                <input type="text" id="input2" name="input2">
-                <button type="submit">Trimite</button>
-              </form>
-            </div>
-            <div class="form2">
-              <h1>Comentarii</h1>
-              <form class="form2" action="pagina2.php" method="post">
-                <label for="input4">Scrie-ți un comentariu:</label>
-                <input type="text" id="input4" name="input4">
-                <button type="submit">Trimite</button>
-              </form>
-            </div>
-          </div>
+                <div class="form2">
+                  <h2>Comentarii</h2>
+                  <form class="form2" action="pagina2.php" method="post">
+                    <input type="text" id="comentariu" name="comentariu" placeholder="Scrie-ți un comentariu:">
+                    <button type="submit">Trimite</button>
+                  </form>
+                </div>
+        
+        </div>    
+        </main>
+
+        <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
-    <footer class="about">Despre</footer>
 
-            <script>
-                const toggleBtn = document.querySelector('.toggle_btn')
-                const toggleBtnIcon = document.querySelector('.toggle_btn i')
-                const dropDownMenu = document.querySelector('.dropdown_menu')
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+        }
         
-                toggleBtn.onclick = function () {
-                    dropDownMenu.classList.toggle('open')
-                    const isOpen = dropDownMenu.classList.contains('open')
-        
-                    toggleBtnIcon.classList = isOpen
-                    ? 'fa-solid fa-xmark'
-                    : 'fa-solid fa-bars'
-                }
-</script>
+
+        document.querySelector('.side-nav').addEventListener('mouseover', function() {
+            document.querySelector('div .logo').style.display = 'none';
+        });
+
+        document.querySelector('.side-nav').addEventListener('mouseout', function() {
+            document.querySelector('div .logo').style.display = 'block';
+        });
+
+    </script>
 </body>
 </html>
