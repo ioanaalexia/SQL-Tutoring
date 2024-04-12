@@ -1,0 +1,80 @@
+/* Table Styling */
+table {
+    width: calc(100vw - 130px); /* Adjust the 120px if the side-nav width changes */
+    margin-left: 120px; /* Side-nav width */
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10vw;
+    table-layout: fixed; /* This ensures that the table layout is fixed */
+    word-wrap: break-word; /* This allows words to be broken and wrapped to the next line */
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    overflow-wrap: break-word; /* Allows the content to wrap onto the next line */
+
+  }
+  
+  th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  tbody tr {
+    background-color: #ffffff;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  
+  tbody tr:hover {
+    background-color: #efefef;
+  }
+  
+  /* Smaller devices (phones, 600px and down) */
+  @media only screen and (max-width: 578px) {
+    .page-container {
+        padding-left: 0;
+      }
+
+      .side-nav {
+        display: none;
+      }
+
+      table {
+        width: 95vw;
+        margin-left: 3vw;
+        margin-top: 20vw;
+      }
+    
+      thead {
+        display: none;
+      }
+    
+      tbody, tr {
+        display: block;
+      }
+    
+      td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    
+      td:before {
+        content: attr(data-label);
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+    
+      tr {
+        margin-bottom: 0;
+        border-bottom: 1px solid #ddd;
+      }
+  }
+  
