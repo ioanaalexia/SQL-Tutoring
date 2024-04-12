@@ -9,9 +9,9 @@
 }
 
 .settings-box h2 {
-    font-size: 1.5vw;
+    font-size: 2vw;
     color: #333;
-    margin-top: -1vw; /* Valoare negativă pentru a muta titlul mai sus */
+    margin-bottom: 2vw; /* Valoare negativă pentru a muta titlul mai sus */
     text-align: center;
 }
 
@@ -76,7 +76,7 @@
     align-items: flex-start; /* Alinează la partea de sus a container-ului */
     margin-left: 110px; /* Asumând că bara laterală are o lățime fixă de 110px */
     gap: 2vw; /* Spațiu între boxuri, adaptabil */
-    padding-top: 5vw; /* Spațiu de la top */
+    padding-top: 3vw; /* Spațiu de la top */
 }
 
 .settings-box {
@@ -86,6 +86,9 @@
     box-shadow: 0.2vw 0.4vw 0.6vw rgba(0, 0, 0, 0.1);
     width: calc((100vw - 110px - 4vw) / 2); /* Calculează lățimea fiecărui box */
     margin-bottom: 2vw; /* Spațiu sub fiecare box */
+}
+.settings-box form {
+    margin-top: -1vw; /* Ajustează acest număr după necesități */
 }
 
 
@@ -103,6 +106,10 @@
         margin-left: 0;
         align-items: center;
         padding-top: 10vw;
+    }
+    .settings-box #difficulty {
+        width: 70%; /* sau orice procentaj preferi */
+        /* alte ajustări de stiluri dacă este necesar */
     }
 
     .settings-box {
