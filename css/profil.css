@@ -51,7 +51,7 @@ header{
 
 div .logo{
     color:black;
-    margin-right: 20vw;
+    margin-right: 12vw;
     font-weight: 700;
     font-size: 4vw;
     font-weight: bold;
@@ -249,6 +249,7 @@ i{
     position:fixed;
     top:0;
     left: 0;
+    bottom:0;
     padding: 30px 15px;
     background: rgba(255,255,255,0.2);
     backdrop-filter:blur(5px);
@@ -256,6 +257,7 @@ i{
     justify-content:space-between ;
     flex-direction: column;
     transition: width 0.5s;
+    overflow-y: auto;
 }
 
 .user{
@@ -361,9 +363,10 @@ ul li p{
   .about{
     font-size: 3vw;
   }
+  
   footer {
     font-weight: bold;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -372,8 +375,8 @@ ul li p{
     background-color: #e6ccff;
   }
 
-
 /*Resposive_Design*/
+
 @media(max-width: 992px){
     .navbar .links,
     .navbar .action_btn{
@@ -388,11 +391,77 @@ ul li p{
         display: block;
     }
 
+
+}
+
+@media(min-width: 576px) and (max-width: 992px){
+    
+    /* Adjust the main profile card to be larger on tablets */
+    .profile-card {
+        width: 60vw; /* Wider on tablets but not as wide as on mobile */
+        padding: 4vw; /* Slightly less padding than on mobile for more space */
+        margin-bottom: 5vw; /* Less bottom margin since we have more space */
+    }
+
+    .profile-card h2 {
+        font-size: 6vw; /* Larger than mobile but smaller than desktop */
+    }
+
+    .profile-card .probleme li {
+        font-size: 4vw; /* Adjust font size for visibility on tablets */
+    }
+
+    .img_container {
+        width: 15vw; /* Larger profile image container for tablets */
+        height: 15vw; /* Keep aspect ratio */
+    }
+
+    .img_container img {
+        width: 100%; /* Full width of container */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: -7.5vw; /* Adjust top margin to reposition image */
+    }
+
+    div .logo{
+        font-size: 6vw;
+    }
+
 }
 
 @media(max-width: 576px){
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
+    .main-content {
+        padding-left: 0; /* Eliminăm padding-ul din partea stângă pentru a nu se suprapune cu side-nav */
+        padding-right: 5vw; /* Adaugă spațiu pe partea dreaptă */
+        margin-top: 60px; /* Lasă loc pentru header */
+    }
+    
+    #problemsTable tr {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column; /* Fiecare td să fie afișat pe un nou rând */
+        border-bottom: 2px solid #ddd;
+    }
+    
+    #problemsTable td {
+        text-align: left;
+        font-size: 4vw;
+        padding: 2vw 0; /* Adaugă spațiu vertical între rânduri */
+    }
+    
+    #problemsTable td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block; /* Forțăm eticheta să ocupe întreaga lățime */
+        margin-bottom: 1vw; /* Spațiu sub etichetă înainte de conținut */
+    }
+
+    /* Îngustăm .side-nav când ecranul este mic pentru a nu ocupa mult spațiu */
+    .side-nav {
+        width: 80px; /* Suficient pentru iconițe */
+    }
+
+    /* Îmbunătățim accesibilitatea meniului la atingere */
+    .side-nav:hover {
+        width: 80px; /* Menținem lățimea, chiar dacă utilizatorul dă hover */
     }
 }
