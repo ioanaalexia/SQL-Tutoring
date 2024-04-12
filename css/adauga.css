@@ -5,14 +5,14 @@ html, body {
 
 .container {
     display: flex; /* Folosim flexbox pentru layout */
-    height: 100%; /* Înălțimea containerului */
+    height: 80%; /* Înălțimea containerului */
     
 }
 
 .column {
     flex: 1; /* Fiecare coloană ocupă spațiu egal */
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 0 solid #ccc;
     box-sizing: border-box;
 }
 
@@ -74,7 +74,7 @@ header .admin{
     width: 100%; /* Lățimea câmpului de intrare */
     padding: 10px; /* Adaugă spațiu în jurul textului */
     box-sizing: border-box; /* Asigură că lățimea totală include și padding-ul */
-    height: 400px; /* Înălțimea casetei de text */
+    height: 355px; /* Înălțimea casetei de text */
     resize: vertical; /* Permite redimensionarea verticală a casetei de text */
 }
 
@@ -86,14 +86,15 @@ header .admin{
     box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
     margin: 1vw auto;
     background-color: #dcd0f2;
-    width:70%; 
-    margin-bottom: 10px;
+    width:60%; 
+    margin-bottom: 2vh;
     margin-top: 10px;
   }
 
 button
 {
     background-color: #d9b5e9;
+    height: 100%;
 }
 /* Pentru ecrane cu lățimea mai mică de 768px */
 @media screen and (max-width: 768px) {
