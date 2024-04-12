@@ -1,0 +1,112 @@
+.settings-container {
+    background: #fff;
+    padding: 1.5vw;
+    border-radius: 0.5vw;
+    box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
+    margin: 1vw auto;
+    max-width: 50vw;
+    width: 80%;
+}
+
+.settings-box h2 {
+    font-size: 1.5vw;
+    color: #333;
+    margin-top: -1vw; /* Valoare negativă pentru a muta titlul mai sus */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 2vw;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5vw;
+    font-size: 1.2vw;
+    color: #2b1055;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #ddd;
+    font-size: 1.2vw;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    border: none;
+    background-color: #5c4ac7;
+    color: white;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #7f6fb4;
+}
+
+.settings-container > button {
+    width: 100%;
+    padding: 1vw;
+    margin-top: 1vw;
+    border-radius: 0.5vw;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.settings-container > button:hover {
+    background-color: #e53935;
+}
+
+.settings-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start; /* Alinează la partea de sus a container-ului */
+    margin-left: 110px; /* Asumând că bara laterală are o lățime fixă de 110px */
+    gap: 2vw; /* Spațiu între boxuri, adaptabil */
+    padding-top: 5vw; /* Spațiu de la top */
+}
+
+.settings-box {
+    background: #FFFFFF;
+    padding: 2vw;
+    border-radius: 1vw;
+    box-shadow: 0.2vw 0.4vw 0.6vw rgba(0, 0, 0, 0.1);
+    width: calc((100vw - 110px - 4vw) / 2); /* Calculează lățimea fiecărui box */
+    margin-bottom: 2vw; /* Spațiu sub fiecare box */
+}
+
+
+@media (max-width: 576px) {
+    .settings-box h2 {
+        font-size: 4vw; /* Text mai mare pentru citibilitate pe mobile */
+    }
+}
+
+
+/* Adaptările pentru ecranele mici */
+@media (max-width: 768px) {
+    .settings-wrapper {
+        flex-direction: column;
+        margin-left: 0;
+        align-items: center;
+        padding-top: 10vw;
+    }
+
+    .settings-box {
+        width: 80vw; /* Boxurile sunt mai mari pe ecrane mici */
+        margin-bottom: 4vw; /* Spațiu mai mare între boxuri pe verticală */
+    }
+}

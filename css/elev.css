@@ -88,7 +88,7 @@ header{
 .navbar .links li a.active {
     background-color: #fff;
     color: #2b1055;
-    border: 2px solid #fff; /* Adăugă contur alb */
+    border: 2px solid #fff;
 }
 
 .navbar .toggle_btn {
@@ -149,7 +149,7 @@ header{
 }
 
 .dropdown_menu li a {
-    font-size: 1.25rem; /* Ajustează dimensiunea după preferințe */
+    font-size: 1.25rem;
 }
 
 .dropdown_menu .action_btn{
@@ -170,9 +170,9 @@ main{
 
 #hero h1 {
     position: relative;
-    color: white; /* Setează culoarea textului la alb */
+    color: white;
     font-style: italic;
-    font-weight: bold; /* corectează proprietatea pentru a fi bold */
+    font-weight: bold;
     font-size: 2rem;
     letter-spacing: 0.05em; 
 }
@@ -186,35 +186,34 @@ h1{
 
 .line {
     margin-top:10px;
-    height: 3px; /* Înălțimea liniei */
-    background-color: #2b1055; /* Culoarea liniei */
-    width: 70%; /* Lățimea liniei */
-    margin: 0 auto; /* Centrează div-ul pe orizontală */
+    height: 3px;
+    background-color: #2b1055;
+    width: 70%;
+    margin: 0 auto
 }
 
 
 .ctn {
-    background-color: white; /* Fundal alb */
-    color: black; /* Text negru */
-    border-radius: 20px; /* Butoane rotunde */
-    font-size: 1.5rem; /* Mărimea fontului pentru textul din buton */
-    font-weight: bold; /* Greutatea fontului pentru a fi bold */
-    padding: 10px 30px; /* Padding-ul determină înălțimea și lățimea butonului */
-    margin-top: 30px; /* Spațiu deasupra butonului */
-    display: block; /* Așează butonul ca un bloc */
-    margin-left: auto; /* Aliniere la mijloc */
-    margin-right: auto; /* Aliniere la mijloc */
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center; 
 }
 
 .ctn:hover {
-    background-color: #2b1055; /* Schimbă culoarea de fundal la hover */
-    color: white; /* Schimbă culoarea textului la hover */
+    background-color: #2b1055;
+    color: white;
 }
 
 
 /*Resposive_Design*/
-
 @media(max-width: 992px){
     .navbar .links,
     .navbar .action_btn{

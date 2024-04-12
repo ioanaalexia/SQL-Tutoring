@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/setari.css">
     <link rel="stylesheet" href="../css/profil.css">
     <title>SQL -Tutoring</title>
 </head>
@@ -51,7 +52,45 @@
                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
             </ul>
         </aside>
+        <div class="settings-wrapper">
+            <div class="settings-box">
+                <h2>Setări Profil</h2>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="name">Nume:</label>
+                        <input type="text" id="name" name="name" placeholder="Numele tău">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email-ul tău">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Parolă nouă:</label>
+                        <input type="password" id="password" name="password" placeholder="Parolă nouă">
+                    </div>
+                    <button type="submit">Salvează Modificările</button>
+                </form>
+                <button onclick="logout()">Deconectare</button>
+            </div>
         
+            <div class="settings-box">
+                <h2>Preferințe Curs</h2>
+                <form id="course-preferences">
+                    <div class="form-group">
+                        <label for="difficulty">Nivel de dificultate:</label>
+                        <select id="difficulty" name="difficulty">
+                            <option value="beginner">Începător</option>
+                            <option value="intermediate">Intermediar</option>
+                            <option value="advanced">Avansat</option>
+                        </select>
+                    </div>
+                    <button type="submit">Salvează Preferințele</button>
+                </form>
+            </div>
+        </div>
+        
+        </div>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
 
