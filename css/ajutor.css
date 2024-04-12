@@ -60,8 +60,20 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
+
+
+.succes{
+    background: #7c5db7;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    
+
+}
 @media (max-width: 768px) {
     .container {
         width: 95%;
