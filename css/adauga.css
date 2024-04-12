@@ -19,8 +19,8 @@ html, body {
 
 header {
     display: flex;
-    justify-content: space-between; /* Aliniere elemente la marginile laterale */
-    align-items: center; /* Aliniere verticală a elementelor în centru */
+    justify-content: space-between; 
+    align-items: center; 
     padding: 10px 20px; /* Adăugare spațiu între conținut și marginile antetului */
     background: #c8b2ea;
     color: white;
@@ -43,7 +43,7 @@ header {
 }
 
 .admin a:hover {
-    background-color: #45a049; /* Stilizare buton la hover */
+    background-color: #d9b5e9; /* Stilizare buton la hover */
 }
 
 
