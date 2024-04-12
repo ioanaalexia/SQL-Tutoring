@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adauga problema</title>
+    <link rel="stylesheet" href="../css/adauga.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"> SQL - Tutoring </a></div>
+        <div class="admin"><a href="admin.html">Pagina mea</a></div>
+    </header>
+    <div class="container">
+        <div class="column">
+            <div class="form1">
+                <form action="pagina1.php" method="post">
+                    <div class="form1">
+                        <div class="form-border">
+                        <h2>Titlu:</h2>
+                        <input type="text" id="titlu" name="titlu" placeholder="Introduceti titlul problemei">
+                        </div>
+                        <div class="form-border">
+                        <h2>Dificultate:</h2>
+                        <select id="dificultate" name="dificultate">
+                            <option value="usor">Ușor</option>
+                            <option value="mediu">Mediu</option>
+                            <option value="greu">Greu</option>
+                        </select>
+                    </div>
+                        <div class="form-border">
+                        <h2>Taguri:</h2>
+                        <input type="text" id="tags" name="tags" placeholder="Introduceti niște taguri">
+                        </div>
+                    </div>
+                </form>
+        </div>
+        </div> 
+        <div class="column">
+            <div class="form2">
+                <div class="form-border">
+                <h2>Descriere</h2>
+                <form class="form2" action="pagina2.php" method="post">
+                  <input type="text" id="comentariu" name="comentariu" placeholder="Introduceți o descriere:">
+                </form>
+                </div>
+            </div>  
+        </div>
+        <button type="submit">Trimite</button>
+    </div>
+   
+</body>
+</html>
