@@ -13,10 +13,19 @@ body {
     background-repeat: no-repeat;
     background-position:center;
 }
+
+header{
+    box-sizing: border-box;
+    height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
 .page-container{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    flex-grow: 1;
 }
 
 li{
@@ -51,7 +60,7 @@ header{
 
 div .logo{
     color:black;
-    margin-right: 20vw;
+    margin-right: 12vw;
     font-weight: 700;
     font-size: 4vw;
     font-weight: bold;
@@ -249,6 +258,7 @@ i{
     position:fixed;
     top:0;
     left: 0;
+    bottom:0;
     padding: 30px 15px;
     background: rgba(255,255,255,0.2);
     backdrop-filter:blur(5px);
@@ -256,6 +266,7 @@ i{
     justify-content:space-between ;
     flex-direction: column;
     transition: width 0.5s;
+    overflow-y: auto;
 }
 
 .user{
@@ -361,19 +372,22 @@ ul li p{
   .about{
     font-size: 3vw;
   }
+  
   footer {
     font-weight: bold;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     bottom: 0;
     left: 0;
     font-size: 3vw;
     text-align: center;
     background-color: #e6ccff;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
-
 /*Resposive_Design*/
+
 @media(max-width: 992px){
     .navbar .links,
     .navbar .action_btn{
@@ -388,11 +402,76 @@ ul li p{
         display: block;
     }
 
+
+}
+
+@media(min-width: 576px) and (max-width: 992px){
+    
+    /* Adjust the main profile card to be larger on tablets */
+    .profile-card {
+        width: 60vw; /* Wider on tablets but not as wide as on mobile */
+        padding: 4vw; /* Slightly less padding than on mobile for more space */
+        margin-bottom: 5vw; /* Less bottom margin since we have more space */
+    }
+
+    .profile-card h2 {
+        font-size: 6vw; /* Larger than mobile but smaller than desktop */
+    }
+
+    .profile-card .probleme li {
+        font-size: 4vw; /* Adjust font size for visibility on tablets */
+    }
+
+    .img_container {
+        width: 15vw; /* Larger profile image container for tablets */
+        height: 15vw; /* Keep aspect ratio */
+    }
+
+    .img_container img {
+        width: 100%; /* Full width of container */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: -7.5vw; /* Adjust top margin to reposition image */
+    }
+
+    div .logo{
+        font-size: 6vw;
+    }
+
 }
 
 @media(max-width: 576px){
     .dropdown_menu{
         left: 2rem;
         width: unset;
+    }
+
+    .profile-card {
+        width: 80vw;
+        padding: 5vw;
+        margin-bottom: 10vw;
+        margin-left: 10vw;
+    }
+
+    .profile-card h2 {
+        font-size: 8vw;
+    }
+
+    .profile-card .probleme li {
+        font-size: 5vw;
+    }
+
+    .img_container {
+        width: 30vw;
+        height: 20vw;
+    }
+
+    .img_container img {
+        width: 100%;
+        height: auto;
+        margin-top: -10vw;
+    }
+
+    div .logo {
+        font-size: 7vw;
     }
 }
