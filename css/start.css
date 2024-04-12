@@ -4,9 +4,15 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+
+
+
+body,html{
+    height: 100%;
+    box-sizing: border-box;
     background:#968dda;
     margin: 0;
+    padding: 0;
     height: 100%;
 }
 .header{
@@ -29,6 +35,7 @@ div .logo{
 }
 
 .side-nav{
+    z-index: 5;
     width: 110px;
     height: 100%;
     position:fixed;
@@ -133,7 +140,11 @@ ul li p{
 }
 
 .page-container{
-    flex-grow: 1;
+    box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    
 }
 
   
@@ -152,15 +163,7 @@ ul li p{
     overflow: auto; 
   }
   
-.about {
-    height: 100%;
-    margin-bottom: 0;
-    text-align: center;
-    grid-column-start: 1;
-    grid-column-end:3; 
-    background-color: #e6ccff; 
-    flex-grow: 0;
-  }
+
 
   /*partea de butoane*/
   
@@ -196,8 +199,7 @@ i{
     color: purple;
 }
 
-.navbar .links li a:hover,
-.navbar .links li a.active {
+.navbar .links li a:hover{
     background-color: #fff;
     color: #2b1055;
     border: 2px solid #fff; /* Adăugă contur alb */
@@ -246,6 +248,8 @@ i{
     overflow: hidden;
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+
 
 .dropdown_menu.open{
     height: 329px;
@@ -311,6 +315,7 @@ i{
     .dropdown_menu{
         display: block;
     }
+   
 }
 
 @media(max-width: 576px){
@@ -318,13 +323,9 @@ i{
         left: 2rem;
         width: unset;
     }
+
 }
 
-.wrapper {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
 
   a{
     text-decoration:none;
@@ -335,25 +336,20 @@ main .pagina{
     display: flex;
     flex-direction: column;
     align-items: center; 
-    width: 100%; 
+    width: 70%; 
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
   }
   
-  
-  
-  
-  main .small-container {
-    margin-top: 10px;
-    position: relative;
-    flex: 0 0 20%; 
-    background: #fff;
-    padding: 1.3vw;
-    border-radius: 0.5vw;
-    box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
-    margin: 1vw auto;
-    max-width: 90%; 
-    width: 90%; 
+  main{
+    
+    flex: 1;
   }
+  
+
  
   main .image-container {
     position: relative;
@@ -393,7 +389,7 @@ main .pagina{
     margin-bottom: 10px;
   }
 
-  .form1,.form2{
+  .form1,.form2,.small-container{
     display: flex;
     flex-direction: column; 
     background: #fff;
@@ -416,5 +412,20 @@ main .pagina{
     margin-bottom: 1em; /* modificare spațiu între elemente */
 }
 
+footer {
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: #e6ccff; 
+    flex-grow:0;
+    flex-shrink: 0;
+    position:relative;
+    padding: 20px;
+   
+  }
   
+  section{
+    height: 100%;
+  }
   
