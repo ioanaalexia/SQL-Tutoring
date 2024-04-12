@@ -335,3 +335,40 @@ i{
     text-decoration:none;
     color:black;
   }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+  }
+  
+  .small-container,
+  .form-container {
+    flex: 1;
+    margin-bottom: 10px; /* Spațiu între rânduri */
+  }
+  
+  .small-container {
+    flex: 0 0 30%; /* Primul container va fi mai mic */
+  }
+  
+  .form-container {
+    flex-direction: row; /* Așează elementele formularului pe orizontală */
+  }
+  
+  .form1,
+  .form2 {
+    flex: 1; /* Fiecare formular ocupă același spațiu */
+    margin-right: 10px; /* Spațiu între formulare */
+    display: flex;
+    flex-direction: column; /* Așează elementele din formulare pe verticală */
+  }
+  
+  .form-row {
+    margin-bottom: 10px; /* Spațiu între rânduri */
+  }
+  
