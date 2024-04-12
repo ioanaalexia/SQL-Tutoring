@@ -12,7 +12,6 @@
         <div class="admin"><a href="index.html">Pagina mea</a></div>
     </header>
     <div class="container">
-        <button type="submit">Trimite</button>
         <div class="column">
             <div class="form1">
                 <form action="pagina1.php" method="post">
@@ -23,8 +22,11 @@
                         </div>
                         <div class="form-border">
                         <h2>Dificultate:</h2>
-                        <input type="text" id="dificultate" name="dificultate" placeholder="Introduceti dificultatea problemei">
-
+                        <select id="dificultate" name="dificultate">
+                            <option value="usor">Ușor</option>
+                            <option value="mediu">Mediu</option>
+                            <option value="greu">Greu</option>
+                        </select>
                     </div>
                         <div class="form-border">
                         <h2>Taguri:</h2>
@@ -44,7 +46,7 @@
                 </div>
             </div>  
         </div>
-        <button type="submit">Trimite</button>
+         <button type="submit">Trimite</button>
     </div>
    
 </body>
