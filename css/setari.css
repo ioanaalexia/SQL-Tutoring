@@ -8,17 +8,6 @@
     width: 80%;
 }
 
-header{
-    box-sizing: border-box;
-    height: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-.page-container{
-    flex-grow: 1;
-}
-
 .settings-box h2 {
     font-size: 2vw;
     color: #333;

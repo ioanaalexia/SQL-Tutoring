@@ -13,19 +13,10 @@ body {
     background-repeat: no-repeat;
     background-position:center;
 }
-
-header{
-    box-sizing: border-box;
-    height: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
 .page-container{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    flex-grow: 1;
 }
 
 li{
@@ -382,8 +373,6 @@ ul li p{
     font-size: 3vw;
     text-align: center;
     background-color: #e6ccff;
-    flex-grow: 0;
-    flex-shrink: 0;
   }
 
 /*Resposive_Design*/
@@ -440,38 +429,39 @@ ul li p{
 }
 
 @media(max-width: 576px){
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
+    .main-content {
+        padding-left: 0; /* Eliminăm padding-ul din partea stângă pentru a nu se suprapune cu side-nav */
+        padding-right: 5vw; /* Adaugă spațiu pe partea dreaptă */
+        margin-top: 60px; /* Lasă loc pentru header */
+    }
+    
+    #problemsTable tr {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column; /* Fiecare td să fie afișat pe un nou rând */
+        border-bottom: 2px solid #ddd;
+    }
+    
+    #problemsTable td {
+        text-align: left;
+        font-size: 4vw;
+        padding: 2vw 0; /* Adaugă spațiu vertical între rânduri */
+    }
+    
+    #problemsTable td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block; /* Forțăm eticheta să ocupe întreaga lățime */
+        margin-bottom: 1vw; /* Spațiu sub etichetă înainte de conținut */
     }
 
-    .profile-card {
-        width: 80vw;
-        padding: 5vw;
-        margin-bottom: 10vw;
-        margin-left: 10vw;
+    /* Îngustăm .side-nav când ecranul este mic pentru a nu ocupa mult spațiu */
+    .side-nav {
+        width: 80px; /* Suficient pentru iconițe */
     }
 
-    .profile-card h2 {
-        font-size: 8vw;
-    }
-
-    .profile-card .probleme li {
-        font-size: 5vw;
-    }
-
-    .img_container {
-        width: 30vw;
-        height: 20vw;
-    }
-
-    .img_container img {
-        width: 100%;
-        height: auto;
-        margin-top: -10vw;
-    }
-
-    div .logo {
-        font-size: 7vw;
+    /* Îmbunătățim accesibilitatea meniului la atingere */
+    .side-nav:hover {
+        width: 80px; /* Menținem lățimea, chiar dacă utilizatorul dă hover */
     }
 }
