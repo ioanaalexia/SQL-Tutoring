@@ -376,15 +376,16 @@ i{
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.5s;
-    background-color: rgba(0, 0, 0, 0.5); /* Pelicula semi-transparentă */
-    color: white; /* Culorea textului */
-    padding: 5px 10px; /* Padding pentru text */
-    border-radius: 5px; /* Rotunjirea colțurilor */
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
   }
   
   
   .image-container:hover .text {
     opacity: 1;
+   
   }
 
 
