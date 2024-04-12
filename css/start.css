@@ -349,26 +349,60 @@ i{
   .small-container,
   .form-container {
     flex: 1;
-    margin-bottom: 10px; /* Spațiu între rânduri */
+    margin-bottom: 10px; 
   }
   
   .small-container {
-    flex: 0 0 30%; /* Primul container va fi mai mic */
+   position: relative;
+    flex: 0 0 20%; 
+    width: 90%; 
+    max-width: 270vw; 
+    max-height: 80vm;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .image-container {
+    position: relative;
+    display: inline-block; 
   }
   
+  .text {
+    position: absolute;
+    top: 0; /* Plasează textul în partea de sus a containerului */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-color: rgba(0, 0, 0, 0.5); /* Pelicula semi-transparentă */
+    color: white; /* Culorea textului */
+    padding: 5px 10px; /* Padding pentru text */
+    border-radius: 5px; /* Rotunjirea colțurilor */
+  }
+  
+  
+  .image-container:hover .text {
+    opacity: 1;
+  }
+
+
   .form-container {
-    flex-direction: row; /* Așează elementele formularului pe orizontală */
+    flex-direction: row; 
   }
   
   .form1,
   .form2 {
-    flex: 1; /* Fiecare formular ocupă același spațiu */
-    margin-right: 10px; /* Spațiu între formulare */
+    flex: 1; 
+    margin-right: 10px; 
     display: flex;
-    flex-direction: column; /* Așează elementele din formulare pe verticală */
+    flex-direction: column; 
   }
   
   .form-row {
-    margin-bottom: 10px; /* Spațiu între rânduri */
+    margin-bottom: 10px;
   }
+
+  
   
