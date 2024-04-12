@@ -1,13 +1,13 @@
 .main-content {
     padding: 2vw;
     padding-left: calc(110px + 5vw); /* Ajustează această valoare dacă side-nav-ul tău este mai lat și adaugă un spațiu suplimentar */
-    margin-top: -10vh; /* Ajustează conform designului tău */
+    margin-top: -30vh; /* Ajustează conform designului tău */
     overflow-x: auto; /* Asigură-te că tabelul poate defila orizontal dacă este prea larg */
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
 }
 
 
@@ -23,7 +23,9 @@ h1 {
     border-radius: 0.5vw;
     border: 1px solid #ccc;
 }
-
+.table-responsive {
+    overflow-x: auto; /* Asigură defilarea orizontală pentru ecrane mici */
+}
 #problemsTable {
     width: auto;
     min-width: 75vw; /* Setează o lățime minimă pentru a păstra lizibilitatea tabelului */
@@ -38,49 +40,33 @@ h1 {
 #problemsTable th {
     background-color: #f2f2f2;
 }
-.table-responsive {
-    overflow-x: auto; /* Asigură defilarea orizontală pentru ecrane mici */
-}
-@media(max-width: 992px){
+
+@media(min-width: 576) and (max-width: 992px){
     .main-content {
         padding-left: 11vw; /* Ajustează această valoare pentru responsive design */
     }
 }
 /* Adaugă acest media query pentru a trata cazurile când side-nav-ul este retractabil */
 @media(max-width: 576px){
+    .side-nav{
+        width: 90px;
+    
+    }
     .main-content {
-        padding-left: 28vw; /* Ajustează această valoare pentru responsive design */
+        padding: 0vw; /* Adaugă padding în jurul conținutului principal */
+        margin-left: 100px; /* Împinge conținutul principal la dreapta pentru a evita side-nav-ul */
+        margin-top: -40vw; /* Lasă loc pentru navbar */
     }
-    #problemsTable {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    
-    #problemsTable thead {
-        display: none; /* Ascunderea antetului tabelului pe dispozitive mobile */
-    }
-    
-    #problemsTable tr {
-        margin-bottom: 10px;
+    /* Stiluri pentru a face tabelul să fie afișat vertical pe ecrane mici */
+    #problemsTable, #problemsTable td {
         display: block;
-        border-bottom: 2px solid #ddd;
     }
-    
+
     #problemsTable td {
-        display: flex;
-        flex-direction: column; /* În loc de flex row */
-        align-items: flex-start; /* Aliniem textul la început */
+        padding: 1vw 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: left;
         font-size: 4vw;
-        word-wrap: break-word; /* Întrerupe cuvintele pentru a evita overflow-ul */
-        overflow: hidden; /* Ascunde orice text care depășește lățimea celulei */
-        min-width: 50vw; /* Ajustează această valoare după cum este necesar */
-        margin-bottom: 1rem; /* Spațiu între celule */
-    }
-    
-    #problemsTable td::before {
-        content: attr(data-label);
-        flex-basis: 100%;
-        font-weight: bold;
-        margin-bottom: 0.5rem; /* Spațiu sub etichetă înainte de conținut */
     }
 }
