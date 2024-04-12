@@ -21,7 +21,7 @@ header {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    padding: 10px 20px; 
+    padding: 10px 20px; /* Adăugare spațiu între conținut și marginile antetului */
     background: #c8b2ea;
     color: white;
     position: relative;
@@ -86,8 +86,13 @@ header .admin{
     box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
     margin: 1vw auto;
     background-color: #dcd0f2;
+<<<<<<< HEAD
     width:60%; 
     margin-bottom: 2vh;
+=======
+    width:80%; 
+    margin-bottom: 10px;
+>>>>>>> a9afa8590984355b19f15bbfb168dac5bde0a1b0
     margin-top: 10px;
   }
 
