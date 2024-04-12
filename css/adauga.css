@@ -1,0 +1,122 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex; /* Folosim flexbox pentru layout */
+    height: 80%; /* Înălțimea containerului */
+    
+}
+
+.column {
+    flex: 1; /* Fiecare coloană ocupă spațiu egal */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between; /* Aliniere elemente la marginile laterale */
+    align-items: center; /* Aliniere verticală a elementelor în centru */
+    padding: 10px 20px; /* Adăugare spațiu între conținut și marginile antetului */
+    background: #c8b2ea;
+    color: white;
+    position: relative;
+    padding: 0 2rem;
+    padding: 5vh;
+    text-align: center;
+}
+
+.admin {
+    margin-left: auto; /* Mărește spațiul din stânga elementului, împingându-l spre dreapta */
+}
+
+.admin a {
+    padding: 10px 20px; /* Stilizare buton */
+    background-color: #301b58;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.admin a:hover {
+    background-color: #45a049; /* Stilizare buton la hover */
+}
+
+
+header .logo a{
+
+    color:#f4f4f4;
+    font-weight: 700;
+    font-size: 4vw;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+header .admin{
+    align-items: flex-end;
+
+}
+
+
+.form1 input[type="text"], .form2 input[type="text"]
+{
+    font-size: 1.0em; /* modificare dimensiune font */
+    padding: 1em; /* modificare spațiu de margine în interiorul casetelor de introducere */
+    margin-bottom: 1em; /* modificare spațiu între elemente */
+}
+
+.form2 input[type="text"] {
+    width: 100%; /* Lățimea câmpului de intrare */
+    padding: 10px; /* Adaugă spațiu în jurul textului */
+    box-sizing: border-box; /* Asigură că lățimea totală include și padding-ul */
+    height: 400px; /* Înălțimea casetei de text */
+    resize: vertical; /* Permite redimensionarea verticală a casetei de text */
+}
+
+
+.form-border{
+    background: #fff;
+    padding: 1.2vw;
+    border-radius: 0.5vw;
+    box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
+    margin: 1vw auto;
+    background-color: #dcd0f2;
+    width:80%; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+button
+{
+    background-color: #d9b5e9;
+}
+/* Pentru ecrane cu lățimea mai mică de 768px */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Schimbăm direcția layout-ului flexbox pe coloană */
+        height: auto; /* Înlăturăm înălțimea fixă a containerului */
+    }
+
+    .column {
+        width: 100%; /* Coloanele ocupă întreaga lățime */
+        margin-bottom: 20px; /* Spațiu între coloane */
+    }
+
+    .form-border {
+        max-width: 100%; /* Asigurăm că lățimea maximă a formularului este de 100% */
+        width: 100%; /* Asigurăm că lățimea formularului este de 100% */
+    }
+
+    header .logo a {
+        font-size: 6vw; /* Modificăm dimensiunea fontului pentru logo */
+    }
+
+    .form2 input[type="text"] {
+        height: 200px; /* Reducem înălțimea câmpului de text pentru a se potrivi pe ecrane mai mici */
+    }
+}
