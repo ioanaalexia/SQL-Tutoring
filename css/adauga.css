@@ -86,15 +86,17 @@ header .admin{
     box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
     margin: 1vw auto;
     background-color: #dcd0f2;
-    width:60%; 
+    width:90%; 
     margin-bottom: 2vh;
     margin-top: 10px;
+    height: auto;
   }
 
 button
 {
+    height: auto;
     background-color: #d9b5e9;
-    height: 100%;
+    
 }
 /* Pentru ecrane cu lățimea mai mică de 768px */
 @media screen and (max-width: 768px) {
