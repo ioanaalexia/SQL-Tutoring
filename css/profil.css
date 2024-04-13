@@ -186,11 +186,11 @@ i{
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
-    max-width: 1500px; /* Ajustează la lățimea maximă dorită */
+    max-width: 1500px;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
-    margin-top: 50px; /* Ajustează în funcție de înălțimea navbar-ului */
+    height: calc(100vh - 60px); 
+    margin-top: 50px; 
 }
 
 .profile-card {
@@ -203,7 +203,6 @@ i{
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 30vw;
-   
     margin-bottom: 70px;
     
 }
