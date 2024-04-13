@@ -30,11 +30,11 @@ header {
     text-align: center;
 }
 
-.admin {
-    margin-left: auto; /* Mărește spațiul din stânga elementului, împingându-l spre dreapta */
+.profil {
+    margin-right:10vw; /* Mărește spațiul din stânga elementului, împingându-l spre dreapta */
 }
 
-.admin a {
+.profil a {
     padding: 10px 20px; /* Stilizare buton */
     background-color: #301b58;
     color: white;
@@ -42,7 +42,7 @@ header {
     border-radius: 5px;
 }
 
-.admin a:hover {
+.profil a:hover {
     background-color: #d9b5e9; /* Stilizare buton la hover */
 }
 
@@ -57,17 +57,23 @@ header .logo a{
 
 }
 
-header .admin{
+header .profil{
     align-items: flex-end;
 
 }
 
+.form-border, .form1, .form2 {
+    width: 80%; /* Asigură că toate formularele se extind pe toată lățimea containerului lor */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding-ul în calculul lățimii */
+}
 
 .form1 input[type="text"], .form2 input[type="text"]
 {
     font-size: 1.0em; /* modificare dimensiune font */
     padding: 1em; /* modificare spațiu de margine în interiorul casetelor de introducere */
     margin-bottom: 1em; /* modificare spațiu între elemente */
+    resize: vertical;
 }
 
 .form2 input[type="text"] {
@@ -94,15 +100,23 @@ header .admin{
 
 button
 {
-    height: auto;
+    position: fixed; /* Fixează bara lateral */
+    top:0; /* Începe de la partea de sus a paginii */
+    right: 0; /* Poziționează pe partea dreaptă */
+    width: 50px; /* Lățimea butonului/barului */
+    height: 100%; /* Înălțimea pe tot ecranul */
+    background-color: #c8b2ea; /* Culoare de fundal verde */
+    display: flex;
+    flex-direction: column; /* Așează conținutul vertical */
+    justify-content: center; /* Centrează butonul vertical */
     background-color: #d9b5e9;
     
 }
 /* Pentru ecrane cu lățimea mai mică de 768px */
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column; /* Schimbăm direcția layout-ului flexbox pe coloană */
-        height: auto; /* Înlăturăm înălțimea fixă a containerului */
+        flex-direction: column; 
+        height: auto; 
     }
 
     .column {
@@ -111,15 +125,18 @@ button
     }
 
     .form-border {
-        max-width: 100%; /* Asigurăm că lățimea maximă a formularului este de 100% */
-        width: 100%; /* Asigurăm că lățimea formularului este de 100% */
+        max-width: 100%; 
+        width: 80%; 
     }
 
     header .logo a {
         font-size: 6vw; /* Modificăm dimensiunea fontului pentru logo */
     }
+    .form1 input[type="text"] {
+        width: 100px;
+    }
 
     .form2 input[type="text"] {
-        height: 200px; /* Reducem înălțimea câmpului de text pentru a se potrivi pe ecrane mai mici */
+        height: 150px; /* Reducem înălțimea câmpului de text pentru a se potrivi pe ecrane mai mici */
     }
 }
