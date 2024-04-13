@@ -1,4 +1,7 @@
 .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 2vw;
     padding-left: calc(110px + 5vw); /* Ajustează această valoare dacă side-nav-ul tău este mai lat și adaugă un spațiu suplimentar */
     margin-top: -20vh; /* Ajustează conform designului tău */
@@ -37,13 +40,42 @@ h1 {
     text-align: left;
 }
 
+.lista-descarcari{
+    margin-top: 20px; 
+}
+.lista-descarcari ul {
+    list-style-type:none; /* Ascunde marcatorii de listă */
+    padding: 0; /* Elimină spațiul de margine al listei */
+    list-style-position: inside;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+footer{
+    margin-top:50px;
+}
+
+.lista-descarcari li {
+    padding-left: 30px; /* Spațiu între marcator și conținut */
+    line-height: 30px; /* Înălțimea liniei pentru aliniere verticală */
+    align-items: flex-end;
+}
+
+.lista-descarcari li img {
+    vertical-align: middle; /* Aliniază imaginea pe axa verticală */
+    margin-right: 10px; /* Spațiu între imagine și text */
+}
+
+
 #problemsTable th {
     background-color: #f2f2f2;
 }
 
 @media(min-width: 576) and (max-width: 992px){
     .main-content {
-        padding-left: 11vw; /* Ajustează această valoare pentru responsive design */
+        padding-left: 11vw; 
     }
 }
 /* Adaugă acest media query pentru a trata cazurile când side-nav-ul este retractabil */
@@ -53,7 +85,7 @@ h1 {
       }
 
     .main-content {
-        padding: 0vw; /* Adaugă padding în jurul conținutului principal */
+        padding: 0vw;
         margin-left: 4vw; /* Împinge conținutul principal la dreapta pentru a evita side-nav-ul */
         margin-top: -40vw; /* Lasă loc pentru navbar */
     }

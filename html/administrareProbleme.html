@@ -54,26 +54,32 @@
             </ul>
         </aside>
         <main class="main-content">
-            <h1>Statistici Probleme SQL</h1>
-            <div class="filter-section">
-                <input type="text" id="searchBox" placeholder="Cauta probleme..." onkeyup="filterProblems()">
-                <select id="statusFilter" onchange="filterProblems()">
-                    <option value="all">Toate</option>
-                    <option value="solved">Rezolvate</option>
-                    <option value="unsolved">Nerezolvate</option>
-                </select>
-            </div>
+            <h1>Gestionarea Problemelor greșite SQL</h1>
             <div class="table-responsive">
                 <table id="problemsTable">
                     <thead>
                         <tr>
-                            <th>Nume Problema</th>
-                            <th>Încercări Greșite</th>
-                            <th>Status</th>
-                            <th>Dificultate</th>
+                            <th>Problema</th>
+                            <th>Acceptă</th>
+                            <th>Respinge</th>
                         </tr>
                     </thead>
                 </table>
+                <table id="problemsTable">
+                    <thead>
+                        <tr>
+                            <th>Problema</th>
+                            <th>Acțiune</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="lista-descarcari">
+                <ul>
+                    <li><img src="../images/import.png">Import</li>
+                    <li><img src="../images/export.png">Export json</li>
+                    <li><img src="../images/export.png">Export xml</li>
+                </ul>
             </div>
         </main>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
