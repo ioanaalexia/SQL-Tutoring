@@ -73,10 +73,10 @@
 .settings-wrapper {
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start; /* Alinează la partea de sus a container-ului */
-    margin-left: 110px; /* Asumând că bara laterală are o lățime fixă de 110px */
-    gap: 2vw; /* Spațiu între boxuri, adaptabil */
-    padding-top: 3vw; /* Spațiu de la top */
+    align-items: flex-start;
+    margin-left: 110px;
+    gap: 2vw;
+    padding-top: 3vw;
 }
 
 .settings-box {
@@ -84,34 +84,33 @@
     padding: 2vw;
     border-radius: 1vw;
     box-shadow: 0.2vw 0.4vw 0.6vw rgba(0, 0, 0, 0.1);
-    width: calc((100vw - 110px - 4vw) / 2); /* Calculează lățimea fiecărui box */
-    margin-bottom: 2vw; /* Spațiu sub fiecare box */
+    width: calc((100vw - 110px - 4vw) / 2);
+    margin-bottom: 2vw;
 }
 
 .settings-box form {
-    margin-top: -1vw; /* Ajustează acest număr după necesități */
+    margin-top: -1vw;
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .settings-wrapper {
         flex-direction: column;
-        align-items: center; /* Alinează boxurile în centru când sunt unul sub altul */
+        align-items: center;
         margin-top: 7vw;
     }
 
     .settings-box {
-        width: 80vw; /* Ajustează lățimea pentru tabletă și telefoane */
-        margin-bottom: 2vw; /* Spațiu între boxuri când sunt unul sub altul */
+        width: 80vw;
+        margin-bottom: 2vw;
     }
 
     .settings-box h2 {
-        margin-top: 0; /* Dacă este necesar, ajustează spațiul deasupra titlului */
+        margin-top: 0;
     }
 
-    /* Reducerea lățimii selectoarelor de nivel de dificultate pentru ecranele mici */
     .settings-box #difficulty {
-        width: 100%; /* S-ar putea să vrei să folosești 100% pe dispozitivele mici */
+        width: 100%;
     }
 }
 
@@ -125,51 +124,51 @@
     }
 
     .settings-box #difficulty {
-        width: 70%; /* sau orice procentaj preferi */
+        width: 70%;
     }
 
     .settings-box {
-        width: 80vw; /* Boxurile sunt mai mari pe ecrane mici */
-        margin-bottom: 4vw; /* Spațiu mai mare între boxuri pe verticală */
+        width: 80vw;
+        margin-bottom: 4vw;
     }
 }
 
 
 @media (max-width: 576px) {
     .settings-box h2 {
-        font-size: 4vw; /* Text mai mare pentru citibilitate pe mobile */
+        font-size: 4vw;
     }
 
     .settings-wrapper {
-        margin-left: 30vw; /* Asigură-te că acest număr lasă suficient spațiu pentru navigația laterală */
+        margin-left: 30vw;
         padding-top: 25vw;
         flex-direction: column;
         align-items: center;
     }
 
     .settings-box {
-        width: 50vw; /* Reducem lățimea boxului pentru a se potrivi pe ecranul telefonului */
-        margin-bottom: 4vw; /* Spațiu între boxuri */
-        padding: 4vw; /* Ajustează padding-ul dacă este necesar */
+        width: 50vw;
+        margin-bottom: 4vw;
+        padding: 4vw;
     }
 
     .settings-box h2 {
-        font-size: 5vw; /* Mărimea titlului poate fi ajustată dacă este necesar */
+        font-size: 5vw; 
     }
     .form-group label {
-        font-size: 3.5vw; /* Reducem dimensiunea fontului pentru etichete */
+        font-size: 3.5vw;
     }
 
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="password"],
     .form-group select {
-        padding: 2vw; /* Mărește padding-ul pentru input-uri pentru a le face mai ușor de folosit pe ecrane tactile */
-        font-size: 3.5vw; /* Mărește fontul pentru a îmbunătăți lizibilitatea pe ecran mic */
+        padding: 2vw;
+        font-size: 3.5vw;
     }
 
     .form-group button {
-        padding: 3vw; /* Mărește padding-ul pentru butoane pentru a le face mai accesibile la atingere */
+        padding: 3vw;
         font-size: 3.5vw;
     }
 }

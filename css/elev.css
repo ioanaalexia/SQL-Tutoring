@@ -8,7 +8,7 @@
 body {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.5);
-    background-image: url('sql_index.png');
+    background-image: url('../images/sql_index.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
@@ -50,7 +50,7 @@ header{
 .navbar{
     width: 100%;
     height: 60px;
-    max-width: 1900px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     align-items: center;

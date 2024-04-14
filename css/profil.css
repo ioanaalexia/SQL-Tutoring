@@ -43,7 +43,7 @@ header{
 .navbar{
     width: 100%;
     height: 60px;
-    max-width: 1500px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
@@ -180,13 +180,12 @@ i{
     margin-bottom: 10px;
 }
 
-/* Centrarea pe orizontală și verticală a cardului de profil */
 .main-content {
     flex:1;
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
-    max-width: 1500px;
+    max-width: 1800px;
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px); 
@@ -208,34 +207,34 @@ i{
 }
 
 .img_container {
-    width: 10vw; /* Lățimea containerului imagine */
-    height: 120px; /* Înălțimea containerului imagine */
-    margin: -30px auto 50px; /* Ajustează marginile pentru a poziționa corect */
+    width: 10vw;
+    height: 120px;
+    margin: -30px auto 50px;
 }
 
 .img_container img {
-    width: 100%; /* Imaginea va ocupa tot containerul */
-    height: auto; /* Aceeași dimensiune ca lățimea pentru a fi cerc */
-    border-radius: 50%; /* Rotunjește colțurile pentru formă circulară */
-    border: 3px solid #FFFFFF; /* Border alb în jurul imaginii */
-    margin-top: -4vw; /* Ajustează pentru a muta imaginea în partea de sus a cardului */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra sub imagine */
-    background: #e8e6f1; /* Fundalul care să se potrivească cu pagina */
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    margin-top: -4vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #e8e6f1;
 }
 
 .profile-card h2 {
-    font-size: 4vw; /* Mărimea titlului */
-    color: #333; /* Culoarea textului */
-    margin-bottom: 0.2vw; /* Spațiu deasupra și sub nume */
+    font-size: 4vw;
+    color: #333;
+    margin-bottom: 0.2vw;
     margin-top: -5vw;
     position: center;
-    text-align: center; /* Adaugă această linie pentru a centra textul */
+    text-align: center;
 }
 
 .profile-card .probleme ul {
     padding: 0;
     margin: 0;
-    list-style-position: inside; /* Adjust bullets inside the content flow */
+    list-style-position: inside;
 }
 
 .profile-card .probleme li {
@@ -380,7 +379,6 @@ ul li p{
   }
 
 /*Resposive_Design*/
-
 @media(max-width: 992px){
     .navbar .links,
     .navbar .action_btn{
@@ -399,35 +397,34 @@ ul li p{
 }
 
 @media(min-width: 576px) and (max-width: 992px){
-    
-    /* Adjust the main profile card to be larger on tablets */
     .profile-card {
-        width: 60vw; /* Wider on tablets but not as wide as on mobile */
-        height: 40vh;
-        padding: 4vw; /* Slightly less padding than on mobile for more space */
-        margin-bottom: 5vw; /* Less bottom margin since we have more space */
+        width: 60vw;
+        height: 48vh;
+        padding: 4vw;
+        margin-bottom: 5vw;
         position: relative;
         
     }
     
     .profile-card h2 {
-        font-size: 6vw; /* Larger than mobile but smaller than desktop */
+        font-size: 6vw;
         margin-top: -8vh;
     }
 
     .profile-card .probleme li {
-        font-size: 4vw; /* Adjust font size for visibility on tablets */
+        font-size: 4vw;
+        margin-top: 2vw;
     }
 
     .img_container {
-        width: 20vw; /* Larger profile image container for tablets */
-        height: 15vh; /* Keep aspect ratio */
+        width: 20vw;
+        height: 15vh;
     }
 
     .img_container img {
-        width: 100%; /* Full width of container */
-        height: auto; /* Maintain aspect ratio */
-        margin-top: -6vw; /* Adjust top margin to reposition image */
+        width: 100%;
+        height: auto;
+        margin-top: -6vw;
     }
 
     div .logo{

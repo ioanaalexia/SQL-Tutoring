@@ -15,7 +15,7 @@ body{
     height: 500px;
     background:red;
     overflow: hidden;
-    background:url("form.png") no-repeat center/cover;
+    background:url("../images/form.png") no-repeat center/cover;
     border-radius:10px ;
     box-shadow:5px 20px 50px #000;
 

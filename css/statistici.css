@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     padding: 2vw;
-    padding-left: calc(110px + 5vw); /* Ajustează această valoare dacă side-nav-ul tău este mai lat și adaugă un spațiu suplimentar */
-    margin-top: -20vh; /* Ajustează conform designului tău */
-    overflow-x: auto; /* Asigură-te că tabelul poate defila orizontal dacă este prea larg */
+    padding-left: calc(110px + 5vw);
+    margin-top: -20vh;
+    overflow-x: auto;
 }
 
 h1 {
@@ -27,11 +27,11 @@ h1 {
     border: 1px solid #ccc;
 }
 .table-responsive {
-    overflow-x: auto; /* Asigură defilarea orizontală pentru ecrane mici */
+    overflow-x: auto;
 }
 #problemsTable {
     width: auto;
-    min-width: 75vw; /* Setează o lățime minimă pentru a păstra lizibilitatea tabelului */
+    min-width: 75vw;
 }
 
 #problemsTable th, #problemsTable td {
@@ -44,8 +44,8 @@ h1 {
     margin-top: 20px; 
 }
 .lista-descarcari ul {
-    list-style-type:none; /* Ascunde marcatorii de listă */
-    padding: 0; /* Elimină spațiul de margine al listei */
+    list-style-type:none;
+    padding: 0;
     list-style-position: inside;
     display: flex;
     flex-direction: row;
@@ -58,14 +58,14 @@ footer{
 }
 
 .lista-descarcari li {
-    padding-left: 30px; /* Spațiu între marcator și conținut */
-    line-height: 30px; /* Înălțimea liniei pentru aliniere verticală */
+    padding-left: 30px;
+    line-height: 30px;
     align-items: flex-end;
 }
 
 .lista-descarcari li img {
-    vertical-align: middle; /* Aliniază imaginea pe axa verticală */
-    margin-right: 10px; /* Spațiu între imagine și text */
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 
@@ -78,7 +78,7 @@ footer{
         padding-left: 11vw; 
     }
 }
-/* Adaugă acest media query pentru a trata cazurile când side-nav-ul este retractabil */
+
 @media(max-width: 576px){
     .side-nav {
         display: none;
@@ -86,8 +86,8 @@ footer{
 
     .main-content {
         padding: 0vw;
-        margin-left: 4vw; /* Împinge conținutul principal la dreapta pentru a evita side-nav-ul */
-        margin-top: -40vw; /* Lasă loc pentru navbar */
+        margin-left: 4vw;
+        margin-top: -40vw;
     }
     
 

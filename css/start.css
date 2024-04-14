@@ -163,10 +163,7 @@ ul li p{
     overflow: auto; 
   }
   
-
-
-  /*partea de butoane*/
-  
+/*partea de butoane*/
 
 .navbar .links{
     display:flex;
@@ -202,7 +199,7 @@ i{
 .navbar .links li a:hover{
     background-color: #fff;
     color: #2b1055;
-    border: 2px solid #fff; /* Adăugă contur alb */
+    border: 2px solid #fff;
 }
 
 .navbar .toggle_btn {
@@ -249,8 +246,6 @@ i{
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
-
 .dropdown_menu.open{
     height: 329px;
 }
@@ -263,7 +258,7 @@ i{
 }
 
 .dropdown_menu li a {
-    font-size: 1.25rem; /* Ajustează dimensiunea după preferințe */
+    font-size: 1.25rem;
 }
 
 .dropdown_menu .action_btn{
@@ -273,61 +268,33 @@ i{
 }
 .line {
     margin-top:10px;
-    height: 3px; /* Înălțimea liniei */
-    background-color: #2b1055; /* Culoarea liniei */
-    width: 70%; /* Lățimea liniei */
-    margin: 0 auto; /* Centrează div-ul pe orizontală */
+    height: 3px;
+    background-color: #2b1055;
+    width: 70%;
+    margin: 0 auto;
 }
 
 
 .ctn {
-    background-color: white; /* Fundal alb */
-    color: black; /* Text negru */
-    border-radius: 20px; /* Butoane rotunde */
-    font-size: 1.5rem; /* Mărimea fontului pentru textul din buton */
-    font-weight: bold; /* Greutatea fontului pentru a fi bold */
-    padding: 10px 30px; /* Padding-ul determină înălțimea și lățimea butonului */
-    margin-top: 30px; /* Spațiu deasupra butonului */
-    display: block; /* Așează butonul ca un bloc */
-    margin-left: auto; /* Aliniere la mijloc */
-    margin-right: auto; /* Aliniere la mijloc */
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center; 
 }
 
 .ctn:hover {
-    background-color: #2b1055; /* Schimbă culoarea de fundal la hover */
-    color: white; /* Schimbă culoarea textului la hover */
+    background-color: #2b1055;
+    color: white;
 }
 
-
-/*Resposive_Design*/
-
-@media(max-width: 992px){
-    .navbar .links,
-    .navbar .action_btn{
-        display:none;
-    }
-
-    .navbar .toggle_btn{
-        display:block;
-    }
-
-    .dropdown_menu{
-        display: block;
-    }
-   
-}
-
-@media(max-width: 576px){
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
-    }
-
-}
-
-
-  a{
+a{
     text-decoration:none;
     color:black;
   }
@@ -404,12 +371,11 @@ main .pagina{
   }
 
 
-/* Alte stiluri pentru conținutul casetelor de formulare */
 .form1 input[type="text"], .form2 input[type="text"], 
 .form1 button, .form2 button {
-    font-size: 1.0em; /* modificare dimensiune font */
-    padding: 1em; /* modificare spațiu de margine în interiorul casetelor de introducere */
-    margin-bottom: 1em; /* modificare spațiu între elemente */
+    font-size: 1.0em;
+    padding: 1em;
+    margin-bottom: 1em;
 }
 
 footer {
@@ -428,4 +394,28 @@ footer {
   section{
     height: 100%;
   }
-  
+
+/*Resposive_Design*/
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+        display:none;
+    }
+
+    .navbar .toggle_btn{
+        display:block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+   
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+}

@@ -4,13 +4,13 @@ html, body {
 }
 
 .container {
-    display: flex; /* Folosim flexbox pentru layout */
-    height: 80%; /* Înălțimea containerului */
+    display: flex;
+    height: 80%;
     margin:0;
 }
 
 .column {
-    flex: 1; /* Fiecare coloană ocupă spațiu egal */
+    flex: 1;
     padding: 20px;
     border: 0 solid #ccc;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ header {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    padding: 10px 20px; /* Adăugare spațiu între conținut și marginile antetului */
+    padding: 10px 20px;
     background: #c8b2ea;
     color: white;
     position: relative;
@@ -31,11 +31,11 @@ header {
 }
 
 .profil {
-    margin-right:10vw; /* Mărește spațiul din stânga elementului, împingându-l spre dreapta */
+    margin-right:10vw;
 }
 
 .profil a {
-    padding: 10px 20px; /* Stilizare buton */
+    padding: 10px 20px;
     background-color: #301b58;
     color: white;
     text-decoration: none;
@@ -43,7 +43,7 @@ header {
 }
 
 .profil a:hover {
-    background-color: #d9b5e9; /* Stilizare buton la hover */
+    background-color: #d9b5e9;
 }
 
 
@@ -63,25 +63,25 @@ header .profil{
 }
 
 .form-border, .form1, .form2 {
-    width: 80%; /* Asigură că toate formularele se extind pe toată lățimea containerului lor */
+    width: 80%;
     padding: 10px;
-    box-sizing: border-box; /* Include padding-ul în calculul lățimii */
+    box-sizing: border-box;
 }
 
 .form1 input[type="text"], .form2 input[type="text"]
 {
-    font-size: 1.0em; /* modificare dimensiune font */
-    padding: 1em; /* modificare spațiu de margine în interiorul casetelor de introducere */
-    margin-bottom: 1em; /* modificare spațiu între elemente */
+    font-size: 1.0em;
+    padding: 1em;
+    margin-bottom: 1em;
     resize: vertical;
 }
 
 .form2 input[type="text"] {
-    width: 100%; /* Lățimea câmpului de intrare */
-    padding: 10px; /* Adaugă spațiu în jurul textului */
-    box-sizing: border-box; /* Asigură că lățimea totală include și padding-ul */
-    height: 355px; /* Înălțimea casetei de text */
-    resize: vertical; /* Permite redimensionarea verticală a casetei de text */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 355px;
+    resize: vertical;
 }
 
 
@@ -100,19 +100,20 @@ header .profil{
 
 button
 {
-    position: fixed; /* Fixează bara lateral */
-    top:0; /* Începe de la partea de sus a paginii */
-    right: 0; /* Poziționează pe partea dreaptă */
-    width: 50px; /* Lățimea butonului/barului */
-    height: 100%; /* Înălțimea pe tot ecranul */
-    background-color: #c8b2ea; /* Culoare de fundal verde */
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #c8b2ea;
     display: flex;
-    flex-direction: column; /* Așează conținutul vertical */
-    justify-content: center; /* Centrează butonul vertical */
+    flex-direction: column;
+    justify-content: center;
     background-color: #d9b5e9;
     
 }
-/* Pentru ecrane cu lățimea mai mică de 768px */
+
+
 @media screen and (max-width: 768px) {
     .container {
         flex-direction: column; 
@@ -120,8 +121,8 @@ button
     }
 
     .column {
-        width: 100%; /* Coloanele ocupă întreaga lățime */
-        margin-bottom: 20px; /* Spațiu între coloane */
+        width: 100%;
+        margin-bottom: 20px;
     }
 
     .form-border {
@@ -130,13 +131,13 @@ button
     }
 
     header .logo a {
-        font-size: 6vw; /* Modificăm dimensiunea fontului pentru logo */
+        font-size: 6vw;
     }
     .form1 input[type="text"] {
         width: 100px;
     }
 
     .form2 input[type="text"] {
-        height: 150px; /* Reducem înălțimea câmpului de text pentru a se potrivi pe ecrane mai mici */
+        height: 150px;
     }
 }

@@ -1,19 +1,18 @@
-/* Table Styling */
 table {
-    width: calc(100vw - 130px); /* Adjust the 120px if the side-nav width changes */
-    margin-left: 120px; /* Side-nav width */
+    width: calc(100vw - 130px);
+    margin-left: 120px;
     border-collapse: collapse;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 10vw;
-    table-layout: fixed; /* This ensures that the table layout is fixed */
-    word-wrap: break-word; /* This allows words to be broken and wrapped to the next line */
+    table-layout: fixed;
+    word-wrap: break-word;
   }
   
   th, td {
     padding: 8px 12px;
     border: 1px solid #ddd;
     text-align: left;
-    overflow-wrap: break-word; /* Allows the content to wrap onto the next line */
+    overflow-wrap: break-word;
 
   }
   
@@ -35,7 +34,6 @@ table {
     background-color: #efefef;
   }
   
-  /* Smaller devices (phones, 600px and down) */
   @media only screen and (max-width: 578px) {
     .page-container {
         padding-left: 0;
