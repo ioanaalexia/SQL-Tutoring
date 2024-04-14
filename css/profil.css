@@ -169,6 +169,7 @@ i{
     justify-content: center;
 }
 
+
 .probleme li{
     
     margin-top: 10px;
@@ -182,25 +183,28 @@ i{
 /* Centrarea pe orizontală și verticală a cardului de profil */
 .main-content {
     flex:1;
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
-    max-width: 1200px; /* Ajustează la lățimea maximă dorită */
+    max-width: 1500px;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 60px); /* Scădem înălțimea navbar-ului */
-    margin-top: 50px; /* Ajustează în funcție de înălțimea navbar-ului */
+    height: calc(100vh - 60px); 
+    margin-top: 50px; 
 }
 
 .profile-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     background: #FFFFFF;
     padding: 2vw;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 30vw;
     margin-bottom: 70px;
+    
 }
 
 .img_container {
@@ -222,8 +226,8 @@ i{
 .profile-card h2 {
     font-size: 4vw; /* Mărimea titlului */
     color: #333; /* Culoarea textului */
-    margin-bottom: 1vw; /* Spațiu deasupra și sub nume */
-    margin-top: -7vw;
+    margin-bottom: 0.2vw; /* Spațiu deasupra și sub nume */
+    margin-top: -5vw;
     position: center;
     text-align: center; /* Adaugă această linie pentru a centra textul */
 }
@@ -399,12 +403,16 @@ ul li p{
     /* Adjust the main profile card to be larger on tablets */
     .profile-card {
         width: 60vw; /* Wider on tablets but not as wide as on mobile */
+        height: 40vh;
         padding: 4vw; /* Slightly less padding than on mobile for more space */
         margin-bottom: 5vw; /* Less bottom margin since we have more space */
+        position: relative;
+        
     }
-
+    
     .profile-card h2 {
         font-size: 6vw; /* Larger than mobile but smaller than desktop */
+        margin-top: -8vh;
     }
 
     .profile-card .probleme li {
@@ -412,14 +420,14 @@ ul li p{
     }
 
     .img_container {
-        width: 15vw; /* Larger profile image container for tablets */
-        height: 15vw; /* Keep aspect ratio */
+        width: 20vw; /* Larger profile image container for tablets */
+        height: 15vh; /* Keep aspect ratio */
     }
 
     .img_container img {
         width: 100%; /* Full width of container */
         height: auto; /* Maintain aspect ratio */
-        margin-top: -7.5vw; /* Adjust top margin to reposition image */
+        margin-top: -6vw; /* Adjust top margin to reposition image */
     }
 
     div .logo{
@@ -443,6 +451,7 @@ ul li p{
 
     .profile-card h2 {
         font-size: 8vw;
+        margin-top: -2vw;
     }
 
     .profile-card .probleme li {
@@ -452,6 +461,8 @@ ul li p{
     .img_container {
         width: 30vw;
         height: 20vw;
+        margin-bottom: 10px;
+        color: #333;
     }
 
     .img_container img {
