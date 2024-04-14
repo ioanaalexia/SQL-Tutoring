@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo"><a href="index.html"> SQL - Tutoring </a></div>
+            <div class="logo" onclick="goBack()">SQL - Tutoring</div>
         </header>
         <main>
             <div class="intro">
@@ -43,8 +43,14 @@
             </div>
         </main>
         <footer>
-            <p>Îți dorim mult succes și o experiență plăcută!</p>
+            <p onclick="goBack()">Îți dorim mult succes și o experiență plăcută!</p>
         </footer>
     </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

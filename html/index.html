@@ -14,10 +14,10 @@
         <div class="navbar">
             <div class="logo"><a href="#"> SQL - Tutoring </a></div>
             <ul class="links">
-                <li><a href="login&sign_up.html" target="_blank">Login/Sign-up</a></li>
-                <li><a href="ajutor.html" target="_blank">Ajutor</a></li>
+                <li><a href="login&sign_up.html">Login/Sign-up</a></li>
+                <li><a href="ajutor.html">Ajutor</a></li>
             
-            <li><a href="despre.html" class="action_btn" target="_blank">Despre</a></li>
+            <li><a href="despre.html" class="action_btn">Despre</a></li>
         </ul>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
@@ -26,8 +26,8 @@
 
         <div class="dropdown_menu">
             <li><a href="login&sign_up.html">Login/Sign-up</a></li>
-            <li><a href="help.html" target="_blank">Ajutor</a></li>
-            <li><a href="despre.html" class="action_btn" target="_blank">Despre</a></li>
+            <li><a href="help.html">Ajutor</a></li>
+            <li><a href="despre.html" class="action_btn">Despre</a></li>
         </div>
     </header>
 
@@ -43,6 +43,9 @@
             toggleBtnIcon.classList = isOpen
             ? 'fa-solid fa-xmark'
             : 'fa-solid fa-bars'
+        }
+        function goBack() {
+            window.history.back();
         }
     </script>
      
