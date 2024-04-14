@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>SQL Tutoring Scholarly HTML Report</title>
     <link rel="stylesheet" href="https://w3c.github.io/scholarly-html/css/scholarly.min.css">
+
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+        }
+    </style>
+
     <script src="https://w3c.github.io/scholarly-html/js/scholarly.min.js"></script>
 </head>
 
-<body>
+
+
+<body >
 
     <header>
         <h1>SQL Tutoring Raport - Scholarly HTML</h1>
@@ -18,16 +27,20 @@
     <!--1.Introducere-->
     <section id="introducere" role="doc-introduction">
         <h2>Introducere</h2>
-        Acest document contine o prezentare a apllicatiei web SQL-Tutoring, realizata de
 
-        <div itemscope itemtype="https://schema.org/Person">
-            <span itemprop="familyName">Maxim</span>
-            <span itemprop="givenName">Maria Valeria</span>
-            si
-            <span itemprop="familyName">Popa</span>
-            <span itemprop="givenName">Ioana-Alexia</span>
-            in cadrul disciplinei Tehnologii Web.
-        </div>
+        <section id="Authors">
+            <h3>Autori</h3>
+            Acest document contine o prezentare a apllicatiei web SQL-Tutoring, realizata de
+            <span typeof="schema:Person" resource="http://orcid.org/0000-0003-1279-3709">
+                <meta property="schema:givenName" content="Maria-Valeria">
+                <meta property="schema:familyName" content="Maxim">
+                    <span property="schema:name">Maxim Maria-Valeria</span>
+                    si
+                <meta property="schema:givenName" content="Ioana-Alexia">
+                <meta property="schema:familyName" content="Popa">
+                    <span property="schema:name">Popa Ioana-Alexia</span>
+            </span>
+        </section>
 
         <section id="Document-conventions">
             <h3>Conventii</h3>
@@ -38,43 +51,69 @@
                     Specification Template</a>
             </p>
         </section>
+
         <section id="purpose">
-            <h3>Scopul produsului</h3>
+            <h3>Scopul</h3>
             <p>
-                Scopul aplicatiei este de a facilita invatarea limbajului SQL prin rezolvarea si crearea unor exercitii
+                Scopul aplicației este de a facilita învățarea și exersarea limbajului SQL prin rezolvarea și crearea unor exerciții
                 aferente domeniului.
             </p>
         </section>
+
         <section id="intended-audience">
-            <h3>Publicul tinta</h3>
+            <h3>Publicul țintă</h3>
             <p>
-                Documentul este destinat persoanelor ce sunt in curs de invatare a limbajului SQL ce vor folosi
-                aplicatia SQL-TWO, precum si eventualilor dezvoltatori software care vor dori extinderea
-                functionalitatilor aplicatiei.
+                Documentul este destinat celor ce vor sa invețe limbajului SQL , folosind 
+                aplicația SQL-Tutoring, precum și eventualilor dezvoltatori software care vor dori extinderea
+                functionalitatilor aplicatiei.Aplicația este ideală pentru cei care caută să înțeleagă mai bine
+                modul în care se realizeaza interogările în mediul SQL.Aceasta oferă un mediu de lucru interactiv
+                și personalizat facilitând învățarea practică și eficientă.
             </p>
         </section>
 
     </section>
 
-    <!--2.Functionalitati-->
-    <section id="functionalities">
-        <h2>Caracteristicile aplicatiei</h2>
+    <section id="paleta-culori">
+        <h3>Paleta culori</h3>
+        <p>
+            Suntem adeptele unui design cât mai minimalist, motiv pentru care folosim in mod predoominant culori
+         deschise si pastelate pentru a le oferi utilizatorilor un mediu cât mai prietenos și nu unul asociat cu învățatul.
+        </p>
+    <img src="../images/paletaCulori.png">
+    </section>
+
+    
+
+    <section id="arhitecture">
+        <h2>Arhitectura aplicației</h2>
+        <p>Aplicația este optimizată pentru eficiența prelucrării datelor, utilizând funcții node.js dedicate 
+           pentru gestionarea informațiilor. Aceste funcții asigură administrarea eficientă a datelor legate de 
+           utilizatori, problemele din baza de date, sarcinile soluționate de elevi, și facilități de import-export
+           pentru probleme. În plus, aplicația permite adăugarea și actualizarea utilizatorilor, modificarea 
+           profilurilor și gestionarea problemelor.</p>
         <section id="users-functionalities">
-            <h2>Functionalitatile utilizatorilor</h2>
+            <h2>Functionalitățile utilizatorilor</h2>
             <p>
-                Functionalitatile aplicatiei sunt in functie de rol.
+                Functionalitățile aplicației diferă în funcție de rolul cu care se va face logarea, respectiv cel de 
+                admin și utilizator.
+            </p>
+            <h2>Functionalitățile utilizatorilor</h2>
+            <p>
+                Functionalitățile aplicației sunt în funcție de rol.
             </p>
             <section id="student-functionality">
-                <h3>Functionalitatile elevului</h3>
+                <h3>Functionalitățile elevului</h3>
                 <ol>
-                    <li>Crearea unui cont, logare</li>
-                    <li>Modificarea datelor contului</li>
-                    <li>Rezolvarea unor exercitii si marcarea lor</li>
-                    <li>Adaugarea unor noi exercitii</li>
-                    <li>Vizualizarea exercitiilor rezolvate si adaugate</li>
-                    <li>Vizualizarea unor statistici despre exercitiile propuse</li>
+                    <li>Crearea unui cont</li>
+                    <li>Logarea în cont</li>
+                    <li>Modificarea datelor contului (schimbarea usernameului, parolei și a emailului)</li>
+                    <li>Rezolvarea unor exerciții, marcarea lor și adăugarea de comentarii</li>
+                    <li>Adăugarea unor noi exerciții</li>
+                    <li>Vizualizarea exercițiilor rezolvate și adăugate</li>
+                    <li>Vizualizarea unor statistici despre exercițiile propuse</li>
                 </ol>
             </section>
+
             <section id="admin-functionality">
                 <h3>
                     Functionalitatile administratorului:
@@ -92,33 +131,20 @@
             <p>
                 In cadrul dezvoltarii interfetei s-a tinut cont de unele bune practici.
                 In primul rand, paginile sunt proiectate pentru a fi responsive.
-                De asemenea, paginile sunt in acelasi stil, toate urmand un sablon bazat pe integrarea de sectiuni
-                marcate.
             </p>
             <section id="database">
                 <h2>Baza de date</h2>
                 <p>
-                    Baza de date folosita este Oracle, gazduita in cloud, pentru o mai buna sincronizare a datelor si
-                    pentru
-                    a facilita eventualul deployment al aplicatiei.
-                    Pentru a implementa facilitatile aplicatiei au fost create urmatoarele tabele:
-                <ol>
-                    <li>
-                        added-problems
-                    </li>
-                    <li>admins</li>
-                    <li>attempts</li>
-                    <li>comments</li>
-                    <li>marked_problems</li>
-                    <li>problem_categories</li>
-                    <li>problem_difficulties</li>
-                    <li>problems</li>
-                    <li>solved_problems</li>
-                    <li>students</li>
-                    <li>students</li>
-                    <li>users</li>
-                    <li>wrong_problems</li>
-                </ol>
+                    Baza de date folosita este MySQL, o bază de date relațională, datorită modului eficient de 
+                    utilizare si a suportului complex pe care îl oferă.
+                    Pentru a implementa facilitatile aplicatiei au fost create 2 baze de date, 
+                    una pentru gestionarea aplicației și una pentru efectuarea exercițiilor.
+
+                    <h3>Baza de date pentru aplicație</h3>
+                    <img src="../images/diagrama.png">
+                    <h3>Baza de date pentru exerciții</h3>
+                    <img >
+                
                 </p>
             </section>
 
@@ -132,7 +158,7 @@
                 <li>CSS</li>
                 <li>JavaScript</li>
                 <li>Node.js</li>
-                <li>Oracle DB</li>
+                <li>MySQL</li>
             </ol>
             <section id="security">
                 <h2>Securitate</h2>
@@ -144,50 +170,31 @@
         </section>
     </section>
 
-    <section id="application-architecture">
-        <h2>Arhitectura aplicatiei</h2>
-        <p>
-            Aplicatia este contruita pe baza arhitecturii SOA (Service Oriented Architecture). Astfel, clientul face
-            request-uri
-            catre server, iar acesta din urma raspunde strict cu datele necesare. In acest fel, clientul este
-            responasbil de
-            randarea paginilor, iar serverul de procesarea datelor.
-        </p>
-        <img src="c4-web.jpg" width="140%" alt="c4">
-        <p>
-            Pentru a facilita dezvoltarea aplicatiei, avem o arhitectura bazata pe layers. Astfel, cererile, initial
-            ajung in layer-ul
-            de routare, care le trimite mai departe catre layer-ul de servicii, apoi sunt trimise catre layer-ul de
-            repositories,
-            care se ocupa de accesul la baza de date.
-        </p>
-        <section id="db-access">
-            <h2>Accesul la baze date</h2>
-            <p>Singurul layer responsabil de accesul la baze de date este repository-ul. Acesta, insa, foloseste un
-                connection pool pentru
-                a reutiliza conexiunile la baza de date, pentru a nu fi nevoie de a crea o noua conexiune pentru fiecare
-                cerere, ceea ce
-                ar reprezenta o operatie care ar afecta performanta.</p>
-        </section>
-    </section>
 
     <section id="features">
-        <h2>Functionalitati</h2>
+        <h2>Funcționalități</h2>
+        <section id="index">
+            <h3><a href="../html/index.html"><b><i> index.html </i></b></a></h3>
+            <p>
+                Aceasta este pagina principală.În această pagină utilizatorul va putea interacționa prin intermediul
+                meniului de navigare cu restul paginilor.
+            </p>
+        </section>
         <section id="auth">
-            <h2>Autentificare</h2>
-            <p>Pentru inregistrarea utilizatorul trebuie sa specifice: numele de utilizator, email-ul, parola, numele si
-                prenumele.
-                In cazul in care acestea sunt valide si utilizatorul si email-ul nu au mai fost utilizate, se va efectua
-                inregistrarea, in
-                caz contrar un mesaj corespunzator va fi afisat. In urma inregistrarii, parolei i este aplicat un hash,
-                dupa
-                care este salvata in baza de date.
+            
+            <h2>Login/Sign up</h2>
+            <h3><a href="../html/login&sign_up.html"><b><i>login&signup.html </i></b></a></h3>
+
+            <p>
+               Pentru înregistrarea utilizatorului trebuie să specifice: numele de utilizator, email-ul, parola.
+               În cazul în care acestea sunt valide și utilizatorul și email-ul nu au mai fost
+               utilizate, se va efectua înregistrarea, în caz contrar un mesaj corespunzător va fi afișat.
+               În urma înregistrării, parolei îi este aplicat un hash, după care este salvată în baza de date.
             </p>
             <p>
-                Pentru logare, utilizatorul trebuie sa specifice numele de utilizator si parola. In cazul in care
-                acestea
-                sunt valide, serviciul web returneaza un JWT
-                care este stocat in local storage si este utilizat pentru request-urile viitoare catre server.
+                Pentru logare, utilizatorul trebuie sa specifice emailul si parola. In cazul in care
+                acestea sunt valide, serviciul web returneaza un JWT care este stocat in local storage si este 
+                utilizat pentru request-urile viitoare catre server.
             </p>
         </section>
         <section id="problems">
@@ -195,43 +202,51 @@
                 Probleme
             </h2>
             <p>
-                Problemele propuse studentului spre rezolvare cresc in dificultate pe masura ce rezolva mai multe
-                probleme.
-                Dupa ce a rezolvat un numar de probleme, studentul este obligat sa propuna o noua problema, dupa care
-                poate
-                rezolva in continuare. In momentul in care a rezolvat o problema, aceasta poate sa ii marcheze
-                dificulatatea
-                sau sa rezolve alta problema.
+                Problemele propuse studentului spre rezolvare cresc în dificultate pe măsură ce rezolvă mai multe 
+                probleme. După ce a rezolvat un număr de probleme, studentul poate să propună o nouă problemă,
+                 după care poate rezolva în continuare. În momentul în care a rezolvat o problemă, aceasta poate să îi 
+                 marcheze dificultatea sau să rezolve altă problemă. Această funcționalitate se poate observa în pagina:
+                 <a href="../html/adaugaElev.html"><b><i>adaugă problemă</i></b></a>.
             </p>
             <p>
-                Daca studentul considera, el poate marca o problema ca fiind gresita. Acesta poate face acest lucru de 5
-                ori,
-                dupa ce aceasta limita este depasita, studentul trebuie sa astepte ca admin-ul sa gestioneze problemele
-                marcate
-                drept gresite, pentru ca el sa poata marca din nou astfel.
+                Daca studentul considera, el poate marca o problema ca fiind gresită. Problemele marcate de studenți ca fiind 
+                grețite vor fi verificate de admin în pagina <a href="../html/administrareProbleme.html"><b><i>administrare probleme.</i></b></a>
+
             </p>
             <p>
-                Toti utilizatorii aplicatiei (studenti/adimin) pot vizualiza comentarii lasate pentru problemele propuse
-                spre rezolvare
-                si, de asemenea, pot posta propriul comentariu.
+                Toți utilizatorii aplicației (studenți/admin) pot vizualiza comentarii lăsate pentru problemele propuse
+                spre rezolvare, de asemenea, pot posta propriul comentariu sau raspunde la altele.
+                Evidența acestora este stocată în pagina <a href="../html/comentarii.html"><b><i>comentarii.</i></b></a>
             </p>
+            <p>
 
         </section>
         <section id="admin">
             <h2>
                 Administrare</h2>
+            <p>Toate functionalitatile administratorului pot fi accesate din pagina de <a href="../html/admin.html"><b><i>profil</i></b></a> a acestuia</p>
             <p>
                 Administratorul are acces la toate problemele si poate sa le stearga, dar si sa importe, atat din format
-                xml/json, cat si sa exporte problemele in aceste formate. Pe langa aceasta, mai are acces la diverse
-                statistici despre
-                problemele rezolvate, dar si despre utilizatorii inregistrati.
+                xml/json, cat si sa exporte problemele in aceste formate.
+                Pe langa aceasta, mai are acces la diverse statistici despre problemele rezolvate, 
+                dar si despre utilizatorii inregistrati. Toate acestea sunt ilustrate in paginile de <a href="../html/statisticiAdmin.html"><b><i>statistici</i></b></a>, precum și în <a href="../html/administrareCont.html"><b><i>administrare conturi</i></b></a>
             </p>
-            <p>Administratorul mai are posibilitatea de a gestiona problemele marcate drept gresite de catre elevi.
-                Astfel, poate
-                accepta o astfel de marcare, problema fiind ulterior stearsa din baza de date sau o poate respinge.</p>
+            <p> Prin intermediul paginii de <a href="../html/administrareProbleme.html"><b><i>administrare probleme</i></b></a> administratorul mai are posibilitatea de a gestiona problemele marcate drept gresite de catre elevi. Astfel, poate
+                accepta o astfel de marcare, problema fiind ulterior stearsa din baza de date sau o poate respinge.
+            </p>
+            <p>Administratorul poate să adauge probleme prin intermediul paginii de  <a href="../html/adaugaAdmin.html"><b><i>adaugă problemă</i></b></a>. </p>
         </section>
     </section>
-
+    
+    <section id="baza">
+        <h2>Ajutor&Despre</h2>
+           <p>De asemenea, pentru a oferi o interfață mai prietenoasă utilizatorului am adaugat si secțiunea 
+            <a href="../html/despre.html"><b><i>despre</i></b></a></p> în care utilizatorul poate găsi informații
+            despre SQL. In secțiunea <a href="../html/ajutor.html"><b><i>despre</i></b></a></p> am adăugat informații ce ar putea să le fie folositoare utilizatorilor
+            în cazul în care nu înțeleg scopul aplicației.
+        
+    </section>
+   
     </section>
     <section id="references">
 
@@ -250,17 +265,14 @@
             </li>
 
             <li id="repository-github">
-                <a href="https://github.com/andreiplugaru/TW-SQL-Two">Repository-ul de GitHub al proiectului</a>
+                <a href="https://github.com/mariamaxim774/ProiectWEB_NOI">Repository-ul de GitHub al proiectului</a>
             </li>
 
-            <li id="jwt">
-                <a href="https://jwt.io/">JSON Web Tokens</a>
-            </li>
             <li id="nodejs">
                 <a href="https://nodejs.org/en/">Node.js</a>
             </li>
-            <li id="oracle">
-                <a href="https://www.oracle.com/cloud/">Oracle Cloud</a>
+            <li id="mysql">
+                <a href="https://www.mysql.com/">MySQL</a>
             </li>
         </ol>
     </section>
