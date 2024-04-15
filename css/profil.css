@@ -51,7 +51,12 @@ header{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
     align-items: left;   
+=======
+    justify-content: flex-end;
+    align-items: right; 
+>>>>>>> d2fc139c4570a2c7c144d5c6eff5151819599cdd
     margin-left: 8vw;
 }
 
@@ -60,6 +65,7 @@ div .logo{
     font-size: 4vw;
     font-weight: bold;
     margin-top: 20px;
+    margin-right: 10vw;
     position: relative;
     z-index: 3;
     text-decoration: none;
@@ -71,7 +77,6 @@ div .logo{
     display:flex;
     align-items: center;
     border-radius: 40px;
-    margin-right: -40px;
 }
 
 
