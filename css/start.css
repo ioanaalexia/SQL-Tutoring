@@ -154,7 +154,6 @@ ul li p{
     max-width: 2000px;
     margin: 0 auto;
     display: flex;
-    align-items: right;
     justify-content: flex-end;
     
 }
@@ -218,16 +217,16 @@ i{
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: scale 0.2s ease;
 }
 
 .action_btn:hover{
-    scale: 1.05;
+    transform:scale(1.05);
     color:#fff;
 }
 
 .action_btn:active{
-    scale: 0.95;
+    transform:scale(0.95);
 }
 
 /*Dropdown Menu*/

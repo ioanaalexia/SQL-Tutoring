@@ -13,6 +13,7 @@
         <header>
             <div class="navbar">
                 <div class="logo">SQL - Tutoring</div>
+                <div class="spacer"></div>
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
                     <li><a href="profil.html"  class="active">Profil</a></li>
@@ -91,12 +92,15 @@
         
 
         document.querySelector('.side-nav').addEventListener('mouseover', function() {
-            document.querySelector('div .logo').style.display = 'none';
+            document.querySelector('.logo').style.visibility = 'hidden';
+            document.querySelector('.spacer').style.flexGrow = '1';
         });
 
         document.querySelector('.side-nav').addEventListener('mouseout', function() {
-            document.querySelector('div .logo').style.display = 'block';
+            document.querySelector('.logo').style.visibility = 'visible';
+            document.querySelector('.spacer').style.flexGrow = '0';
         });
+
 
     </script>
 </body>
