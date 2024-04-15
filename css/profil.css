@@ -40,6 +40,10 @@ header{
     position: relative;
     padding: 0 2rem;
 }
+.spacer {
+    visibility: hidden; 
+    flex-grow: 1; 
+}
 
 .navbar{
     width: 90%;
@@ -48,7 +52,7 @@ header{
     display: flex;
     justify-content: space-between;
     justify-content: flex-end;
-    align-items: right;   
+    align-items: right; 
     margin-left: 8vw;
 }
 
