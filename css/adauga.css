@@ -7,8 +7,12 @@ html, body {
     display: flex;
     height: 80%;
     margin:0;
+    width: 600w;
 }
 
+.container .form{
+    text-align: center;
+}
 .column {
     flex: 1;
     padding: 20px;
@@ -77,12 +81,17 @@ header .profil{
 }
 
 .form2 input[type="text"] {
+   
+   
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     height: 355px;
     resize: vertical;
+    width: 100%;
+    text-orientation: sideways-right;
 }
+
 
 
 .form-border{
