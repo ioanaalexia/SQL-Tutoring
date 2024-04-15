@@ -364,7 +364,7 @@ main .pagina{
     box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
     margin: 1vw auto;
     max-width: 90%; 
-    width: 90%; 
+    width: 70%; 
     margin-bottom: 10px;
     margin-top: 40px;
   }
