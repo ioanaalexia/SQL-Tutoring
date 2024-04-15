@@ -19,8 +19,8 @@ header {
 
 
 
-header .logo a{
-
+header .logo{
+    cursor:pointer;
     color:#f4f4f4;
     font-weight: 700;
     font-size: 4vw;
