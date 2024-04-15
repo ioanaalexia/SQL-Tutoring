@@ -154,7 +154,6 @@ ul li p{
     max-width: 2000px;
     margin: 0 auto;
     display: flex;
-    align-items: right;
     justify-content: flex-end;
     
 }
