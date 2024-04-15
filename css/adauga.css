@@ -19,6 +19,7 @@ html, body {
     padding: 20px;
     border: 0 solid #ccc;
     box-sizing: border-box;
+    width: fit-content;
 }
 
 
@@ -67,42 +68,33 @@ header .profil{
 
 }
 
-.form-border, .form1, .form2 {
-    width: 80%;
+.form-border, .form1 {
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.form1 input[type="text"], .form2 input[type="text"]
+.form1 input[type="text"]
 {
+    width:90%;
     font-size: 1.0em;
     padding: 1em;
     margin-bottom: 1em;
     resize: vertical;
 }
 
-.form2 input[type="text"] {
-   
-   
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 355px;
-    resize: vertical;
-    width: 100%;
-    text-orientation: sideways-right;
-}
+
 
 
 
 .form-border{
     background: #fff;
-    padding: 1.2vw;
+    padding: 1vw;
     border-radius: 0.5vw;
     box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
     margin: 1vw auto;
     background-color: #dcd0f2;
-    width:90%; 
+    width:80%; 
     margin-bottom: 2vh;
     margin-top: 10px;
     height: auto;
@@ -120,9 +112,36 @@ button
     flex-direction: column;
     justify-content: center;
     background-color: #d9b5e9;
+
     
 }
 
+button:hover {
+    opacity: 0.8;
+}
+
+
+.custom-textarea{
+    width: 90%; 
+    height: 70%;
+    max-width: 500px; 
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+   
+}
+
+.column  .descriere{
+    height: 100%;
+}
+
+.descriere .form-border{
+    height: 80%;
+
+}
 
 @media screen and (max-width: 768px) {
     .container {
@@ -150,4 +169,10 @@ button
     .form2 input[type="text"] {
         height: 150px;
     }
+
+    .custom-textarea {
+        height: 90px; /* Reducerea înălțimii pentru ecrane mici */
+        width:90%;
+    }
 }
+
