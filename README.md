@@ -1,2 +1,3 @@
 # ProiectWEB_NOI
-Aici punem ce lucram noi personal
+
+Proiect realizat de Maxim Maria-Valeria si Popa Ioana-Alexia.
