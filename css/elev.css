@@ -108,16 +108,16 @@ header{
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: transform 0.2s ease;
 }
 
 .action_btn:hover{
-    scale: 1.05;
+   transform:scale(1.05);
     color:#fff;
 }
 
 .action_btn:active{
-    scale: 0.95;
+    transform:scale(0.95);
 }
 
 
@@ -161,7 +161,7 @@ header{
 main{
     height: calc(100vh - 60px);
     display: flex;
-    flex-direction: columns;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;

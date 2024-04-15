@@ -41,32 +41,34 @@ header{
 }
 
 .navbar{
-    width: 100%;
+    width: 90%;
     height: 60px;
-    max-width: 1800px;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;   
+    margin-left: 8vw;
+   
+    
 }
 
 div .logo{
-    color:black;
-    margin-right: 12vw;
-    font-weight: 700;
+    color:black;    
     font-size: 4vw;
     font-weight: bold;
     margin-top: 20px;
-    z-index: 1;
     position: relative;
     z-index: 3;
     text-decoration: none;
+    
+   
 }
 
 .navbar .links{
+    z-index: 2;
     margin-top: 20px;
     display:flex;
     align-items: center;
-    gap: 2;
     border-radius: 40px;
     margin-right: -40px;
 }
@@ -78,6 +80,7 @@ div .logo{
     font-size: 1.5rem;
     cursor:pointer;
     display:none;
+    margin-right: 5vw;
 }
 
 .navbar .links li a {
@@ -114,16 +117,16 @@ div .logo{
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: scale 0.2s ease;
 }
 
 .action_btn:hover{
-    scale: 1.05;
+   transform: scale(1.05);
     color:#fff;
 }
 
 .action_btn:active{
-    scale: 0.95;
+    transform: scale(0.95);
 }
 
 i{
@@ -175,7 +178,7 @@ i{
     margin-top: 10px;
     font-size: 20px;
     display: flex;
-    align-items: left;
+    align-items: flex-start;
     margin-left: -100px;
     margin-bottom: 10px;
 }
@@ -227,7 +230,6 @@ i{
     color: #333;
     margin-bottom: 0.2vw;
     margin-top: -5vw;
-    position: center;
     text-align: center;
 }
 
@@ -353,16 +355,6 @@ ul li p{
     justify-content: flex-start;
 }
   
-.navbar{
-    width: 98%;
-    height: 60px;
-    max-width: 1900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: right;
-    justify-content: flex-end;
-}
-
   .about{
     font-size: 3vw;
   }
@@ -394,6 +386,7 @@ ul li p{
     }
 
 
+    
 }
 
 @media(min-width: 576px) and (max-width: 992px){
@@ -469,6 +462,9 @@ ul li p{
     }
 
     div .logo {
-        font-size: 7vw;
+        display: block;
+        margin: 0 auto;
+        font-size: 6vw;
+        
     }
 }

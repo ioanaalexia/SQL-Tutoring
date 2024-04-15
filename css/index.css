@@ -67,7 +67,6 @@ header{
 .navbar .links{
     display:flex;
     align-items: center;
-    gap: 2;
     border-radius: 40px;
 }
 
@@ -114,16 +113,16 @@ header{
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: 0.2s ease;
 }
 
 .action_btn:hover{
-    scale: 1.05;
+    transform:scale(1.05);
     color:#fff;
 }
 
 .action_btn:active{
-    scale: 0.95;
+    transform:scale(0.95);
 }
 
 /*Dropdown Menu*/
