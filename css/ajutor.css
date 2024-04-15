@@ -64,7 +64,9 @@ footer {
     flex-shrink: 0;
 }
 
-
+p{
+    cursor:pointer;
+}
 
 .succes{
     background: #7c5db7;

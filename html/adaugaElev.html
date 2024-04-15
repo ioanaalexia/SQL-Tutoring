@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html"> SQL - Tutoring </a></div>
+        <div class="logo" onclick="goBack()" > SQL - Tutoring </div>
         <div class="profil"><a href="profil.html">Pagina mea</a></div>
     </header>
     <div class="container">
@@ -49,5 +49,11 @@
         <button type="submit">Trimite</button> 
     </div>
    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>
