@@ -66,25 +66,27 @@
     </div>
     </section>
     <script>
-       const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleBtnIcon = document.querySelector('.toggle_btn i');
-        const dropDownMenu = document.querySelector('.dropdown_menu');
-        const heroContent = document.querySelector('#hero'); // obiectul care conține h1 și butonul
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
 
         toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open');
-            const isOpen = dropDownMenu.classList.contains('open');
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
 
-            toggleBtnIcon.classList = isOpen 
-            ? 'fa-solid fa-xmark' 
-            : 'fa-solid fa-bars';
-    
-            if (isOpen) {
-                heroContent.style.display = 'none';
-            } else {
-            heroContent.style.display = 'block';
-            }
-        };
+            toggleBtnIcon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+        }
+        
+
+        document.querySelector('.side-nav').addEventListener('mouseover', function() {
+            document.querySelector('div .logo').style.display = 'none';
+        });
+
+        document.querySelector('.side-nav').addEventListener('mouseout', function() {
+            document.querySelector('div .logo').style.display = 'block';
+        });
 
     </script>
     
