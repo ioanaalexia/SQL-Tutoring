@@ -29,12 +29,12 @@ h1 {
 .table-responsive {
     overflow-x: auto;
 }
-#problemsTable {
+.problemsTable {
     width: auto;
     min-width: 75vw;
 }
 
-#problemsTable th, #problemsTable td {
+.problemsTable th, #problemsTable td {
     border: 1px solid #ddd;
     padding: 1vw;
     text-align: left;
@@ -69,7 +69,7 @@ footer{
 }
 
 
-#problemsTable th {
+.problemsTable th {
     background-color: #f2f2f2;
 }
 
