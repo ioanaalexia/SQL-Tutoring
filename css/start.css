@@ -154,6 +154,7 @@ ul li p{
     max-width: 2000px;
     margin: 0 auto;
     display: flex;
+    align-items: right;
     justify-content: flex-end;
     
 }
@@ -217,16 +218,16 @@ i{
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2s ease;
+    transition: scale 0.2 ease;
 }
 
 .action_btn:hover{
-    transform:scale(1.05);
+    scale: 1.05;
     color:#fff;
 }
 
 .action_btn:active{
-    transform:scale(0.95);
+    scale: 0.95;
 }
 
 /*Dropdown Menu*/
@@ -298,7 +299,7 @@ a{
     color:black;
   }
 
-main .pagina{
+div .pagina{
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -317,7 +318,7 @@ main .pagina{
   
 
  
-  main .image-container {
+  div .image-container {
     position: relative;
     display: inline-block; 
   }
@@ -379,7 +380,6 @@ main .pagina{
 
 footer {
     z-index: 10;
-    height: 100%;
     width: 100%;
     text-align: center;
     background-color: #e6ccff; 
