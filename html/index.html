@@ -14,7 +14,7 @@
         <div class="navbar">
             <div class="logo"><a href="#"> SQL - Tutoring </a></div>
             <ul class="links">
-                <li><a href="login&sign_up.html">Login/Sign-up</a></li>
+                <li><a href="login_signup.html">Login/Sign-up</a></li>
                 <li><a href="ajutor.html">Ajutor</a></li>
             
             <li><a href="despre.html" class="action_btn">Despre</a></li>
@@ -25,30 +25,14 @@
         </div>
 
         <ol class="dropdown_menu">
-            <li><a href="login&sign_up.html">Login/Sign-up</a></li>
-            <li><a href="help.html">Ajutor</a></li>
+            <li><a href="login_signup.html">Login/Sign-up</a></li>
+            <li><a href="ajutor.html">Ajutor</a></li>
             <li><a href="despre.html" class="action_btn">Despre</a></li>
         </ol>
     </header>
 
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
-
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-        }
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <script src="../js/scripts/dropdown_menu.js"></script>
+    <script src="../js/scripts/goback.js"></script>
      
 </body>
-
 </html>

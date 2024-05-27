@@ -76,32 +76,7 @@
         <footer class="about"><a href="despre.html" class="about" target="_blank">Despre</a></footer>
     </div>
 
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
-
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-        }
-        
-
-        document.querySelector('.side-nav').addEventListener('mouseover', function() {
-            document.querySelector('.logo').style.visibility = 'hidden';
-            document.querySelector('.spacer').style.flexGrow = '1';
-        });
-
-        document.querySelector('.side-nav').addEventListener('mouseout', function() {
-            document.querySelector('.logo').style.visibility = 'visible';
-            document.querySelector('.spacer').style.flexGrow = '0';
-        });
-
-
-    </script>
+    <script src="../js/scripts/dropdown_menu.js"></script>
+    <script src="../js/scripts/hide_logo.js"></script>
 </body>
 </html>

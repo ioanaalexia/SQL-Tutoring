@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login&sign_up.css">
+    <title>Document</title>   
+</head>
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form id="signup-form" action="/signup" method="POST">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" name="username" placeholder="Username" required="">
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="password" name="parola" placeholder="Parola" required="">
+                <button type="submit"> Sign up</button> 
+            </form>    
+        </div>
+        <div class="login">
+                <form id="login-form" action="/login" method="POST">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="parola" placeholder="Parola" required="">
+                        <button type="submit">Login</button> 
+                </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/scripts/signupError.js"></script>
+    <script src="../js/scripts/loginError.js"></script>
+ 
+        
+  
+</body>
+
+</html>

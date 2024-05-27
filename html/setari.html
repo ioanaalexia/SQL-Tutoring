@@ -13,6 +13,7 @@
         <header>
             <div class="navbar">
                 <div class="logo">SQL - Tutoring</div>
+                <div class="spacer"></div>
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
                     <li><a href="profil.html"  class="active">Profil</a></li>
@@ -79,30 +80,7 @@
         </div>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
-
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
-
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-        }
-        
-
-        document.querySelector('.side-nav').addEventListener('mouseover', function() {
-            document.querySelector('div .logo').style.display = 'none';
-        });
-
-        document.querySelector('.side-nav').addEventListener('mouseout', function() {
-            document.querySelector('div .logo').style.display = 'block';
-        });
-
-    </script>
+    <script src="../js/scripts/dropdown_menu.js"></script>
+    <script src="../js/scripts/hide_logo.js"></script>
 </body>
 </html>

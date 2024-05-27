@@ -14,6 +14,7 @@
         <header>
             <div class="navbar">
                 <div class="logo">SQL - Tutoring</div>
+                <div class="spacer"></div>
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
                     <li><a href="profil.html">Profil</a></li>
@@ -44,51 +45,28 @@
                 <img src="../images/star.png" class="star-img" alt="imagine">  
             </div>
             <ul>
-                <li><img src="../images/1.png" alt="imagine"><a href="intrebari.html" target="_self"><p>Capitolul 1</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="intrebari.html" target="_self"><p>Capitolul 2</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="intrebari.html" target="_self"><p>Capitolul 3</p></a></li> 
-                <li><img src="../images/4.png" alt="imagine"><a href="intrebari.html" target="_self"><p>Capitolul 4</p></a></li> 
-                <li><img src="../images/5.png" alt="imagine"><a href="intrebari.html" target="_self"><p>Capitolul 5</p></a></li> 
+                <li><img src="../images/1.png" alt="imagine"><a href="/cap1"><p>Capitolul 1</p></a></li> 
+                <li><img src="../images/2.png" alt="imagine"><a href="/cap2"><p>Capitolul 2</p></a></li> 
+                <li><img src="../images/3.png" alt="imagine"><a href="/cap3"><p>Capitolul 3</p></a></li> 
+                <li><img src="../images/4.png" alt="imagine"><a href="/cap4"><p>Capitolul 4</p></a></li> 
+                <li><img src="../images/5.png" alt="imagine"><a href="/cap5"><p>Capitolul 5</p></a></li> 
                 </ul>
  
+             <div class="exit">
              <ul>
-                 <li><img src="../images/logout.png" alt="imagine"><a href="elev.html"><p>Exit</p></a></li>
+                 <li><img src="../images/logout.png" alt="imagine"><a href="/elev"><p>Exit</p></a></li>
              </ul>
+            </div>
         </aside>
         
-        <main class="main-content">
-            
-        
-        </div>    
-        </main>
-
+        <main id="main-page"></main>
+    
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
     </section>
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
+    <script src="../js/scripts/router.js"></script>
+    <script src="../js/scripts/dropdown_menu.js"></script>
+    <script src="../js/scripts/hide_logo.js"></script>
 
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-        }
-        
-
-        document.querySelector('.side-nav').addEventListener('mouseover', function() {
-            document.querySelector('div .logo').style.display = 'none';
-        });
-
-        document.querySelector('.side-nav').addEventListener('mouseout', function() {
-            document.querySelector('div .logo').style.display = 'block';
-        });
-
-    </script>
-    
 </body>
 </html>

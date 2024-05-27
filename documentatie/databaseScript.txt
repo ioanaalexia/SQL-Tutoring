@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS `SQL-Tutoring`
+CREATE DATABASE `myapp`;
+USE `myapp`;
+
+CREATE TABLE Users(
+
+	user_id INT NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(50),
+    parola VARCHAR(20),
+    rol VARCHAR(5),
+    PRIMARY KEY(user_id)
+
+);
+
+INSERT INTO Users (user_id, username, email, parola, rol)
+VALUES (1, 'utilizator1', 'utilizator1@example.com', 'parola1', 'admin');
+
+select * from users;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH `Valeria_2004` BY '';
