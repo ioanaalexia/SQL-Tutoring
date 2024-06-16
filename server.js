@@ -2,71 +2,38 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const { StringDecoder } = require('string_decoder');
-const UserController = require('./js/controllers/UserController');
-const userController = new UserController();
+const userRoutes = require('./js/routes/userRoutes'); // asigură-te că calea este corectă
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer(async(req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
-    
+    const method = req.method;
 
-    if (req.method === 'GET') {
-    
-        if(pathname==='/html/start.html'){
-            console.log("sunt pe start")
-            await userController.startupUser(req, res);    
-        }
-        if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
-            serveStaticFile(res, pathname);
-           
-            return;
-        }
-
+    // Delegarea rutelor de utilizator către userRoutes
+    if (pathname === '/html/start.html') {
+        console.log("sunt pe start");
+        await userCOntroller.startupUser(req, res);    
+    } if (pathname.startsWith('/signup') || pathname.startsWith('/login')) {
+        userRoutes(req, res, pathname, method);
+    } else if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
+        serveStaticFile(res, pathname);
+    } else if (pathname === '/') {
         // Servește pagina principală
-        if (pathname === '/') {
-            fs.readFile('./html/index.html', 'utf8', (err, data) => {
-                if (err) {
-                    res.writeHead(404);
-                    res.end("404 Not Found");
-                } else {
-                    res.writeHead(200, {'Content-Type': 'text/html'});
-                    res.end(data);
-                }
-            });
-        }
-        else {
-            res.writeHead(404);
-            res.end("404 Not Found");
-        }
-    } else if (req.method === 'POST') {
-        console.log(pathname)
-
-            
-            if (pathname === '/login') {
-                await userController.loginUser(req, res);    
-            } else if(pathname === '/signup'){
-                await userController.newUser(req, res);
-            }
-            else {
+        fs.readFile('./html/index.html', 'utf8', (err, data) => {
+            if (err) {
                 res.writeHead(404);
                 res.end("404 Not Found");
+            } else {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(data);
             }
+        });
     } else {
-        res.writeHead(405);
-        res.end("405 Method Not Allowed");
+        // Pentru toate celelalte rute nedefinite
+        res.writeHead(404);
+        res.end("404 Not Found");
     }
 });
-
-function parseFormData(data) {
-    const pairs = data.split('&');
-    const formData = {};
-    pairs.forEach(pair => {
-        const [key, value] = pair.split('=');
-        formData[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
-    });
-    return formData;
-}
 
 function serveStaticFile(res, pathname) {
     const filePath = path.join(__dirname,pathname);
