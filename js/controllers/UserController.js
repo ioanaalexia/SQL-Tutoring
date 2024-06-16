@@ -43,7 +43,7 @@ class UserController extends BaseController {
         if (!result.success) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, message: result.message }));
-        } else {
+        } else {//aici userul a fost identificat-->gestionam auth cu jwt
            
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: true, redirectUrl: '/html/elev.html' }));
