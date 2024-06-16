@@ -1,0 +1,64 @@
+Ce mi-a placut:
+Paginile sunt ok, sunt ingrijite, ati avut grja sa le faceti responsive, documentatia este OK(ish), am vazut ca are si adnotarile semantiuce dorite
+
+Ce ar mai fi trebuit sa fie (sau ce nu mi-a placut):
+Nu am reusit sa navighez prin toate paginile din interfata (probabil ca nu am apasat pe butoanele care trebuiau)... fie nu le aveti, fie nu sunt foarte intuitive...
+Paginile nu sunt validate (cel putin cateva pe care le-am incercat). 
+
+
+-----------
+Concluzii: Nota 8-9 
+
+
+
+
+
+
+
+
+
+
+La ce ma uit la evaluarea acestei componente:
+
+=================================================================================================
+Ce pagini ma astept sa gasesc intr-o astfel de aplicatie (SQL tutoring) cel putin:
+
+- pagina de autentificare / resetare parola / inregistrare
+- pagina de introducere a unei probleme
+- pagina in care sa se vada problemele
+- pagina care sa imi permita rezolvarea unei probleme
+- sa se vada ca pot adauga un calificativ intrebarii
+- o serie de rapoarte (despre orice: pe intrebari sau pe useri sau pe orice altceva)
+=================================================================================================
+
+Ma astept, de asemenea, sa gasesc un document scholarly care sa descrie fiecare dintre 
+paginile de mai sus si felul de interactiune (cum se trece de la una la cealalta). Ce
+motivatie a existat in alegerile facute (font, culoare, flow-ul aplicatiei, etc.).
+Scholarly trebuie sa aiba adnotari semantice (a se citi felul in care trebuie construit
+aici: https://w3c.github.io/scholarly-html/ - link dat in descrierea proiectelor)
+
+
+Documentele sa fie neaparat asezate in foldere, pe categorii:
+IMG / CSS / JS / etc. 
+
+Paginile trebuie sa fie valide HTML (vor fi validate cu https://validator.w3.org)
+
+CSSul trebuie sa fie valide cu http://csslint.net/
+
+Paginile trebuie sa fie responsive.... le voi verifica prin micsorarea ferestrei dar
+si prin selectarea telefon / PC (ma astept ca diversele elemente grafice sa nu 
+se suprapuna in rezolutii mai mici, sa nu apara scrolluri orizontale (decat daca au
+fost gandite din design - fapt specificat in scholarly), textul sa fie citibil si pe
+telefon si pagina sa nu fie doar scalata de catre acesta intr-o incercare a acestuia
+a afisa ceva cat de cat corect.
+
+Siteul trebuie sa fie navigabil (dau click pe index.html si de acolo pot naviga apasand
+diverse linkuri sau butoane catre celelalte pagini).
+
+Sa nu fie erori de legatura intre diverse documente (de exemplu nu ma apuc sa vad eu pe
+unde este CSSul care nu se incarca in HTMLul vostru).
+
+Orice proiect trebuie sa aiba minim 5 pagini care respecta aceste conditii pentru
+a lua nota 5. Daca ai 10, vei lua 10.
+
+
