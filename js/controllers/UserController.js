@@ -1,6 +1,6 @@
 const BaseController = require('./BaseController');
 const UserModel = require('../models/UserModel');
-
+const AuthService=require('../services/AuthService')
 
 //@desc signing up a user
 //@route POST /signup
@@ -9,6 +9,10 @@ class UserController extends BaseController {
     constructor() {
         super();
         this.userModel = new UserModel();
+    }
+
+    async startupUser(req,res){
+        this.userModel.startupUser(req,res);
     }
 
     async  newUser(req,res){
@@ -21,7 +25,7 @@ class UserController extends BaseController {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, message: result.message }));
         } else {
-           
+            res.setHeader('Set-Cookie', `authToken=${result.token}; HttpOnly; Path=/; Max-Age=86400`);
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: true, redirectUrl: '/html/elev.html' }));
         }
@@ -44,7 +48,7 @@ class UserController extends BaseController {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, message: result.message }));
         } else {//aici userul a fost identificat-->gestionam auth cu jwt
-           
+            res.setHeader('Set-Cookie', `authToken=${result.token}; HttpOnly; Path=/; Max-Age=86400`);
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: true, redirectUrl: '/html/elev.html' }));
         }
@@ -56,8 +60,6 @@ class UserController extends BaseController {
 
 }
 }
-
-
 
 
 module.exports = UserController;

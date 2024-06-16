@@ -13,6 +13,10 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === 'GET') {
     
+        if(pathname==='/html/start.html'){
+            console.log("sunt pe start")
+            await userController.startupUser(req, res);    
+        }
         if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
             serveStaticFile(res, pathname);
            

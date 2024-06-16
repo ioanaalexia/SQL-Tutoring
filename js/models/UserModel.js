@@ -1,16 +1,21 @@
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const connectionPromise = require('../database');
+const AuthService = require('../services/AuthService');
 
 class UserModel {
     constructor() {
         this.saltRounds = 10;
+        this.authService = new AuthService();
     }
 
     async generateUserId() {
         return Math.floor(Math.random() * 1000000) + 1; 
     }
-
+    async startupUser(req,res){
+        const response=this.authService.decodeToken(req,res);
+        console.log(response)
+    }
     async addNewUser(userData) {
         userData.user_id = await this.generateUserId();
         const connection = await connectionPromise;
@@ -22,9 +27,15 @@ class UserModel {
         try {
             const hashedPass = bcrypt.hashSync(userData.parola, this.saltRounds);
             const values = [userData.user_id, userData.username, userData.email, hashedPass];
-            const sql = 'INSERT INTO `users`(`user_id`, `username`, `email`, `parola`) VALUES (?,?,?,?)';
+            const sql = 'INSERT INTO `users`(`user_id`, `username`, `email`, `password`) VALUES (?,?,?,?)';
             await connection.execute(sql, values);
-            return { success: true, message: 'User registered successfully' };
+            const token = this.authService.generateToken({
+                userId: userData.user_id,
+                username: userData.username,
+                email: userData.email
+              });
+              //trebuie adaugat si rolul!!!
+            return { success: true, token, message: 'User registered successfully' };
         } catch (err) {
             console.log(err);
             return { success: false, message: 'An error occurred during registration' };
@@ -34,10 +45,16 @@ class UserModel {
     async verifyUser(userData) {
         const connection = await connectionPromise;
         try {
-            const sql = 'SELECT parola FROM users WHERE email=?';
+            const sql = 'SELECT user_id,email,username,password FROM users WHERE email=?';
             const [result] = await connection.execute(sql, [userData.email]);
             if (result.length > 0 && await bcrypt.compare(userData.parola, result[0].parola)) {
-                return { success: true, message: 'User authenticated successfully' };
+                const token = this.authService.generateToken({
+                    userId: result[0].user_id,
+                    username: result[0].username,
+                    email: result[0].email
+                  });
+               // res.setHeader('Set-Cookie', `authToken=${token}; HttpOnly; Path=/; Max-Age=86400`);
+                return { success: true,token, message: 'User authenticated successfully' };
             }
             return { success: false, message: 'Invalid email or password' };
         } catch (err) {
@@ -47,13 +64,13 @@ class UserModel {
     }
 
     async isRegistered(connection, username) {
-        const sql = 'SELECT * FROM Users WHERE username=?';
+        const sql = 'SELECT * FROM users WHERE username=?';
         const [result] = await connection.execute(sql, [username]);
         return result.length > 0;
     }
 
     async alreadyExists(connection, email) {
-        const sql = 'SELECT * FROM Users WHERE email=?';
+        const sql = 'SELECT * FROM users WHERE email=?';
         const [result] = await connection.execute(sql, [email]);
         return result.length > 0;
     }
