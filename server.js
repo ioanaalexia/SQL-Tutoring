@@ -4,18 +4,24 @@ const url = require('url');
 const path = require('path');
 const cookie = require('cookie');
 const routeController = require('./js/routes/userRoutes');
+const questionController = require('./js/routes/questionRoutes');
 
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
+    console.log(pathname)
     const method = req.method;
 
     if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout') {
         routeController(req, res, pathname, method);
-    } else if(pathname==='/html/start.html'){
+    } else if(pathname === '/getQuestion' || pathname === '/questions'){
+        questionController(req,res,pathname,method);
+        console.log("sunt in getquestion")
+
+    }/*else if(pathname==='/html/start.html'){
         console.log("sunt pe start")
         await userController.startupUser(req, res);    
-    } 
+    } */
     else if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
         serveStaticFile(res, pathname);
     } else if (pathname === '/') {

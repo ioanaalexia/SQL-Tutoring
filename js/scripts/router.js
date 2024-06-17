@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+
     const mainContent = document.getElementById('main-page');
+    const element=document.getElementById('chapters');
 
     document.querySelector('.exit a').addEventListener('click', function(event) {
         // Opțiunea implicită de redirectionare a link-ului este oprită
@@ -8,40 +9,51 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'elev.html';
     });
     
-    document.querySelectorAll('.side-nav a').forEach(link => {
-        link.addEventListener('click', navigate);
-    });
-
-    
-
-    function navigate(event) {
+    fetch("../html/questions.html")
+    .then(response => {
+        if (response.ok) {
+            
+            return response.text();
+        } else {
+            throw new Error('Failed to fetch content');
+        }
+    })
+    .then(html => {
+        mainContent.innerHTML = html; // Inject the HTML content into the main element
         
-        event.preventDefault();
-
-        
-        const path = event.target.closest('a').getAttribute('href');
-
-        
-        fetchContent(path);
-    }
-
-    function fetchContent(path) {
-       
-        fetch(`../html${path}.html`)  // Adjust the path based on your actual HTML files location
+        element.addEventListener("click",event=>{
+            const chapterTitle=document.getElementById("title");
+            chapterTitle.textContent=event.target.textContent;//aici am titlul capitolului
+            
+            
+            
+            const url="/getQuestion?"+"chapter="+chapterTitle.textContent;
+            console.log(url)
+            fetch(url)
             .then(response => {
                 if (response.ok) {
-                    return response.text();
+                   return response.text();
                 } else {
                     throw new Error('Failed to fetch content');
                 }
+            }).then(data => {
+                const parsedData = JSON.parse(data);
+                const questionText=document.getElementById("questionText")
+                questionText.textContent=parsedData.question;
+               
             })
-            .then(html => {
-                mainContent.innerHTML = html; // Inject the HTML content into the main element
-            })
-            .catch(error => {
-                console.error('Error loading the chapter:', error);
-                mainContent.innerHTML = '<p>Error loading content. Please try again later.</p>';
-            });
-    }
-});
+            
+        }) 
+      
+    })
+    .catch(error => {
+        console.error('Error loading the chapter:', error);
+        mainContent.innerHTML = '<p>Error loading content. Please try again later.</p>';
+    });
+    
+    
+            
 
+    
+
+   
