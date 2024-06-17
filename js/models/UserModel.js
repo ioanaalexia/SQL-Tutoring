@@ -53,7 +53,7 @@ class UserModel {
                     username: result[0].username,
                     email: userData.email
                   });
-               // res.setHeader('Set-Cookie', `authToken=${token}; HttpOnly; Path=/; Max-Age=86400`);
+               
                 return { success: true,token, message: 'User authenticated successfully' };
             }
             return { success: false, message: 'Invalid email or password' };
