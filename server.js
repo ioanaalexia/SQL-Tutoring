@@ -2,41 +2,41 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const userRoutes = require('./js/routes/userRoutes'); // asigură-te că calea este corectă
+const cookie = require('cookie');
+const routeController = require('./js/routes/userRoutes');
 
-const server = http.createServer(async(req, res) => {
+const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
+    const cookies = cookie.parse(req.headers.cookie || '');
     const method = req.method;
 
-    // Delegarea rutelor de utilizator către userRoutes
-    if (pathname === '/html/start.html') {
-        console.log("sunt pe start");
-        await userCOntroller.startupUser(req, res);    
-    } if (pathname.startsWith('/signup') || pathname.startsWith('/login')) {
-        userRoutes(req, res, pathname, method);
-    } else if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
+    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout') {
+        routeController(req, res, pathname, method);
+    } else if(pathname==='/html/start.html'){
+        console.log("sunt pe start")
+        await userController.startupUser(req, res);    
+    } 
+    else if (pathname.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
         serveStaticFile(res, pathname);
     } else if (pathname === '/') {
-        // Servește pagina principală
         fs.readFile('./html/index.html', 'utf8', (err, data) => {
             if (err) {
                 res.writeHead(404);
                 res.end("404 Not Found");
             } else {
-                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.end(data);
             }
         });
     } else {
-        // Pentru toate celelalte rute nedefinite
         res.writeHead(404);
         res.end("404 Not Found");
     }
 });
 
 function serveStaticFile(res, pathname) {
-    const filePath = path.join(__dirname,pathname);
+    const filePath = path.join(__dirname, pathname);
     const ext = path.extname(filePath);
     const mimeTypes = {
         '.html': 'text/html',
@@ -52,14 +52,13 @@ function serveStaticFile(res, pathname) {
         if (err) {
             res.writeHead(404);
             res.end("File not found");
-            return;
+        } else {
+            res.writeHead(200, {'Content-Type': mimeTypes[ext] || 'text/plain'});
+            res.end(content);
         }
-        res.writeHead(200, {'Content-Type': mimeTypes[ext] || 'text/plain'});
-        res.end(content);
     });
 }
 
 server.listen(3500, () => {
     console.log('Server is running on http://localhost:3500');
 });
-

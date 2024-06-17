@@ -45,13 +45,13 @@ class UserModel {
     async verifyUser(userData) {
         const connection = await connectionPromise;
         try {
-            const sql = 'SELECT user_id,email,username,password FROM users WHERE email=?';
+            const sql = 'SELECT user_id,username,password FROM users WHERE email=?';
             const [result] = await connection.execute(sql, [userData.email]);
-            if (result.length > 0 && await bcrypt.compare(userData.parola, result[0].parola)) {
+            if (result.length > 0 && await bcrypt.compare(userData.parola, result[0].password)) {
                 const token = this.authService.generateToken({
                     userId: result[0].user_id,
                     username: result[0].username,
-                    email: result[0].email
+                    email: userData.email
                   });
                // res.setHeader('Set-Cookie', `authToken=${token}; HttpOnly; Path=/; Max-Age=86400`);
                 return { success: true,token, message: 'User authenticated successfully' };
