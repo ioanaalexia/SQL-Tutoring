@@ -23,7 +23,7 @@ class AuthService {
   return token;
 }
 
-decodeToken(req){
+decodeToken(req) {
   var cookies = cookie.parse(req.headers.cookie || '');
   var token = cookies.authToken;
 
@@ -35,7 +35,6 @@ decodeToken(req){
     return null;
   }
 }
-
 
 }
 

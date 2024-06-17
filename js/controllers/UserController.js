@@ -1,7 +1,8 @@
 const BaseController = require('./BaseController');
 const UserModel = require('../models/UserModel');
-const AuthService=require('../services/AuthService')
-
+const AuthService=require('../services/AuthService');
+const utils=require('../utils')
+const cookie=require('cookie')
 //@desc signing up a user
 //@route POST /signup
 
@@ -59,6 +60,11 @@ class UserController extends BaseController {
     }
 
 }
+    async logoutUser(req,res){
+        utils.setCookie(res, 'authToken', '', { maxAge: 1 });
+        res.writeHead(302, { 'Location': '/html/index.html' });
+        res.end();
+    }
 }
 
 

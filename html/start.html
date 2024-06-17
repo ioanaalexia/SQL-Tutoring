@@ -18,7 +18,7 @@
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
                     <li><a href="profil.html">Profil</a></li>
-                    <li><a href="index.html">Logout</a></li>
+                    <li><a href="/logout">Logout</a></li>
                     <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
                     </ul>
                 <div class="toggle_btn">
@@ -29,7 +29,7 @@
             <ol class="dropdown_menu">
                 <li><a href="">Acasa</a></li>
                 <li><a href="profil.html">Profil</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="/logout">Logout</a></li>
                 <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
             </ol>
     </header>
@@ -38,23 +38,23 @@
             <div class="user">
                 <img src="../images/robo.png" class="user-img" alt="imagine">
                 <a href="profil.html"><div>
-                    <h2>Popa Alexia</h2>
-                    <p>maria@gmail.com</p>
+                    <h2 id="username"></h2>
+                    <p id="email"></p>
                 </div>
                 </a>
                 <img src="../images/star.png" class="star-img" alt="imagine">  
             </div>
             <ul>
-                <li><img src="../images/1.png" alt="imagine"><a href="/cap1"><p>Capitolul 1</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="/cap2"><p>Capitolul 2</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="/cap3"><p>Capitolul 3</p></a></li> 
-                <li><img src="../images/4.png" alt="imagine"><a href="/cap4"><p>Capitolul 4</p></a></li> 
-                <li><img src="../images/5.png" alt="imagine"><a href="/cap5"><p>Capitolul 5</p></a></li> 
+                <li><img src="../images/1.png" alt="imagine"><a href="/cap1"><p>JOIN</p></a></li> 
+                <li><img src="../images/2.png" alt="imagine"><a href="/cap2"><p>ORDER BY</p></a></li> 
+                <li><img src="../images/3.png" alt="imagine"><a href="/cap3"><p>GROUP BY</p></a></li> 
+                <li><img src="../images/4.png" alt="imagine"><a href="/cap4"><p>Functii de agregare</p></a></li> 
+                <li><img src="../images/5.png" alt="imagine"><a href="/cap5"><p>Subinterogari</p></a></li> 
                 </ul>
  
              <div class="exit">
              <ul>
-                 <li><img src="../images/logout.png" alt="imagine"><a href="/elev"><p>Exit</p></a></li>
+                 <li><img src="../images/logout.png" alt="imagine"><a href="/elev.html"><p>Exit</p></a></li>
              </ul>
             </div>
         </aside>
@@ -67,6 +67,6 @@
     <script src="../js/scripts/router.js"></script>
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
-
+    <script src="../js/scripts/user_profile.js"></script>
 </body>
 </html>
