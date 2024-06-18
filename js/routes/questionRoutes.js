@@ -26,6 +26,7 @@ function questionRoutes(req, res, pathname, method) {
 function handleGetRequest(req, res, pathname, userData) {
     console.log(userData)
     if (pathname === '/getQuestion') {
+        console.log("in get quesrion")
         questionController.getQuestion(req, res,userData);
     } 
      else {

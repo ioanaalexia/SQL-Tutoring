@@ -4,6 +4,7 @@ const AuthService = require('../services/AuthService');
 const userController = new UserController();
 const authService= new AuthService();
 
+
 function userRoutes(req, res, pathname, method) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.authToken;
@@ -24,6 +25,7 @@ function userRoutes(req, res, pathname, method) {
 }
 
 function handleGetRequest(req, res, pathname, userData) {
+  
     if (pathname === '/logout') {
         userController.logoutUser(req, res);
     } else if (pathname === '/api/user-info') {
