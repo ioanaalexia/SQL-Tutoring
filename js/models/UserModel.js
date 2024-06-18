@@ -86,21 +86,45 @@ class UserModel {
         }
     }
 
-    async updateUserProfile(updateData) {
-        const connection = await connectionPromise;
-        const sql = 'UPDATE `users` SET `username` = ?, `email` = ? WHERE `user_id` = ?';
-        await connection.execute(sql, [updateData.name, updateData.email, updateData.userId]);
-        return { success: true, message: 'Profile updated successfully' };
+    async updateUserProfile(userId, profileData) {
+    const connection = await connectionPromise;
+    let updateFields = [];
+    let values = [];
+    
+
+
+    const valuesArray = Object.values(profileData);
+    console.log(valuesArray);
+
+    console.log("Starting profile update...");
+
+    console.log(valuesArray[2])
+    if (valuesArray[2]) {
+        console.log('Updating password:', valuesArray[2]);
+        const hashedPass = bcrypt.hashSync(valuesArray[2], this.saltRounds);
+        updateFields.push('password = ?');
+        values.push(hashedPass);
     }
 
-    async updatePassword(userId, newPassword) {
-        const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
-        console.log('Updating password to:', hashedPassword); // Log the hashed password
-        const connection = await connectionPromise;
-        const sql = 'UPDATE `users` SET `password` = ? WHERE `user_id` = ?';
-        await connection.execute(sql, [hashedPassword, userId]);
-        return { success: true, message: 'Password updated successfully' };
+    // Dacă nu există câmpuri de actualizat, ieșim din funcție
+    if (updateFields.length === 0) {
+        console.log("No fields to update");
+        return false;
     }
+
+    // Adăugăm userId la finalul array-ului de valori pentru condiția WHERE
+    values.push(userId);
+    const sql = `UPDATE users SET ${updateFields.join(', ')} WHERE user_id = ?`;
+
+    try {
+        const [result] = await connection.execute(sql, values);
+        console.log("Profile updated successfully:", result);
+        return true;
+    } catch (error) {
+        console.error('Error updating user profile:', error);
+        return false;
+    }
+}
 
 }
 

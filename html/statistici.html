@@ -16,29 +16,29 @@
                 <div class="spacer"></div>
                 <ul class="links">
                     <li><a href="elev.html">Acasa</a></li>
-                    <li><a href="profil.html" class="active">Profil</a></li>
+                    <li><a href="profil.html"  class="active">Profil</a></li>
                     <li><a href="index.html">Logout</a></li>
                     <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
-                </ul>
+                    </ul>
                 <div class="toggle_btn">
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-
+    
             <ol class="dropdown_menu">
-                <li><a href="elev.html">Acasa</a></li>
+                <li><a href="">Acasa</a></li>
                 <li><a href="profil.html">Profil</a></li>
                 <li><a href="index.html">Logout</a></li>
                 <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
             </ol>
-        </header>
+    </header>
 
         <aside class="side-nav">
             <div class="user">
                 <img src="../images/robo.png" class="user-img">
                 <a href="profil.html"><div>
-                    <h2 id="username"></h2>
-                    <p id="email"></p>
+                    <h2>Popa Alexia</h2>
+                    <p>maria@gmail.com</p>
                 </div>
                 </a>
                 <img src="../images/star.png" class="star-img">  
@@ -53,59 +53,32 @@
                 <li><img src="../images/logout.png"><a href="elev.html"><p>Exit</p></a></li>
             </ul>
         </aside>
-
         <main class="main-content">
-            <form id="profileForm">
-                <label for="name">Nume:</label>
-                <input type="text" id="name" name="name" placeholder="Numele tău">
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Email-ul tău">
-                
-                <label for="newPassword">Parolă nouă:</label>
-                <input type="password" id="newPassword" name="newPassword" placeholder="Parolă nouă">
-                
-                <button type="submit">Salvează Modificările</button>
-            </form>
-            <button id="logoutButton">Deconectare</button>
+            <div class="filter-section">
+                <input type="text" id="searchBox" placeholder="Cauta probleme..." onkeyup="filterProblems()">
+                <select id="statusFilter" onchange="filterProblems()">
+                    <option value="all">Toate</option>
+                    <option value="solved">Rezolvate</option>
+                    <option value="unsolved">Nerezolvate</option>
+                </select>
+            </div>
+            <div class="table-responsive">
+                <table id="problemsTable">
+                    <thead>
+                        <tr>
+                            <th>Nume Problema</th>
+                            <th>Încercări Greșite</th>
+                            <th>Status</th>
+                            <th>Dificultate</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </main>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
 
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
-    <script src="../js/scripts/user_profile.js"></script>
-    <script>
-       document.getElementById('profileForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const newPassword = document.getElementById('newPassword').value;
-
-            console.log("Form data:", { name, email, newPassword });
-
-            const response = await fetch('/update-profile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    newPassword
-                })
-            });
-
-            if (response.ok) {
-                alert('Modificările au fost salvate cu succes.');
-            } else {
-                alert('A apărut o eroare la salvarea modificărilor.');
-            }
-        });
-
-        document.getElementById('logoutButton').addEventListener('click', function() {
-            window.location.href = '/logout';
-        });
-    </script>
 </body>
 </html>

@@ -6,6 +6,8 @@ const cookie = require('cookie');
 const routeController = require('./js/routes/userRoutes');
 const questionController = require('./js/routes/questionRoutes');
 const middleware=require('./js/middleware/AuthMiddleware')
+
+
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
@@ -13,7 +15,8 @@ const server = http.createServer(async (req, res) => {
     const method = req.method;
     const ext = path.extname(pathname);
 
-    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/change-password') {
+    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' ) {
+        console.log("server");
         routeController(req, res, pathname, method);
     } else if(pathname === '/getQuestion' || pathname === '/questions'){
         questionController(req,res,pathname,method);

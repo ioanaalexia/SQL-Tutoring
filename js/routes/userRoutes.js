@@ -5,6 +5,7 @@ const userController = new UserController();
 const authService= new AuthService();
 
 
+
 function userRoutes(req, res, pathname, method) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.authToken;
@@ -47,11 +48,16 @@ function handlePostRequest(req, res, pathname, userData) {
         userController.loginUser(req, res);
     } else if (pathname === '/signup') {
         userController.newUser(req, res);
-    } else if (pathname === '/update-profile') {
-        userController.updateProfile(req, res, userData);
-    } else if (pathname === '/change-password') {
-        userController.changePassword(req, res, userData);
-    } else {
+    } else if (pathname === '/api/update-profile') {
+        console.log("hei31");
+        if (userData) {
+            console.log(userData);
+            userController.updateProfile(req, res, userData);
+        } else {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'User not authenticated' }));
+        }
+    }else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }
