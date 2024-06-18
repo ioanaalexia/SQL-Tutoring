@@ -74,6 +74,34 @@ class UserModel {
         const [result] = await connection.execute(sql, [email]);
         return result.length > 0;
     }
+
+    async findUserById(userId) {
+        const connection = await connectionPromise;
+        const sql = 'SELECT * FROM users WHERE user_id=?';
+        const [result] = await connection.execute(sql, [userId]);
+        if (result.length > 0) {
+            return result[0];
+        } else {
+            return null;
+        }
+    }
+
+    async updateUserProfile(updateData) {
+        const connection = await connectionPromise;
+        const sql = 'UPDATE `users` SET `username` = ?, `email` = ? WHERE `user_id` = ?';
+        await connection.execute(sql, [updateData.name, updateData.email, updateData.userId]);
+        return { success: true, message: 'Profile updated successfully' };
+    }
+
+    async updatePassword(userId, newPassword) {
+        const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+        console.log('Updating password to:', hashedPassword); // Log the hashed password
+        const connection = await connectionPromise;
+        const sql = 'UPDATE `users` SET `password` = ? WHERE `user_id` = ?';
+        await connection.execute(sql, [hashedPassword, userId]);
+        return { success: true, message: 'Password updated successfully' };
+    }
+
 }
 
 module.exports = UserModel;

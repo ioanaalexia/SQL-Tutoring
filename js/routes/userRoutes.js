@@ -45,6 +45,10 @@ function handlePostRequest(req, res, pathname, userData) {
         userController.loginUser(req, res);
     } else if (pathname === '/signup') {
         userController.newUser(req, res);
+    } else if (pathname === '/update-profile') {
+        userController.updateProfile(req, res, userData);
+    } else if (pathname === '/change-password') {
+        userController.changePassword(req, res, userData);
     } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');

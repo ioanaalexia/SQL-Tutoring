@@ -10,7 +10,7 @@ const server = http.createServer(async (req, res) => {
     const pathname = parsedUrl.pathname;
     const method = req.method;
 
-    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout') {
+    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/change-password') {
         routeController(req, res, pathname, method);
     } else if(pathname==='/html/start.html'){
         console.log("sunt pe start")
