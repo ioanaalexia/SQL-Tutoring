@@ -1,22 +1,21 @@
-const UserController = require('../controllers/UserController');
+const QuestionController = require('../controllers/QuestionController');
 const cookie=require('cookie')
 const AuthService = require('../services/AuthService');
-const userController = new UserController();
 const authService= new AuthService();
+const questionController = new QuestionController();
 
-
-function userRoutes(req, res, pathname, method) {
+function questionRoutes(req, res, pathname, method) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.authToken;
     const userData = token ? authService.decodeToken({ headers: { cookie: req.headers.cookie } }) : null;
-
+    //console.log(userData)
     switch(method) {
         case 'GET':
             handleGetRequest(req, res, pathname, userData);
             break;
-        case 'POST':
+        /*case 'POST':
             handlePostRequest(req, res, pathname, userData);
-            break;
+            break;*/
         default:
             res.writeHead(405, { 'Content-Type': 'text/plain' });
             res.end('Method Not Allowed');
@@ -25,36 +24,26 @@ function userRoutes(req, res, pathname, method) {
 }
 
 function handleGetRequest(req, res, pathname, userData) {
-  
-    if (pathname === '/logout') {
-        userController.logoutUser(req, res);
-    } else if (pathname === '/api/user-info') {
-        if (userData) {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify(userData));
-        } else {
-            res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: 'User not authenticated' }));
-        }
-    } else {
+    console.log(userData)
+    if (pathname === '/getQuestion') {
+        console.log("in get quesrion")
+        questionController.getQuestion(req, res,userData);
+    } 
+     else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }
 }
 
-function handlePostRequest(req, res, pathname, userData) {
+/*function handlePostRequest(req, res, pathname, userData) {
     if (pathname === '/login') {
         userController.loginUser(req, res);
     } else if (pathname === '/signup') {
         userController.newUser(req, res);
-    } else if (pathname === '/update-profile') {
-        userController.updateProfile(req, res, userData);
-    } else if (pathname === '/change-password') {
-        userController.changePassword(req, res, userData);
     } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }
-}
+}*/
 
-module.exports = userRoutes;
+module.exports = questionRoutes;
