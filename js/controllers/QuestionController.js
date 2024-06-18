@@ -24,10 +24,27 @@ class QuestionController extends BaseController {
             res.end(JSON.stringify({ success: false, message: result.message }));
         } else {
             res.setHeader('Set-Cookie', `questionText=${result.message}; HttpOnly; Path=/; Max-Age=86400`);
+            res.setHeader('Set-Cookie', `questionId=${result.questionId}; HttpOnly; Path=/; Max-Age=86400`);
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: true, question: result.message }));
         }
     }
+
+    async verifyAnswer(req,res,questionId,userData){
+        const answer=await this.getPostData(req)
+        const result=await this.questionModel.verifyAnswer(answer,questionId,userData.id)
+        console.log(result)
+        if(result)
+            {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: "corect" }));
+            }
+        else{
+            res.writeHead(406, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, message: "incorect"}));
+        
+    }
+}
 
 }
 

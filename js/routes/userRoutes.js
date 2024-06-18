@@ -9,7 +9,7 @@ function userRoutes(req, res, pathname, method) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.authToken;
     const userData = token ? authService.decodeToken({ headers: { cookie: req.headers.cookie } }) : null;
-
+    
     switch(method) {
         case 'GET':
             handleGetRequest(req, res, pathname, userData);

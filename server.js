@@ -15,7 +15,7 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout') {
         routeController(req, res, pathname, method);
-    } else if(pathname === '/getQuestion' || pathname === '/questions'){
+    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer'){
         questionController(req,res,pathname,method);
         console.log("sunt in getquestion")
 
@@ -26,7 +26,7 @@ const server = http.createServer(async (req, res) => {
     else if (ext.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
             if (ext === '.html') {
               console.log("path" + pathname);
-              if (pathname !== '/html/index.html' && pathname !== '/html/help.html' && pathname !== '/html/login_signup.html' && pathname !== '/login' && pathname !== '/signup') {
+              if (pathname !== '/html/index.html' && pathname !== '/html/help.html' && pathname !== '/html/login_signup.html' && pathname !== '/login' && pathname !== '/html/ajutor.hmtl' && pathname!=='/html/despre.html') {
                 if (middleware.requireAuth(req)) {
                   console.log("Authenticated");
                   serveStaticFile(res, pathname);
