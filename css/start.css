@@ -378,22 +378,6 @@ div .pagina{
     margin-bottom: 1em;
 }
 
-#next {
-    padding: 10px 20px;
-    font-size: 0.9em;
-    margin-left: 1.7em;
-    margin-right: 1.7em;
-    margin-top: 0.2em; 
-    border: none;
-    background-color: #CAC6EC;
-    border: 2px solid grey;
-    transition: box-shadow 0.3s ease;
-
-}
-
-#next:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
 
 footer {
     z-index: 10;
