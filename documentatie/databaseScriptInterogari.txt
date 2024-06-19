@@ -1,0 +1,77 @@
+CREATE DATABASE `myapp2`;
+USE `myapp2`;
+
+-- Drop new tables if they exist
+DROP TABLE IF EXISTS studenti;
+DROP TABLE IF EXISTS cursuri;
+DROP TABLE IF EXISTS note;
+DROP TABLE IF EXISTS profesori;
+DROP TABLE IF EXISTS didactic;
+DROP TABLE IF EXISTS prieteni;
+
+-- Create new tables
+CREATE TABLE studenti (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nr_matricol VARCHAR(6) NOT NULL,
+  nume VARCHAR(15) NOT NULL,
+  prenume VARCHAR(30) NOT NULL,
+  an INT,
+  grupa CHAR(2),
+  bursa DECIMAL(6,2),
+  data_nastere DATE,
+  email VARCHAR(40),
+  created_at DATETIME,
+  updated_at DATETIME
+);
+
+CREATE TABLE cursuri (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  titlu_curs VARCHAR(52) NOT NULL,
+  an INT,
+  semestru INT,
+  credite INT,
+  created_at DATETIME,
+  updated_at DATETIME
+);
+
+CREATE TABLE note (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_student INT NOT NULL,
+  id_curs INT NOT NULL,
+  valoare INT,
+  data_notare DATE,
+  created_at DATETIME,
+  updated_at DATETIME,
+  FOREIGN KEY (id_student) REFERENCES studenti(id),
+  FOREIGN KEY (id_curs) REFERENCES cursuri(id)
+);
+
+CREATE TABLE profesori (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nume VARCHAR(15) NOT NULL,
+  prenume VARCHAR(30) NOT NULL,
+  grad_didactic VARCHAR(20),
+  created_at DATETIME,
+  updated_at DATETIME
+);
+
+CREATE TABLE didactic (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_profesor INT NOT NULL,
+  id_curs INT NOT NULL,
+  created_at DATETIME,
+  updated_at DATETIME,
+  FOREIGN KEY (id_profesor) REFERENCES profesori(id),
+  FOREIGN KEY (id_curs) REFERENCES cursuri(id)
+);
+
+CREATE TABLE prieteni (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_student1 INT NOT NULL, 
+  id_student2 INT NOT NULL, 
+  created_at DATETIME,
+  updated_at DATETIME,  
+  FOREIGN KEY (id_student1) REFERENCES studenti(id),
+  FOREIGN KEY (id_student2) REFERENCES studenti(id),
+  UNIQUE (id_student1, id_student2)
+);
