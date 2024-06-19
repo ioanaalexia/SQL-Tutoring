@@ -6,6 +6,8 @@ const cookie = require('cookie');
 const routeController = require('./js/routes/userRoutes');
 const questionController = require('./js/routes/questionRoutes');
 const middleware=require('./js/middleware/AuthMiddleware')
+
+
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;

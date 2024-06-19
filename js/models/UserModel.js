@@ -74,6 +74,58 @@ class UserModel {
         const [result] = await connection.execute(sql, [email]);
         return result.length > 0;
     }
+
+    async findUserById(userId) {
+        const connection = await connectionPromise;
+        const sql = 'SELECT * FROM users WHERE user_id=?';
+        const [result] = await connection.execute(sql, [userId]);
+        if (result.length > 0) {
+            return result[0];
+        } else {
+            return null;
+        }
+    }
+
+    async updateUserProfile(userId, profileData) {
+    const connection = await connectionPromise;
+    let updateFields = [];
+    let values = [];
+    
+
+
+    const valuesArray = Object.values(profileData);
+    console.log(valuesArray);
+
+    console.log("Starting profile update...");
+
+    console.log(valuesArray[2])
+    if (valuesArray[2]) {
+        console.log('Updating password:', valuesArray[2]);
+        const hashedPass = bcrypt.hashSync(valuesArray[2], this.saltRounds);
+        updateFields.push('password = ?');
+        values.push(hashedPass);
+    }
+
+    // Dacă nu există câmpuri de actualizat, ieșim din funcție
+    if (updateFields.length === 0) {
+        console.log("No fields to update");
+        return false;
+    }
+
+    // Adăugăm userId la finalul array-ului de valori pentru condiția WHERE
+    values.push(userId);
+    const sql = `UPDATE users SET ${updateFields.join(', ')} WHERE user_id = ?`;
+
+    try {
+        const [result] = await connection.execute(sql, values);
+        console.log("Profile updated successfully:", result);
+        return true;
+    } catch (error) {
+        console.error('Error updating user profile:', error);
+        return false;
+    }
+}
+
 }
 
 module.exports = UserModel;

@@ -39,7 +39,6 @@ class UserController extends BaseController {
 }
 
     async loginUser(req,res){
-
     try {
         const userData = await this.parseFormData(await this.getPostData(req));
         const result = await this.userModel.verifyUser(userData);
@@ -57,16 +56,42 @@ class UserController extends BaseController {
         console.error('Eroare la primirea datelor:', error);
         res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('A apărut o eroare la procesarea datelor');
+      }
     }
 
-}
     async logoutUser(req,res){
         utils.setCookie(res, 'authToken', '', { maxAge: 1 });
         res.writeHead(302, { 'Location': '/html/index.html' });
         res.end();
     }
-    
-}
 
+    async updateProfile(req, res, userData) {
+        try {
+            //console.log(this.getPostData(req));
+           // Presupunem că getPostData(req) îți returnează un string JSON
+            const profileDataString = await this.getPostData(req);
+            // Parsează string-ul JSON într-un obiect
+            const profileData = JSON.parse(profileDataString);
+            console.log('Profile data received:', profileData);
+
+            const updatedUser = await this.userModel.updateUserProfile(userData.id, profileData);
+            
+            console.log(updatedUser);
+            console.log("userData");
+            
+            if (updatedUser) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: 'Profile updated successfully' }));
+            } else {
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, message: 'Failed to update profile' }));
+            }
+        } catch (error) {
+            console.error('Erroare la actualizarea profilului:', error);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('A aparut o eroare la actualizarea profilului');
+        }
+    }
+}
 
 module.exports = UserController;
