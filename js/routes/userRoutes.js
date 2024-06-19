@@ -49,6 +49,7 @@ function handlePostRequest(req, res, pathname, userData) {
         userController.loginUser(req, res);
     } else if (pathname === '/signup') {
         userController.newUser(req, res);
+    }
      else if (pathname === '/api/update-profile') {
         console.log("hei31");
         if (userData) {
