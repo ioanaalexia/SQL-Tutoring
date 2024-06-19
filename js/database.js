@@ -8,6 +8,7 @@ const connectionPromise = mysql.createConnection({
     database: 'myapp'
 });
 
+/*
 const connectionPromise2 = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -15,6 +16,6 @@ const connectionPromise2 = mysql.createConnection({
     database: 'myapp2'
 });
 
-
+*/
 module.exports = connectionPromise;
-module.exports = connectionPromise2;
+//module.exports = connectionPromise2;
