@@ -8,6 +8,7 @@ const authService= new AuthService();
 function userRoutes(req, res, pathname, method) {
     const cookies = cookie.parse(req.headers.cookie || '');
     const token = cookies.authToken;
+    
     const userData = token ? authService.decodeToken({ headers: { cookie: req.headers.cookie } }) : null;
     
     switch(method) {
@@ -47,7 +48,8 @@ function handlePostRequest(req, res, pathname, userData) {
         userController.loginUser(req, res);
     } else if (pathname === '/signup') {
         userController.newUser(req, res);
-    } else {
+    } 
+    else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }

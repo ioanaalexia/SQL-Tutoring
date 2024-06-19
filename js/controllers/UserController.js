@@ -65,6 +65,7 @@ class UserController extends BaseController {
         res.writeHead(302, { 'Location': '/html/index.html' });
         res.end();
     }
+    
 }
 
 

@@ -13,7 +13,7 @@ function questionRoutes(req, res, pathname, method) {
     //console.log(userData)
     switch(method) {
         case 'GET':
-            handleGetRequest(req, res, pathname, userData);
+            handleGetRequest(req, res, pathname, userData,questionId);
             break;
         case 'POST':
             handlePostRequest(req, res, pathname, userData,questionId);
@@ -25,11 +25,14 @@ function questionRoutes(req, res, pathname, method) {
     }
 }
 
-function handleGetRequest(req, res, pathname, userData) {
+function handleGetRequest(req, res, pathname, userData,questionId) {
     console.log(userData)
     if (pathname === '/getQuestion') {
-        console.log("in get quesrion")
         questionController.getQuestion(req, res,userData);
+    }
+    else if(pathname === '/sendRating'){
+        console.log("in rutare")
+        questionController.sendRating(req, res,questionId,userData);
     } 
      else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -39,9 +42,9 @@ function handleGetRequest(req, res, pathname, userData) {
 
 function handlePostRequest(req, res, pathname, userData,questionId) {
     if (pathname === '/addAnswer') {
-      
         questionController.verifyAnswer(req, res,questionId,userData);
-    } else {
+    } 
+    else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }

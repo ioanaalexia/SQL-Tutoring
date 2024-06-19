@@ -9,12 +9,12 @@ class QuestionModel{
     async load(cap,userId) {
         const connection = await connectionPromise;
         const sql = `
-           SELECT q.question_id,q.question_text 
-            FROM questions q
-            LEFT JOIN attempts a ON q.question_id = a.question_id WHERE a.user_id != ?
-            AND q.category = ? 
-            ORDER BY q.difficulty ASC, q.attempts ASC   
-            
+          SELECT q.question_id, q.question_text
+            FROM questions AS q
+            LEFT JOIN attempts AS a ON q.question_id = a.question_id AND a.user_id = ?
+            WHERE q.category = ?
+            AND a.attempt_id IS NULL
+            ORDER BY q.difficulty ASC, q.attempts ASC;
         `;
         const [result] = await connection.execute(sql, [userId, cap]);
         
@@ -30,6 +30,7 @@ class QuestionModel{
         console.log(questionId);
     
         try {
+            
             // Obținerea conexiunii din pool-ul de conexiuni (connectionPromise)
             const connection = await connectionPromise;
     
@@ -37,8 +38,18 @@ class QuestionModel{
             const sql = `SELECT correct_answer FROM questions WHERE question_id=?`;
             const [result] = await connection.execute(sql, [questionId]);
             const correctAnswer = result[0].correct_answer;
-    
-            console.log('Răspunsul corect:', correctAnswer);
+            
+            if(answer===correctAnswer){
+                const insertSql = `INSERT INTO attempts (question_id, user_id, user_answer, is_correct)
+                VALUES (?, ?, ?, ?)`;
+
+                const isCorrect = true;
+                await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
+                
+                return true; 
+                
+            }
+               
     
             // Verificare răspuns utilizator
             const [results] = await connection.query(correctAnswer);
@@ -46,9 +57,9 @@ class QuestionModel{
                const [results1] = await connection.query(answer);
                // Comparare rezultate
             if (results[0] && results1[0] && results[0].correct_answer === results1[0].user_answer) {
-                console.log("Răspuns corect!");
+               
     
-                // Înregistrare în baza de date (tabela attempts)
+                
                 const insertSql = `INSERT INTO attempts (question_id, user_id, user_answer, is_correct)
                                    VALUES (?, ?, ?, ?)`;
     
@@ -75,7 +86,27 @@ class QuestionModel{
             return false; // Returnează false pentru eșec
         }
     }
-    
+   async sendRating(questionId,userId,dificultate){
+        //interogarea in bd
+        const connection = await connectionPromise;
+        console.log("in model")
+        try {
+            // Interogare SQL pentru inserarea unui nou rating
+            const query = `
+              INSERT INTO ratings (question_id, user_id, difficulty_rating)
+              VALUES (?, ?, ?)
+            `;
+        
+            // Execută interogarea cu parametrii furnizați
+            const [result] = await connection.execute(query, [questionId, userId,dificultate]);
+            
+            console.log('Rating added successfully:', result);
+            return true;
+          } catch (error) {
+            console.error('Error adding rating:', error);
+            return false;
+          } 
+    }
     
 
 }

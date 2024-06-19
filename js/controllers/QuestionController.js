@@ -44,7 +44,28 @@ class QuestionController extends BaseController {
             res.end(JSON.stringify({ success: false, message: "incorect"}));
         
     }
+
+    
 }
+
+    async sendRating(req, res,questionId,userData){
+        const parsedUrl = url.parse(req.url, true);
+        console.log("in controler")
+        // Extrage valoarea parametrului "dificultate"
+        const dificultate = parsedUrl.query.dificultate;
+
+        const result=await this.questionModel.sendRating(questionId,userData.id,dificultate);
+        if(result)
+            {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: "updated" }));
+            }
+        else{
+            res.writeHead(406, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, message: "notUpdated"}));
+        
+    }
+    }
 
 }
 
