@@ -18,9 +18,8 @@ const server = http.createServer(async (req, res) => {
     if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' ) {
         console.log("server");
         routeController(req, res, pathname, method);
-    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ){
+    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" ){
         questionController(req,res,pathname,method);
-        console.log("sunt in getquestion")
 
     }/*else if(pathname==='/html/start.html'){
         console.log("sunt pe start")
