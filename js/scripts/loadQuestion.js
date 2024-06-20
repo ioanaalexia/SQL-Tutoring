@@ -4,15 +4,46 @@ const mainContent = document.getElementById('main-page');
 
 
 function getNextQuestion(){
-
+    console.log("getNextQuestion")
 const nextButton=document.querySelector(".nextButton")
 nextButton.addEventListener('click', function(event) {
     event.preventDefault();
-    const chapterTitle=document.getElementById("title");
-    console.log(chapterTitle.textContent)
-    fetchQuestion();//aici aduc urmatoarea intrebare
+    verifyCount();
+    
 });
 }
+
+function verifyCount() {
+    console.log("verifyCount")
+    fetch("/verifyCount")
+    .then(response => {
+        console.log("Statusul răspunsului:", response.status);
+        if (response.status === 201) {
+            // Redirecționare, urmează URL-ul din headerul Location
+            window.location.href = 'adaugaElev.html' ;
+            return;
+        } else if (response.status === 200) {
+            // Verifică tipul de conținut
+            const contentType = response.headers.get("Content-Type");
+            if (contentType && contentType.includes("application/json")) {
+                fetchQuestion();
+            } else {
+                throw new Error('Expected JSON response, but received content type: ' + contentType);
+            }
+        } else {
+            throw new Error(`Unexpected status code: ${response.status}`);
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Eroare',
+            text: 'A apărut o eroare. Te rugăm să încerci din nou. ' + error.message
+        });
+    });
+}
+
 
 
 function exit(){
@@ -25,11 +56,11 @@ function exit(){
 }
 
 function fetchQuestion(){//iau intrebarea din baza de date
+    console.log("fetchQuestion")
     const addAnswerForm=document.forms[0];
-    addAnswerForm.querySelector('input[type="text"]').value=""
+    addAnswerForm.querySelector('input[type="text"]').value="";
     const chapterTitle=document.getElementById("title");
     const url="/getQuestion?"+"chapter="+chapterTitle.textContent;
-    console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -39,10 +70,11 @@ function fetchQuestion(){//iau intrebarea din baza de date
         else
             questionText.textContent=data.message;
     })
-    getAnswer();
+    getAnswer()
 }
 
 function getChapter(){
+    console.log("getChapter")
     const element=document.getElementById('chapters');
     element.addEventListener("click",(event)=>{
 
@@ -55,20 +87,17 @@ function getChapter(){
 
 
 
-function getAnswer(){
- 
-const submitButton=document.querySelector(".verifyButton")
-console.log(submitButton)
-submitButton.addEventListener("click",event=>{
-    console.log("se da submit")
+function getAnswer() {
+    const submitButton = document.querySelector(".verifyButton");
+    submitButton.removeEventListener("click", handleAnswerSubmission); // Elimina ascultatorul daca exista
+    submitButton.addEventListener("click", handleAnswerSubmission);
+}
+
+function handleAnswerSubmission(event) {
     event.preventDefault();
-    const addAnswerForm=document.forms[0];
-    const answer=addAnswerForm.querySelector('input[type="text"]').value
-    const chapterTitle=document.getElementById("title");
-    console.log(answer);
+    const addAnswerForm = document.forms[0];
+    const answer = addAnswerForm.querySelector('input[type="text"]').value;
     sendAnswer(answer);
-    getNextQuestion();
-})
 }
 
 
@@ -82,9 +111,12 @@ function fetchInnerPage(){
     }
     })
     .then(html => {
-    mainContent.innerHTML = html; 
+     
+    mainContent.innerHTML = html;
+    getNextQuestion(); 
     getChapter();
     fetchQuestion();
+    fetchComment();
     })
     .catch(error => {
     console.error('Error loading the chapter:', error);
@@ -93,6 +125,7 @@ function fetchInnerPage(){
 }
 
 function sendAnswer(answer) {
+    console.log("se trimite raspunsul")
     try {
     fetch("/addAnswer", {
     method: 'POST',
@@ -102,15 +135,12 @@ function sendAnswer(answer) {
     body: answer
     }).then(response => response.json())
     .then(data => {
-        console.log(data.success)
         if(data.success){
-            console.log("succes")
             Swal.fire({
                 icon: 'success',
                 title: 'Raspuns corect',
                 text: 'Bravo!'
             }).then((result) => {
-                console.log(result)
                     if (result.isConfirmed) {
                         Swal.fire({
                             title: "Introduceti dificultatea:(grea,medie,usoara)",
@@ -159,9 +189,52 @@ function sendAnswer(answer) {
     }
 }
 
+function fetchComment(){
+    const commentButton=document.querySelector(".commentButton");
+    commentButton.addEventListener("click",event=>{
+        event.preventDefault();
+        const addCommentForm=document.forms[1];
+        const comment=addCommentForm.querySelector('input[type="text"]').value
+        sendComment(comment);    
+    })
+}
+
+function sendComment(comment)
+{
+    try {
+        fetch("/addComment", {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'text/plain' // Am schimbat 'text' în 'text/plain'
+        },
+        body: comment
+        }).then(response => response.json())
+        .then(data => {
+            if(data.success){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Raspuns corect',
+                    text: 'Bravo!'
+                })
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                  });
+            }
+     })
+    }catch(err)
+    {
+        concole.log("There s been an error with fetching the comment")
+    }
+
+}
+
 
 fetchInnerPage();
 exit();
+
 
 
 

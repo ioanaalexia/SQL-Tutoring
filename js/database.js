@@ -8,14 +8,17 @@ const connectionPromise = mysql.createConnection({
     database: 'myapp'
 });
 
-/*
-const connectionPromise2 = mysql.createConnection({
+// Creeaza conexiunea la baza de date cu tabelele pentru interogarile SQL 
+const dbConnectionPromise = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'sql',
     database: 'myapp2'
 });
 
-*/
-module.exports = connectionPromise;
+
+module.exports = {
+    connectionPromise,
+    dbConnectionPromise
+}
 //module.exports = connectionPromise2;

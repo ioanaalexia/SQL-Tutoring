@@ -1,4 +1,4 @@
-const connectionPromise = require('../database');
+const { connectionPromise, dbConnectionPromise} = require('../database');
 
 class QuestionModel{
 
@@ -26,9 +26,9 @@ class QuestionModel{
     }
 
     async verifyAnswer(answer, questionId, userId) {
-        console.log(answer);
-        console.log(questionId);
-    
+        const isCorrect = true;
+        const insertSql = `INSERT INTO attempts (question_id, user_id, user_answer, is_correct)
+                                   VALUES (?, ?, ?, ?)`;
         try {
             
             // Obținerea conexiunii din pool-ul de conexiuni (connectionPromise)
@@ -39,31 +39,24 @@ class QuestionModel{
             const [result] = await connection.execute(sql, [questionId]);
             const correctAnswer = result[0].correct_answer;
             
+            console.log(answer)
+            console.log(correctAnswer)
             if(answer===correctAnswer){
-                const insertSql = `INSERT INTO attempts (question_id, user_id, user_answer, is_correct)
-                VALUES (?, ?, ?, ?)`;
 
-                const isCorrect = true;
                 await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
-                
+                console.log(result[0])
                 return true; 
                 
-            }
-               
+            }  
     
-            // Verificare răspuns utilizator
-            const [results] = await connection.query(correctAnswer);
+            
             try{
-               const [results1] = await connection.query(answer);
+               const [results1] = await connection.query(correctAnswer);
+               const [results2] = await connection.query(answer);
                // Comparare rezultate
-            if (results[0] && results1[0] && results[0].correct_answer === results1[0].user_answer) {
+            if (results1[0] && results2[0] && results1[0].correct_answer === results2[0].user_answer) {
                
-    
                 
-                const insertSql = `INSERT INTO attempts (question_id, user_id, user_answer, is_correct)
-                                   VALUES (?, ?, ?, ?)`;
-    
-                const isCorrect = true;
                 await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
                // await connection.end();
                 return true; 
@@ -79,7 +72,6 @@ class QuestionModel{
                 console.log("eroare")
                 return false; // Returnează false în caz de eroare
          }
-        
             
         } catch (err) {
             console.error('Eroare la verificarea răspunsului:', err.message);
@@ -107,8 +99,55 @@ class QuestionModel{
             return false;
           } 
     }
+    async addComment(comment,questionId,userId)
+    {
+        const connection = await connectionPromise;
+        console.log("in model")
+        try {
+                  const sql = `
+                    INSERT INTO ratings (question_id, user_id, comment)
+                    VALUES (?, ?, ?)
+                    ON DUPLICATE KEY UPDATE
+                    comment = VALUES(comment)
+                  `;
+                  const [result] = await connection.execute(sql, [questionId, userId, comment]);
+                  console.log('Comment inserted or updated:', result);
+                  return true;
+                } catch (err) {
+                  console.error('Error inserting or updating comment:', err.message);
+                  return false;
+                }
+    }
     
+    async verifyCount(userId){
+        const connection = await connectionPromise;
+        try {
+            const sql = `
+            SELECT user_id,COUNT(*) as attempt_count
+            FROM attempts
+            WHERE user_id = ?
+            GROUP BY user_id;
 
+            `;
+
+            const [rows] = await connection.execute(sql, [userId]);
+            console.log(rows[0])
+            if (rows.length > 0) {
+            return rows[0].attempt_count;
+            } else {
+            console.log('No attempts found for this user.');
+            return 0;
+            }
+        } catch (err) {
+            console.error('Error getting attempt count:', err.message);
+            return null;
+        }
+          } catch (err) {
+            console.error('Error inserting or updating comment:', err.message);
+            return false;
+          }
 }
+
+
 
 module.exports=QuestionModel;

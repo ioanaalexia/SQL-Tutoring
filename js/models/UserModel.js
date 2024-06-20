@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const connectionPromise = require('../database');
+const { connectionPromise, dbConnectionPromise } = require('../database');
 const AuthService = require('../services/AuthService');
 
 class UserModel {

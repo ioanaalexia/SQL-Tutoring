@@ -15,7 +15,8 @@ const server = http.createServer(async (req, res) => {
     const method = req.method;
     const ext = path.extname(pathname);
 
-    if (pathname.startsWith('/api/') || pathname === '/login') {
+    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' ) {
+        console.log("server");
         routeController(req, res, pathname, method);
     } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ){
         questionController(req,res,pathname,method);
