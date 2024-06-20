@@ -33,7 +33,6 @@ class QuestionController extends BaseController {
     async verifyAnswer(req,res,questionId,userData){
         const answer=await this.getPostData(req)
         const result=await this.questionModel.verifyAnswer(answer,questionId,userData.id)
-        console.log(result)
         if(result)
             {
                 res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -66,6 +65,39 @@ class QuestionController extends BaseController {
         
     }
     }
+
+    async addComment(req, res,questionId,userData)
+    {
+        const comment=await this.getPostData(req)
+        console.log(comment)
+        const result=await this.questionModel.addComment(comment,questionId,userData.id)
+        console.log(result)
+        if(result)
+            {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: "corect" }));
+            }
+        else{
+            res.writeHead(406, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, message: "incorect"}));
+        
+    } 
+    }
+    async verifyCount(req, res,userData){
+        const result=await this.questionModel.verifyCount(userData.id)
+        console.log(result)
+        if(result===1)
+            {
+                res.writeHead(201, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, message: "redirect" }));
+            }
+        else{
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true, message: "corect" }));
+            
+        
+    }
+}
 
 }
 
