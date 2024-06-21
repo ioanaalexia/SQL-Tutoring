@@ -125,6 +125,52 @@ class QuestionController extends BaseController {
         }
                 
     }
+    async getQuery(req, res) {
+        const parsedUrl = url.parse(req.url, true);
+        console.log("in controler");
+        
+        // Extrage valoarea parametrului "dificultate"
+        const id = parsedUrl.query.id;
+        const category = parsedUrl.query.category;
+        console.log(id, category);
+    
+        if (id) {
+            try {
+                const result = await this.questionModel.getQueryById(id);
+                if (result) {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(result));
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: false, message: "Intrebarea nu a fost gasita" }));
+                }
+            } catch (error) {
+                console.error("Error fetching question by ID:", error);
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, message: "Eroare interna de server" }));
+            }
+    
+        } else if (category) {
+            try {
+                const result = await this.questionModel.getQueryByCategory(category); // Ar trebui să fie 'category' în loc de 'id' aici
+                if (result) {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(result));
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: false, message: "Nu s-au găsit întrebări în categoria specificată" }));
+                }
+            } catch (error) {
+                console.error("Error fetching questions by category:", error);
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, message: "Eroare interna de server" }));
+            }
+        } else {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, message: "Parametrii id sau category lipsesc din URL" }));
+        }
+    }
+    
 }
 
 

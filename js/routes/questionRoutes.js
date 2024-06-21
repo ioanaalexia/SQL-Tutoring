@@ -33,6 +33,9 @@ function handleGetRequest(req, res, pathname, userData,questionId) {
     else if(pathname === '/sendRating'){
         questionController.sendRating(req, res,questionId,userData);
     }
+    else if(pathname === '/query'){
+        questionController.getQuery(req, res);
+    }
     else if(pathname === '/verifyCount')
         {
             console.log("in rutare pt verify count")

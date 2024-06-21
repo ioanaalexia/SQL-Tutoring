@@ -44,9 +44,11 @@
                 <img src="../images/star.png" class="star-img" alt="imgine">  
             </div>
             <ul>
-                <li><img src="../images/1.png" alt="imgine"><a href="setariAdmin.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png" alt="imgine"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
-                <li><img src="../images/3.png" alt="imgine"><a href="adaugaIntrebare.html" target="_self"><p>Adauga problema</p></a></li> 
+                <li><img src="../images/1.png" alt="imgine"><a href="setari.html" target="_self"><p>Setari</p></a></li> 
+                <li><img src="../images/2.png" alt="imgine"><a href="statisticiAdmin.html" target="_self"><p>Statistici</p></a></li> 
+                <li><img src="../images/3.png" alt="imgine"><a href="administrareCont.html" target="_self"><p>Administrare conturi</p></a></li>
+                <li><img src="../images/4.png" alt="imgine"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
+                <li><img src="../images/4.png" alt="imgine"><a href="adaugaAdmin.html" target="_self"><p>Adauga problema</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png" alt="imagine"><a href="elev.html"><p>Exit</p></a></li>
@@ -55,17 +57,17 @@
         <main class="main-content">
             <form class="problem-filter-form">
                 <div class="form-group">
-                    <label >Filtrare după:</label>
-                    <select>
-                        <option value="categorie">Categorie</option>
+                    <label for="parametru">Filtrare după:</label>
+                    <select id="parametru" name="parametru">
+                        <option value="category">Categorie</option>
                         <option value="id">ID</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Valoare:</label>
-                    <input type="text" name="filter-value" placeholder="Introduceți categoria sau ID-ul">
+                    <label for="valoare">Valoare:</label>
+                    <input type="text" id="valoare" name="value" placeholder="Introduceți categoria sau ID-ul">
                 </div>
-                <button type="submit">Filtreaza</button>
+                <button type="submit">Trimitere</button>
             </form>
             <div class="lista-descarcari">
                 <ul>
@@ -81,5 +83,6 @@
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
+    <script src="../js/scripts/getQuestion.js"></script>
 </body>
 </html>
