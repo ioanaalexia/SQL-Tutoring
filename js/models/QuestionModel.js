@@ -1,4 +1,4 @@
-const connectionPromise = require('../database');
+const { connectionPromise, dbConnectionPromise} = require('../database');
 
 class QuestionModel{
 
@@ -56,7 +56,6 @@ class QuestionModel{
                // Comparare rezultate
             if (results1[0] && results2[0] && results1[0].correct_answer === results2[0].user_answer) {
                
-    
                 
                 await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
                // await connection.end();
@@ -73,7 +72,6 @@ class QuestionModel{
                 console.log("eroare")
                 return false; // Returnează false în caz de eroare
          }
-        
             
         } catch (err) {
             console.error('Eroare la verificarea răspunsului:', err.message);
