@@ -31,10 +31,8 @@ class QuestionModel{
                                    VALUES (?, ?, ?, ?)`;
         try {
             
-            // Obținerea conexiunii din pool-ul de conexiuni (connectionPromise)
             const connection = await connectionPromise;
     
-            // Interogare pentru a obține răspunsul corect pentru întrebare
             const sql = `SELECT correct_answer FROM questions WHERE question_id=?`;
             const [result] = await connection.execute(sql, [questionId]);
             const correctAnswer = result[0].correct_answer;
@@ -49,14 +47,14 @@ class QuestionModel{
                 
             }  
     
-            
             try{
-               const [results1] = await connection.query(correctAnswer);
-               const [results2] = await connection.query(answer);
+               const [results1,fields1] = await connection.query(correctAnswer);
+               const [results2,fields2] = await connection.query(answer);
                // Comparare rezultate
-            if (results1[0] && results2[0] && results1[0].correct_answer === results2[0].user_answer) {
+               console.log(fields1)
+               console.log(fields2)
+            if (results1[0] && results2[0] && fields1 === fields2) {
                
-                
                 await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
                // await connection.end();
                 return true; 
@@ -99,7 +97,7 @@ class QuestionModel{
             return false;
           } 
     }
-    
+
     async addComment(comment,questionId,userId)
     {
         const connection = await connectionPromise;

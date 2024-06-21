@@ -22,7 +22,7 @@ const server = http.createServer(async (req, res) => {
 
     /*else if(pathname==='/html/start.html'){
         console.log("sunt pe start")
-        await userController.startupUser(req, res);
+        await userController.startupUser(req, res);    
     } */
     }else if (ext.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
             if (ext === '.html') {
@@ -50,7 +50,7 @@ function serveStaticFile(res, pathname) {
     const filePath = path.join(__dirname, pathname);
     const ext = path.extname(filePath);
     console.log(ext)
-
+    
     const mimeTypes = {
         '.html': 'text/html',
         '.css': 'text/css',
@@ -60,7 +60,7 @@ function serveStaticFile(res, pathname) {
         '.jpeg': 'image/jpeg',
         '.svg': 'image/svg+xml'
     };
-
+    
     fs.readFile(filePath, (err, content) => {
         if (err) {
             res.writeHead(404);
@@ -75,5 +75,3 @@ function serveStaticFile(res, pathname) {
 server.listen(3600, () => {
     console.log('Server is running on http://localhost:3600');
 });
-message.txt
-3 KB

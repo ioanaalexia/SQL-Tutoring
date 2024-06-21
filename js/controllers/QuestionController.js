@@ -87,7 +87,7 @@ class QuestionController extends BaseController {
     async verifyCount(req, res,userData){
         const result=await this.questionModel.verifyCount(userData.id)
         console.log(result)
-        if(result===1)
+        if(result===3)
             {
                 res.writeHead(201, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ success: true, message: "redirect" }));
