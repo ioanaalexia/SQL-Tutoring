@@ -26,7 +26,7 @@
             </div>
     
             <ol class="dropdown_menu">
-                <li><a href="">Acasa</a></li>
+                <li><a href="elev.html">Acasa</a></li>
                 <li><a href="profil.html">Profil</a></li>
                 <li><a href="index.html">Logout</a></li>
                 <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
@@ -46,9 +46,6 @@
             </div>
             <ul>
                 <li><img src="../images/1.png" alt="imagine"><a href="setari.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="statistici.html" target="_self"><p>Statistici</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="Comentarii.html" target="_self"><p>Comentarii</p></a></li> 
-                <li><img src="../images/4.png" alt="imagine"><a href="adaugaElev.html" target="_self"><p>Adauga problema</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png" alt="imagine"><a href="elev.html"><p>Exit</p></a></li>
@@ -64,12 +61,12 @@
                 <h2 id="nume"></h2>
                 <div class="probleme">
                     <ul>
-                        <li class="scor">Scor: 0</li>
+                        <li class="scor">Scor: <span id="scor_value">0</span></li>
                     </ul>
                     <ul>
-                        <li>Probleme rezolvate: 0</li>
-                        <li>Probleme marcate: 0</li>
-                        <li>Probleme propuse: 0</li>
+                        <li>Probleme rezolvate: <span id="rezolvate_value">0</span></li>
+                        <li>Probleme marcate: <span id="marcate_value">0</span></li>
+                        <li>Probleme propuse: <span id="propuse_value">0</span></li>
                     </ul>
                 </div>
             </div>
@@ -80,5 +77,6 @@
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
+    <script src="../js/scripts/display_data.js"></script>
 </body>
 </html>

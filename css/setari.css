@@ -27,7 +27,7 @@
 }
 
 .form-group input[type="text"],
-.form-group input[type="email"],
+.form-group input[type="formEmail"],
 .form-group input[type="password"],
 .form-group select {
     width: 100%;
@@ -37,37 +37,26 @@
     font-size: 1.2vw;
 }
 
-.form-group button {
+button {
     width: 100%;
     padding: 1vw;
     border-radius: 0.5vw;
     border: none;
-    background-color: #5c4ac7;
+    background: linear-gradient(135deg, #b185d9, #9f77c3 );
     color: white;
     font-size: 1.2vw;
     cursor: pointer;
     transition: background-color 0.3s;
+    animation: pulse 2s infinite;
+}
+button:hover {
+    background: linear-gradient(135deg, #8d6aad , #9f77c3);
+    transform: scale(1.05);
 }
 
-.form-group button:hover {
-    background-color: #7f6fb4;
-}
-
-.settings-container > button {
-    width: 100%;
-    padding: 1vw;
-    margin-top: 1vw;
-    border-radius: 0.5vw;
-    border: none;
-    background-color: #f44336;
-    color: white;
-    font-size: 1.2vw;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.settings-container > button:hover {
-    background-color: #e53935;
+button:active {
+    background: linear-gradient(135deg, #b185d9 , #b185d9);
+    transform: scale(0.98);
 }
 
 .settings-wrapper {

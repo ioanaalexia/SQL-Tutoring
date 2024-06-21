@@ -45,9 +45,6 @@
             </div>
             <ul>
                 <li><img src="../images/1.png" alt="imagine"><a href="setari.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="statistici.html" target="_self"><p>Statistici</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="comentarii.html" target="_self"><p>Comentarii</p></a></li> 
-                <li><img src="../images/4.png" alt="imagine"><a href="adaugaElev.html" target="_self"><p>Adauga o problema</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png" alt="imagine"><a href="/logout"><p>Exit</p></a></li>
@@ -71,9 +68,7 @@
                         <input type="password" id="password" name="password" placeholder="Parolă nouă">
                     </div>
                     <button type="submit">Salvează Modificările</button>
-                </form>
-                
-                <button onclick="logout()">Deconectare</button>
+                </form>                
             </div>
         </div>
         
@@ -83,39 +78,7 @@
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
-
-    <script>
-        document.getElementById('profile-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const formEmail = document.getElementById('formEmail').value;
-            console.log(formEmail);
-            const password = document.getElementById('password').value;
-
-            console.log("Form data:", { name, formEmail, password });
-
-
-            //console.log("hei");
-            const response =  fetch('/api/update-profile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({
-                    name,
-                    formEmail,
-                    password
-                })
-            });
-
-            if (response.ok) {
-                alert('Modificările au fost salvate cu succes.');
-            } else {
-                alert('A apărut o eroare la salvarea modificărilor.');
-            }
-        });
-
-     </script>
+    <script src="../js/scripts/schimbareParola.js"></script>
  
 </body>
 </html>

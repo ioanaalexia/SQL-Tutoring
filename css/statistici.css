@@ -153,7 +153,7 @@ button:hover {
 }
 
 @media(max-width: 576px){
-    .side-nav {
+       .side-nav {
         display: none;
     }
 
