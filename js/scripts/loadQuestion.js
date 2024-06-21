@@ -1,7 +1,4 @@
-const mainContent = document.getElementById('main-page');
-
-
-
+const mainContent = document.getElementById('main-content');
 
 function getNextQuestion(){
     console.log("getNextQuestion")
