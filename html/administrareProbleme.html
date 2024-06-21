@@ -55,26 +55,20 @@
             </ul>
         </aside>
         <main class="main-content">
-            <h1>Gestionarea Problemelor greșite SQL</h1>
-            <div class="table-responsive">
-                <table class="problemsTable">
-                    <thead>
-                        <tr>
-                            <th>Problema</th>
-                            <th>Acceptă</th>
-                            <th>Respinge</th>
-                        </tr>
-                    </thead>
-                </table>
-                <table class="problemsTable">
-                    <thead>
-                        <tr>
-                            <th>Problema</th>
-                            <th>Acțiune</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+            <form class="problem-filter-form">
+                <div class="form-group">
+                    <label for="filter-type">Filtrare după:</label>
+                    <select id="filter-type" name="filter-type">
+                        <option value="categorie">Categorie</option>
+                        <option value="id">ID</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-value">Valoare:</label>
+                    <input type="text" id="filter-value" name="filter-value" placeholder="Introduceți categoria sau ID-ul">
+                </div>
+                <button type="submit">Trimitere</button>
+            </form>
             <div class="lista-descarcari">
                 <ul>
                     <li><img src="../images/import.png" alt="imgine">Import</li>

@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2vw;
     padding-left: calc(110px + 5vw);
-    margin-top: -20vh;
+    margin-top: -7vh;
     overflow-x: auto;
 }
 
@@ -77,23 +77,91 @@ footer{
     background-color: #f2f2f2;
 }
 
+.problem-filter-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.form-group {
+    background-color: #E3D3F3;
+    padding: 50px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    grid-column: span 2;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #B185D9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #A070CF;
+}
+
 @media(min-width: 576px) and (max-width: 992px){
     .main-content {
         padding-left: 11vw; 
     }
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: span 1;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: span 1;
+    }
+
 }
 
 @media(max-width: 576px){
     .side-nav {
         display: none;
-      }
+    }
 
     .main-content {
         padding: 0vw;
         margin-left: 4vw;
         margin-top: -40vw;
     }
-    
 
     #problemsTable td {
         padding: 1vw 0;
@@ -101,5 +169,22 @@ footer{
         overflow-wrap: break-word;
         text-align: left;
         font-size: 4vw;
+    }
+
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .form-group {
+        padding: 15px;
+        width: 100%;
+    }
+
+    button {
+        grid-column: span 1;
+        padding: 10px;
+        font-size: 1em;
     }
 }
