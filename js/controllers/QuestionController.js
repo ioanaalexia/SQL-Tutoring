@@ -3,6 +3,7 @@ const BaseController = require("./BaseController");
 const querystring = require('querystring');
 const url = require('url');
 
+
 class QuestionController extends BaseController {
 
     constructor() {
@@ -98,7 +99,34 @@ class QuestionController extends BaseController {
         
     }
 }
+    async addQuestion(req,res,userData){
+        
+        const queryString=await this.getPostData(req)
+        console.log(queryString)
+        const parsedData = querystring.parse(queryString);
 
+        console.log(parsedData.dificultate)
+        // Extrage fiecare dată din obiectul rezultat
+       
+       
+        const result=await this.questionModel.addQuestion(parsedData.capitol,parsedData.intrebare,parsedData.dificultate,parsedData.raspuns,userData.id)
+        if (result) {
+            res.writeHead(302, { 
+                'Location': '/html/start.html', 
+                'Content-Type': 'text/html' 
+            });
+            res.end(JSON.stringify({ success: true, message: "Intrebare inserata" }));
+        } else {
+            res.writeHead(302, { 
+                'Location': '/html/tryAgain.html', 
+                'Content-Type': 'text/html' 
+            });
+            res.end(JSON.stringify({ success: false, message: "Raspuns gresit" }));
+        }
+                
+    }
 }
+
+
 
 module.exports = QuestionController;

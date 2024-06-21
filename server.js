@@ -15,15 +15,12 @@ const server = http.createServer(async (req, res) => {
     const method = req.method;
     const ext = path.extname(pathname);
 
-    if (pathname.startsWith('/api/') || pathname === '/login') {
-        routeController(req, res, pathname, method);
-    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" ){
+    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout') {
+      routeController(req, res, pathname, method);
+    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" || pathname==="/addQuestion" ){
         questionController(req,res,pathname,method);
 
-    }/*else if(pathname==='/html/start.html'){
-        console.log("sunt pe start")
-        await userController.startupUser(req, res);    
-    } */
+    }
     else if (ext.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
             if (ext === '.html') {
               console.log("path" + pathname);

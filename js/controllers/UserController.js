@@ -21,7 +21,6 @@ class UserController extends BaseController {
     try {
         const userData = await this.parseFormData(await this.getPostData(req));
         const result = await this.userModel.addNewUser(userData);
-        console.log(result)
         if (!result.success) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, message: result.message }));
@@ -47,10 +46,21 @@ class UserController extends BaseController {
         if (!result.success) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, message: result.message }));
-        } else {//aici userul a fost identificat-->gestionam auth cu jwt
-            res.setHeader('Set-Cookie', `authToken=${result.token}; HttpOnly; Path=/; Max-Age=86400`);
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ success: true, redirectUrl: '/html/elev.html' }));
+        } else {
+            console.log(result)
+            if(result.message==='User authenticated successfully'){
+
+                res.setHeader('Set-Cookie', `authToken=${result.token}; HttpOnly; Path=/; Max-Age=86400`);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: true, redirectUrl: '/html/elev.html' }));
+
+            }else if(result.message==='Admin authenticated successfully')
+                {
+                    res.setHeader('Set-Cookie', `authToken=${result.token}; HttpOnly; Path=/; Max-Age=86400`);
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: true, redirectUrl: '/html/admin.html' }));
+        
+                }
         }
     } catch (error) {
         console.error('Eroare la primirea datelor:', error);

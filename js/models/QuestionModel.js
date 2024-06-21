@@ -101,6 +101,7 @@ class QuestionModel{
             return false;
           } 
     }
+    
     async addComment(comment,questionId,userId)
     {
         const connection = await connectionPromise;
@@ -119,6 +120,34 @@ class QuestionModel{
                   console.error('Error inserting or updating comment:', err.message);
                   return false;
                 }
+    }
+
+    async addQuestion(capitol,intrebare,dificultate,raspuns,userId)
+    {
+        const connection = await connectionPromise;
+        console.log("in model in add question");
+
+       try{
+         const [results, fields] = await connection.execute(raspuns);
+        
+         try {
+            const sql = `
+              INSERT INTO questions (category, question_text, correct_answer,difficulty,created_by)
+              VALUES (?, ?, ?,?,? )
+            `;
+            const [result] = await connection.execute(sql, [capitol,intrebare,,raspuns,dificultate,userId]);
+            console.log('Interogarea a fost inserata:', result);
+            return true;
+          } catch (err) {
+            console.error('Error inserting or updating comment:', err.message);
+            return false;
+          }
+       }catch (err) {
+        console.error('Error in answer:', err.message);
+        return false;
+      }
+
+        
     }
     
     async verifyCount(userId){

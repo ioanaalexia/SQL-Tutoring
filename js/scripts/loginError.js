@@ -16,17 +16,32 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
+        console.log(data)
+        if (data.success && data.redirectUrl==='/html/admin.html') {
             Swal.fire({
                 icon: 'success',
                 title: 'Login Successful',
                 text: 'You are now logged in!'
             }).then((result) => {
                 if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
-                    window.location.href = '/html/elev.html'; // URL-ul către care să redirecționați
+                    
+                    window.location.href = '/html/admin.html'; // URL-ul către care să redirecționați
                 }
             });
-        } else {
+        } else if(data.success && data.redirectUrl==='/html/elev.html')
+            {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: 'You are now logged in!'
+                }).then((result) => {
+                    if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                        
+                        window.location.href = '/html/elev.html'; // URL-ul către care să redirecționați
+                    }
+                });
+            }
+        else {
             Swal.fire({
                 icon: 'error',
                 title: 'Login Failed',

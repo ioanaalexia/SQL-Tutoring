@@ -12,10 +12,6 @@ class UserModel {
     async generateUserId() {
         return Math.floor(Math.random() * 1000000) + 1; 
     }
-    async startupUser(req,res){
-        const response=this.authService.decodeToken(req,res);
-        console.log(response)
-    }
     async addNewUser(userData) {
         userData.user_id = await this.generateUserId();
         const connection = await connectionPromise;
@@ -26,8 +22,8 @@ class UserModel {
 
         try {
             const hashedPass = bcrypt.hashSync(userData.parola, this.saltRounds);
-            const values = [userData.user_id, userData.username, userData.email, hashedPass];
-            const sql = 'INSERT INTO `users`(`user_id`, `username`, `email`, `password`) VALUES (?,?,?,?)';
+            const values = [userData.user_id, userData.username, userData.email, hashedPass,'student'];
+            const sql = 'INSERT INTO `users`(`user_id`, `username`, `email`, `password`,`role`) VALUES (?,?,?,?,?)';
             await connection.execute(sql, values);
             const token = this.authService.generateToken({
                 userId: userData.user_id,
@@ -45,7 +41,7 @@ class UserModel {
     async verifyUser(userData) {
         const connection = await connectionPromise;
         try {
-            const sql = 'SELECT user_id,username,password FROM users WHERE email=?';
+            const sql = 'SELECT user_id,username,password,role FROM users WHERE email=?';
             const [result] = await connection.execute(sql, [userData.email]);
             if (result.length > 0 && await bcrypt.compare(userData.parola, result[0].password)) {
                 const token = this.authService.generateToken({
@@ -53,8 +49,10 @@ class UserModel {
                     username: result[0].username,
                     email: userData.email
                   });
-               
-                return { success: true,token, message: 'User authenticated successfully' };
+                if(result[0].role==='admin')
+                    return { success: true,token, message: 'Admin authenticated successfully' };
+                else 
+                     return { success: true,token, message: 'User authenticated successfully' };
             }
             return { success: false, message: 'Invalid email or password' };
         } catch (err) {

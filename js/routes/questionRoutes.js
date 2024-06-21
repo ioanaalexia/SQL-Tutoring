@@ -31,7 +31,6 @@ function handleGetRequest(req, res, pathname, userData,questionId) {
         questionController.getQuestion(req, res,userData);
     }
     else if(pathname === '/sendRating'){
-        console.log("in rutare")
         questionController.sendRating(req, res,questionId,userData);
     }
     else if(pathname === '/verifyCount')
@@ -52,7 +51,11 @@ function handlePostRequest(req, res, pathname, userData,questionId) {
     else if(pathname === '/addComment')
         {
             questionController.addComment(req, res,questionId,userData);
-        }   
+        } 
+    else if(pathname === '/addQuestion')
+            {
+                questionController.addQuestion(req, res,userData);
+            }       
     else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');

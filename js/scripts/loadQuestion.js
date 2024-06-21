@@ -20,7 +20,7 @@ function verifyCount() {
         console.log("Statusul răspunsului:", response.status);
         if (response.status === 201) {
             // Redirecționare, urmează URL-ul din headerul Location
-            window.location.href = 'adaugaElev.html' ;
+            window.location.href = 'adaugaIntrebare.html' ;
             return;
         } else if (response.status === 200) {
             // Verifică tipul de conținut
