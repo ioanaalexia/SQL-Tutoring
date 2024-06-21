@@ -148,7 +148,7 @@ class QuestionModel{
       const connection = await connectionPromise;
       try {
           const sql = `
-              SELECT q.question_id, q.category, q.question_text, q.correct_answer, q.difficulty, q.created_by, q.attempts, r.comment
+              SELECT q.question_id, q.category, q.question_text, q.correct_answer, q.difficulty, q.attempts, r.comment
               FROM questions q
               LEFT JOIN ratings r ON q.question_id = r.question_id
               WHERE q.question_id = ?
@@ -167,7 +167,6 @@ class QuestionModel{
               questionText: rows[0].question_text,
               correctAnswer: rows[0].correct_answer,
               difficulty: rows[0].difficulty,
-              createdBy: rows[0].created_by,
               attempts: rows[0].attempts,
               comments: rows.map(row => ({
                   comment: row.comment

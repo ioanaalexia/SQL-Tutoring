@@ -67,6 +67,6 @@ function serveStaticFile(res, pathname) {
     });
 }
 
-server.listen(3600, () => {
+server.listen(3700, () => {
     console.log('Server is running on http://localhost:3600');
 });
