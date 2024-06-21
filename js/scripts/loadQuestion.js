@@ -213,8 +213,8 @@ function sendComment(comment)
             if(data.success){
                 Swal.fire({
                     icon: 'success',
-                    title: 'Raspuns corect',
-                    text: 'Bravo!'
+                    title: 'Trimis',
+                    text: 'Comentariu inregistrat'
                 })
             }else{
                 Swal.fire({

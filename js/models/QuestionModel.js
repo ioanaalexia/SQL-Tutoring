@@ -143,38 +143,83 @@ class QuestionModel{
         return false;
       }
 
-        
-    }
-    
-    async verifyCount(userId){
-        const connection = await connectionPromise;
-        try {
-            const sql = `
-            SELECT user_id,COUNT(*) as attempt_count
-            FROM attempts
-            WHERE user_id = ?
-            GROUP BY user_id;
-
-            `;
-
-            const [rows] = await connection.execute(sql, [userId]);
-            console.log(rows[0])
-            if (rows.length > 0) {
-            return rows[0].attempt_count;
-            } else {
-            console.log('No attempts found for this user.');
-            return 0;
-            }
-        } catch (err) {
-            console.error('Error getting attempt count:', err.message);
-            return null;
-        }
-          } catch (err) {
-            console.error('Error inserting or updating comment:', err.message);
-            return false;
+    } 
+    async getQueryById(questionId) {
+      const connection = await connectionPromise;
+      try {
+          const sql = `
+              SELECT q.question_id, q.category, q.question_text, q.correct_answer, q.difficulty, q.created_by, q.attempts, r.comment
+              FROM questions q
+              LEFT JOIN ratings r ON q.question_id = r.question_id
+              WHERE q.question_id = ?
+          `;
+  
+          const [rows] = await connection.execute(sql, [questionId]);
+  
+          if (rows.length === 0) {
+              return null; // Returnează null dacă nu există întrebare cu ID-ul respectiv
           }
+  
+          // Transformă rândul din baza de date într-un obiect JSON cu proprietăți personalizate
+          const question = {
+              questionId: rows[0].question_id,
+              category: rows[0].category,
+              questionText: rows[0].question_text,
+              correctAnswer: rows[0].correct_answer,
+              difficulty: rows[0].difficulty,
+              createdBy: rows[0].created_by,
+              attempts: rows[0].attempts,
+              comments: rows.map(row => ({
+                  comment: row.comment
+              })).filter(comment => comment.comment !== null) // Filtrare pentru a elimina comentariile nule
+          };
+  
+          return question;
+      } catch (err) {
+          console.error('Error getting question by ID:', err.message);
+          return null;
+      }
+  }
+  
+    
+  async getQueryByCategory(category) {
+    const connection = await connectionPromise;
+    try {
+        const sql = `
+            SELECT q.question_id, q.category, q.question_text, q.correct_answer, q.difficulty, q.created_by, q.attempts, r.comment
+            FROM questions q
+            LEFT JOIN ratings r ON q.question_id = r.question_id
+            WHERE q.category = ?
+        `;
+
+        const [rows] = await connection.execute(sql, [category]);
+
+        if (rows.length === 0) {
+            return null; 
+        }
+
+        
+        const questions = rows.map(row => ({
+            questionId: row.question_id,
+            category: row.category,
+            questionText: row.question_text,
+            correctAnswer: row.correct_answer,
+            difficulty: row.difficulty,
+            createdBy: row.created_by,
+            attempts: row.attempts,
+            comments: row.comment ? [{  
+                comment: row.comment
+            }] : []
+        }));
+
+        return questions;
+    } catch (err) {
+        console.error('Error getting questions by category:', err.message);
+        return null;
+    }
 }
 
-
+    
+  }
 
 module.exports=QuestionModel;
