@@ -26,13 +26,22 @@ function userRoutes(req, res, pathname, method) {
 }
 
 function handleGetRequest(req, res, pathname, userData) {
-  
     if (pathname === '/logout') {
         userController.logoutUser(req, res);
     } else if (pathname === '/api/user-info') {
         if (userData) {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(userData));
+        } else {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'User not authenticated' }));
+        }
+    }else if (pathname === '/api/user-statistics') {
+        if (userData) {
+            console.log(userData);
+            req.userData = userData;
+            console.log(userData);
+            userController.getUserStatistics(req, res);
         } else {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'User not authenticated' }));
@@ -50,7 +59,6 @@ function handlePostRequest(req, res, pathname, userData) {
         userController.newUser(req, res);
     }
      else if (pathname === '/api/update-profile') {
-        //console.log("hei31");
         if (userData) {
             console.log(userData);
             userController.updateProfile(req, res, userData);

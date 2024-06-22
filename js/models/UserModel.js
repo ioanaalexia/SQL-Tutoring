@@ -29,8 +29,8 @@ class UserModel {
                 userId: userData.user_id,
                 username: userData.username,
                 email: userData.email
-              });
-              //trebuie adaugat si rolul!!!
+            });
+
             return { success: true, token, message: 'User registered successfully' };
         } catch (err) {
             console.log(err);
@@ -81,6 +81,26 @@ class UserModel {
             return result[0];
         } else {
             return null;
+        }
+    }
+
+    async getUserStatistics(userId) {
+        const connection = await connectionPromise;
+        const query = `
+            SELECT 
+                (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id AND is_correct = TRUE) AS scor,
+                (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id) AS rezolvate,
+                (SELECT COUNT(*) FROM user_questions WHERE created_by = u.user_id) AS propuse,
+                (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id AND is_correct = FALSE) AS marcate
+            FROM users u
+            WHERE u.user_id = ?
+        `;
+        const [results] = await connection.execute(query, [userId]);
+        //console.log("Astea sunt rezultatele", results);
+        if (results.length > 0) {
+            return results[0];
+        } else {
+            throw new Error('User statistics not found');
         }
     }
 

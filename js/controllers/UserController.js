@@ -102,6 +102,26 @@ class UserController extends BaseController {
             res.end('A aparut o eroare la actualizarea profilului');
         }
     }
+
+
+    async getUserStatistics(req, res) {
+        try {
+            const userId = req.userData && req.userData.id;
+            //console.log('User ID:', userId);
+            if (!userId) {
+                throw new Error('User ID is not defined');
+            }
+            const userStatistics = await this.userModel.getUserStatistics(userId);
+            console.log("Statistici:", userStatistics);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(userStatistics));
+        } catch (error) {
+            console.error('Error fetching user statistics:', error);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'Failed to fetch user statistics' }));
+        }
+    }
+
 }
 
 module.exports = UserController;
