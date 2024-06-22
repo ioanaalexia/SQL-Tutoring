@@ -166,9 +166,16 @@ class QuestionController extends BaseController {
                 res.end(JSON.stringify({ success: false, message: "Eroare interna de server" }));
             }
         } else {
-            res.writeHead(400, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ success: false, message: "Parametrii id sau category lipsesc din URL" }));
-        }
+            const result = await this.questionModel.getQueries(); // Ar trebui să fie 'category' în loc de 'id' aici
+            if (result) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(result));
+            } else {
+                res.writeHead(404, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ success: false, message: "Nu s-au găsit întrebări" }));
+            }
+
+            }
     }
     
 }

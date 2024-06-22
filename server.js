@@ -5,6 +5,7 @@ const path = require('path');
 const cookie = require('cookie');
 const routeController = require('./js/routes/userRoutes');
 const questionController = require('./js/routes/questionRoutes');
+const ieController=require('./js/routes/ieRoutes');
 const middleware=require('./js/middleware/AuthMiddleware')
 
 
@@ -19,6 +20,9 @@ const server = http.createServer(async (req, res) => {
         routeController(req, res, pathname, method);
     } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" || pathname==="/query" ){
         questionController(req,res,pathname,method);
+    }else if(pathname === '/import' || pathname === '/exportXml' || pathname === '/exportJson'){
+      console.log("in server")
+        ieController(req,res,pathname,method);
     }else if (ext.match(/\.(html|css|js|png|jpg|jpeg|svg)$/)) {
             if (ext === '.html') {
               console.log("path" + pathname);
@@ -67,6 +71,6 @@ function serveStaticFile(res, pathname) {
     });
 }
 
-server.listen(3800, () => {
-    console.log('Server is running on http://localhost:3600');
+server.listen(4900, () => {
+    console.log('Server is running on http://localhost:4900');
 });
