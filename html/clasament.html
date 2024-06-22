@@ -44,9 +44,11 @@
                 <img src="../images/star.png" class="star-img" alt="imagine">  
             </div>
             <ul>
-                <li><img src="../images/1.png" alt="imagine"><a href="setariAdmin.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="adaugaAdmin.html" target="_self"><p>Adauga problema</p></a></li> 
+                <li><img src="../images/1.png" alt="imagine"><a href="setariAdmin.html" target="_self"><p>Setari</p></a></li>
+                <li><img src="../images/2.png" alt="imagine"><a href="administrareDate.html" target="_self"><p>Administare date</p></a></li>
+                <li><img src="../images/3.png" alt="imagine"><a href="clasament.html" target="_self"><p>Clasament</p></a></li> 
+                <li><img src="../images/4.png" alt="imagine"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
+                <li><img src="../images/5.png" alt="imagine"><a href="adaugaIntrebare.html" target="_self"><p>Adauga problema</p></a></li> 
             </ul>
             <ul>
                 <li><img src="../images/logout.png" alt="imagine"><a href="elev.html"><p>Exit</p></a></li>
@@ -57,25 +59,14 @@
                 <table class="problemsTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Capitol</th>
-                            <th>Cerinta</th>
-                            <th>Raspuns</th>
-                            <th>Dificultate</th>
-                            <th>Incercari</th>
-                            <th>Comentarii</th>
+                            <th>Nume utilizator</th>
+                            <th>Scor</th>
                         </tr>
                     </thead>
 
-                        <tr>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                        </tr>
+                    <tbody>
+                        <!-- Dynamic content will be inserted here by getClasament.js -->
+                    </tbody>
                 </table>
             </div>
         </main>
@@ -85,6 +76,7 @@
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
+    <script src="../js/scripts/getClasament.js"></script>
   
 </body>
 </html>

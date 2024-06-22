@@ -52,7 +52,6 @@ form.addEventListener("submit", (event) => {
         .then(html => {
           mainContent.innerHTML = html;
        
-        
         const tabel=document.querySelector('.problemsTable');
 
         const table = document.getElementById("table");

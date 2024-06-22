@@ -32,12 +32,36 @@ h1 {
 #problemsTable {
     width: auto;
     min-width: 75vw;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
 }
 
 .problemsTable th, #problemsTable td {
     border: 1px solid #ddd;
     padding: 1vw;
     text-align: left;
+}
+.problemsTable thead tr {
+    background-color: #009879;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+.problemsTable th, .problemsTable td {
+    padding: 12px 15px;
+}
+
+.problemsTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.problemsTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.problemsTable tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 #problemsTable th {
@@ -129,7 +153,7 @@ button:hover {
 
 @media(min-width: 576px) and (max-width: 992px){
     .main-content {
-        padding-left: 11vw; 
+        padding-left: 11vw;
     }
     .problem-filter-form {
         grid-template-columns: 1fr;
