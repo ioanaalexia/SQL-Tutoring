@@ -10,81 +10,39 @@
 </head>
 <body>
     <div class="page-container">
-        <header>
-            <div class="navbar">
-                <div class="logo">SQL - Tutoring</div>
-                <div class="spacer"></div>
-                <ul class="links">
-                    <li><a href="elev.html">Acasa</a></li>
-                    <li><a href="profil.html"  class="active">Profil</a></li>
-                    <li><a href="index.html">Logout</a></li>
-                    <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
-                    </ul>
-                <div class="toggle_btn">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </div>
-    
-            <ol class="dropdown_menu">
-                <li><a href="">Acasa</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="index.html">Logout</a></li>
-                <li><a href="ajutor.html" class="action_btn">Ajutor</a></li>
-            </ol>
-    </header>
-
-        <aside class="side-nav">
-            <div class="user">
-                <img src="../images/admin.png" class="user-img" alt="imagine">
-                <a href="admin.html"><div>
-                    <h2 id="username"></h2>
-                    <p id="email"></p>
-                </div>
-                </a>
-                <img src="../images/star.png" class="star-img" alt="imagine">  
-            </div>
-            <ul>
-                <li><img src="../images/1.png" alt="imagine"><a href="setariAdmin.html" target="_self"><p>Setari</p></a></li> 
-                <li><img src="../images/2.png" alt="imagine"><a href="administrareProbleme.html" target="_self"><p>Administrare probleme</p></a></li> 
-                <li><img src="../images/3.png" alt="imagine"><a href="adaugaAdmin.html" target="_self"><p>Adauga problema</p></a></li> 
-            </ul>
-            <ul>
-                <li><img src="../images/logout.png" alt="imagine"><a href="elev.html"><p>Exit</p></a></li>
-            </ul>
-        </aside>
         <main class="main-content">
             <div class="table-responsive">
-                <table class="problemsTable">
+                <table id="table" class="problemsTable">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Capitol</th>
-                            <th>Cerinta</th>
-                            <th>Raspuns</th>
-                            <th>Dificultate</th>
-                            <th>Incercari</th>
-                            <th>Comentarii</th>
-                        </tr>
-                    </thead>
-
-                        <tr>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Capitol</th>
+                                <th>Cerinta</th>
+                                <th>Raspuns</th>
+                                <th>Dificultate</th>
+                                <th>Incercari</th>
+                                <th>Comentarii</th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <tr id="id"></th>
+                                <tr id="capitol"></th>
+                                <tr id="cerinta"></th>
+                                <tr id="raspuns"></th>
+                                <tr id="dificultate"></th>
+                                <tr id="incercari"></th>
+                                <tr id="comentarii"></th>   
+                            </tr>
                 </table>
             </div>
         </main>
-        <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
 
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
+    <script src="../js/scripts/getQuestion.js"></script>
   
 </body>
 </html>
