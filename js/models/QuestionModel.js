@@ -120,29 +120,41 @@ class QuestionModel{
 
     async addQuestion(capitol,intrebare,dificultate,raspuns,userId)
     {
-        const connection = await connectionPromise;
-        console.log("in model in add question");
+        try {
+            const connection = await connectionPromise;
+            console.log('Conexiunea la baza de date este deschisă.');
 
-       try{
-         const [results, fields] = await connection.execute(raspuns);
-        
-         try {
-            const sql = `
-              INSERT INTO questions (category, question_text, correct_answer,difficulty,created_by)
-              VALUES (?, ?, ?,?,? )
-            `;
-            const [result] = await connection.execute(sql, [capitol,intrebare,,raspuns,dificultate,userId]);
-            console.log('Interogarea a fost inserata:', result);
-            return true;
-          } catch (err) {
-            console.error('Error inserting or updating comment:', err.message);
-            return false;
-          }
-       }catch (err) {
-        console.error('Error in answer:', err.message);
-        return false;
-      }
+           
+            const sqlStm = `
+                    SELECT role FROM users WHERE user_id=?
+                   `;
+            const role=await connection.execute(sqlStm,[userId]);
+            try{
+                
+                if(role==='student')
+                    [results, fields] = await connection.execute(raspuns);
+                try {
+                   const sql = `
+                     INSERT INTO questions (category, question_text, correct_answer,difficulty,created_by)
+                     VALUES (?, ?, ?,?,? )
+                   `;
+                   const [result] = await connection.execute(sql, [capitol,intrebare,,raspuns,dificultate,userId]);
+                   console.log('Interogarea a fost inserata:', result);
+                   return true;
+                 } catch (err) {
+                   console.error('Error inserting or updating comment:', err.message);
+                   return false;
+                 }
+              }catch (err) {
+               console.error('Error in answer:', err.message);
+               return false;
+             }
+            // Aici poți face operații cu conexiunea, cum ar fi executarea de interogări
+        } catch (err) {
+            console.error('Eroare la conectarea la baza de date:', err.message);
+        }
 
+    
     } 
     async getQueryById(questionId) {
       const connection = await connectionPromise;
@@ -216,9 +228,40 @@ class QuestionModel{
         console.error('Error getting questions by category:', err.message);
         return null;
     }
+  }
+    async getQueries() {
+      const connection = await connectionPromise;
+      try {
+          const sql = `
+              SELECT question_id, category, question_text, correct_answer, difficulty, created_by, attempts
+              FROM questions 
+          `;
+  
+          const [rows] = await connection.execute(sql);
+  
+          if (rows.length === 0) {
+              return null; 
+          }
+  
+          
+          const questions = rows.map(row => ({
+              questionId: row.question_id,
+              category: row.category,
+              questionText: row.question_text,
+              correctAnswer: row.correct_answer,
+              difficulty: row.difficulty,
+              createdBy: row.created_by,
+              attempts: row.attempts,
+          }));
+  
+          return questions;
+      } catch (err) {
+          console.error('Error getting questions by category:', err.message);
+          return null;
+      }
+    }
 }
 
-    
-  }
+  
 
 module.exports=QuestionModel;

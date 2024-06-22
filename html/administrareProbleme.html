@@ -71,18 +71,33 @@
             </form>
             <div class="lista-descarcari">
                 <ul>
-                    <li><img src="../images/import.png" alt="imgine">Import</li>
-                    <li><img src="../images/export.png" alt="imgine">Export json</li>
-                    <li><img src="../images/export.png" alt="imgine">Export xml</li>
+                    <li><img src="../images/export.png" alt="imgine"><h2 id="exportjson">Export json</h2></li>
+                    <li><img src="../images/export.png" alt="imgine"><h2 id="exportxml">Export xml</h2></li>
                 </ul>
             </div>
+            <div class="lista-descarcari">
+                <div id="mytag">
+                    <ul>
+                        <li><img src="../images/import.png" alt="imgine"><h2 id="import">Import</h2></li>
+                        <li>
+                            <form class="import_form" id="importForm">
+                                <input type="file" id="fileInput" name="file" accept=".json,.xml">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+            
         </main>
         <footer class="about"><a href="despre.html" class="about">Despre</a></footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/scripts/dropdown_menu.js"></script>
     <script src="../js/scripts/hide_logo.js"></script>
     <script src="../js/scripts/user_profile.js"></script>
     <script src="../js/scripts/getQuestion.js"></script>
+    <script src="../js/scripts/importExport.js"></script>
 </body>
 </html>
