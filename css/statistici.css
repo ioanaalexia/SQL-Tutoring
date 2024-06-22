@@ -1,4 +1,4 @@
-.main-content {
+.main-content{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +62,7 @@ h1 {
     cursor: pointer;
 }
 
-#problemsTable th,#problemsTable tr {
+#problemsTable th, #problemsTable tr {
     background-color: #f2f2f2;
 }
 
@@ -80,10 +80,9 @@ h1 {
 
 .lista-descarcari #mytag ul{
     display: flex;
-    flex-direction: row;   
     list-style-type: none;
     padding: 0;
-    margin-left: 5em;
+    margin-left: 0em;
 }
 
 footer{
@@ -187,9 +186,8 @@ button:hover {
     }
 
     .main-content {
-        padding: 0vw;
-        margin-left: 4vw;
-        margin-top: -40vw;
+        margin-top: 20px;
+        padding: 10px;
     }
 
     #problemsTable td {
@@ -215,5 +213,13 @@ button:hover {
         grid-column: span 1;
         padding: 10px;
         font-size: 1em;
+    }
+    .lista-descarcari ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lista-descarcari li {
+        margin-bottom: 2vw;
     }
 }
