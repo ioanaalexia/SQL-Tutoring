@@ -1,4 +1,4 @@
-.main-content {
+.main-content{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +30,10 @@ h1 {
 #problemsTable {
     width: auto;
     min-width: 75vw;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
 }
 
 .problemsTable th, #problemsTable td ,#problemsTable tr{
@@ -37,8 +41,28 @@ h1 {
     padding: 1vw;
     text-align: left;
 }
+.problemsTable thead tr {
+    background-color: #009879;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+.problemsTable th, .problemsTable td {
+    padding: 12px 15px;
+}
 
-#problemsTable th,#problemsTable tr {
+.problemsTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.problemsTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.problemsTable tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#problemsTable th, #problemsTable tr {
     background-color: #f2f2f2;
 }
 
@@ -56,10 +80,9 @@ h1 {
 
 .lista-descarcari #mytag ul{
     display: flex;
-    flex-direction: row;   
     list-style-type: none;
     padding: 0;
-    margin-left: 5em;
+    margin-left: 0em;
 }
 
 footer{
@@ -132,10 +155,71 @@ button:hover {
     background-color: #A070CF;
 }
 
-#importForm {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    border:
+@media(min-width: 576px) and (max-width: 992px){
+    .main-content {
+        padding-left: 11vw;
+    }
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: span 1;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: span 1;
+    }
+
+}
+
+@media(max-width: 576px){
+       .side-nav {
+        display: none;
+    }
+
+    .main-content {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    #problemsTable td {
+        padding: 1vw 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: left;
+        font-size: 4vw;
+    }
+
+    .problem-filter-form {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .form-group {
+        padding: 15px;
+        width: 100%;
+    }
+
+    button {
+        grid-column: span 1;
+        padding: 10px;
+        font-size: 1em;
+    }
+    .lista-descarcari ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lista-descarcari li {
+        margin-bottom: 2vw;
+    }
 }
