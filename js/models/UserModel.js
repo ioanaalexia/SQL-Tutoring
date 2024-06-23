@@ -96,13 +96,32 @@ class UserModel {
             WHERE u.user_id = ?
         `;
         const [results] = await connection.execute(query, [userId]);
-        //console.log("Astea sunt rezultatele", results);
+        console.log("Astea sunt rezultatele", results);
         if (results.length > 0) {
             return results[0];
         } else {
             throw new Error('User statistics not found');
         }
     }
+
+    async getProblems(userId) {
+        const connection = await connectionPromise;
+    
+        const query = `
+            SELECT q.question_text AS nume_problema, 
+                   COUNT(a.attempt_id) AS incercari_gresite, 
+                   IF(a.is_correct, 'Rezolvata', 'Nerezolvata') AS status, 
+                   q.difficulty 
+            FROM questions q 
+            LEFT JOIN attempts a ON q.question_id = a.question_id AND a.user_id = ?
+            WHERE a.user_id = ?
+            GROUP BY q.question_text, a.is_correct, q.difficulty
+        `;
+        const [results] = await connection.execute(query, [userId, userId]);
+        console.log("Rezultatele sunt: ", results);
+        return results;
+    }
+    
 
     async getUserScores() {
         const connection = await connectionPromise;
@@ -156,7 +175,7 @@ class UserModel {
         console.error('Error updating user profile:', error);
         return false;
     }
-}
+    }
 
 }
 

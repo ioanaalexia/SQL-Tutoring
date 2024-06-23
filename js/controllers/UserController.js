@@ -107,7 +107,7 @@ class UserController extends BaseController {
     async getUserStatistics(req, res) {
         try {
             const userId = req.userData && req.userData.id;
-            //console.log('User ID:', userId);
+            console.log('User ID:', userId);
             if (!userId) {
                 throw new Error('User ID is not defined');
             }
@@ -125,7 +125,7 @@ class UserController extends BaseController {
 
     async getUserScore(req, res){
         try{
-            const userScores =await this.userModel.getUserScores();
+            const userScores = await this.userModel.getUserScores();
             console.log("Scorurile sunt: ", userScores);
             res.writeHead(200, {'Content-Type' : 'application/json'});
             res.end(JSON.stringify(userScores));
@@ -133,6 +133,24 @@ class UserController extends BaseController {
             console.error('Error fetching user scores: ', error);
             res.writeHead(500, {'Content-Type' : 'application/json'});
             res.end(JSON.stringify({message: 'Failed to fetch user scores'}));
+        }
+    }
+
+    async getProblems(req, res) {
+        try {
+            const userId = req.userData && req.userData.id;
+            console.log('User ID:', userId);
+            if(!userId){
+                throw new Error('User ID is not defined')
+            }
+            const problems = await this.userModel.getProblems(userId);
+            console.log("Rezultatele sunt: ", problems);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(problems));
+        } catch (error) {
+            console.error('Error fetching problems:', error);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'Failed to fetch problems' }));
         }
     }
 
