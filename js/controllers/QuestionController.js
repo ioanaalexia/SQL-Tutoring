@@ -87,7 +87,7 @@ class QuestionController extends BaseController {
     async verifyCount(req, res,userData){
         const result=await this.questionModel.verifyCount(userData.id)
         console.log(result)
-        if(result===3)
+        if(result===1)
             {
                 res.writeHead(201, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ success: true, message: "redirect" }));
@@ -101,6 +101,7 @@ class QuestionController extends BaseController {
 }
     async addQuestion(req,res,userData){
         
+        console.log("in controler")
         const queryString=await this.getPostData(req)
         console.log(queryString)
         const parsedData = querystring.parse(queryString);

@@ -118,44 +118,85 @@ class QuestionModel{
                 }
     }
 
-    async addQuestion(capitol,intrebare,dificultate,raspuns,userId)
-    {
+    async addQuestion(capitol, intrebare, dificultate, raspuns, userId) {
+        console.log("in model");
         try {
             const connection = await connectionPromise;
             console.log('Conexiunea la baza de date este deschisă.');
-
-           
+    
             const sqlStm = `
-                    SELECT role FROM users WHERE user_id=?
-                   `;
-            const role=await connection.execute(sqlStm,[userId]);
-            try{
-                
-                if(role==='student')
-                    [results, fields] = await connection.execute(raspuns);
+                SELECT role FROM users WHERE user_id = ?
+            `;
+            const [roleResult] = await connection.execute(sqlStm, [userId]);
+            const role = roleResult[0].role;
+    
+            if (role === 'student') {
                 try {
-                   const sql = `
-                     INSERT INTO questions (category, question_text, correct_answer,difficulty,created_by)
-                     VALUES (?, ?, ?,?,? )
-                   `;
-                   const [result] = await connection.execute(sql, [capitol,intrebare,,raspuns,dificultate,userId]);
-                   console.log('Interogarea a fost inserata:', result);
-                   return true;
-                 } catch (err) {
-                   console.error('Error inserting or updating comment:', err.message);
-                   return false;
-                 }
-              }catch (err) {
-               console.error('Error in answer:', err.message);
-               return false;
-             }
-            // Aici poți face operații cu conexiunea, cum ar fi executarea de interogări
+                    // Verificare validitate interogare SQL
+                    await connection.execute(raspuns);
+                    console.log('Interogarea SQL este validă.');
+    
+                    // Inserarea întrebării
+                    const sql = `
+                        INSERT INTO questions (category, question_text, correct_answer, difficulty, created_by)
+                        VALUES (?, ?, ?, ?, ?)
+                    `;
+                    const [result] = await connection.execute(sql, [capitol, intrebare, raspuns, dificultate, userId]);
+                    console.log('Interogarea a fost inserată:', result);
+                    return true;
+                } catch (err) {
+                    console.error('Interogarea SQL nu este validă sau a apărut o eroare:', err.message);
+                    return false;
+                }
+            } else {
+                // Inserarea întrebării fără verificarea interogării pentru alte roluri
+                try {
+                    const sql = `
+                        INSERT INTO questions (category, question_text, correct_answer, difficulty, created_by)
+                        VALUES (?, ?, ?, ?, ?)
+                    `;
+                    const [result] = await connection.execute(sql, [capitol, intrebare, raspuns, dificultate, userId]);
+                    console.log('Interogarea a fost inserată:', result);
+                    return true;
+                } catch (err) {
+                    console.error('Error inserting or updating question:', err.message);
+                    return false;
+                }
+            }
         } catch (err) {
             console.error('Eroare la conectarea la baza de date:', err.message);
+            return false;
         }
-
+    }
     
-    } 
+    async verifyCount(userId){
+        const connection = await connectionPromise;
+        try {
+            const sql = `
+            SELECT user_id,COUNT(*) as attempt_count
+            FROM attempts
+            WHERE user_id = ?
+            GROUP BY user_id;
+
+            `;
+
+            const [rows] = await connection.execute(sql, [userId]);
+            console.log(rows[0])
+            if (rows.length > 0) {
+            return rows[0].attempt_count;
+            } else {
+            console.log('No attempts found for this user.');
+            return 0;
+            }
+        } catch (err) {
+            console.error('Error getting attempt count:', err.message);
+            return null;
+        }
+          } catch (err) {
+            console.error('Error inserting or updating comment:', err.message);
+            return false;
+          }
+
     async getQueryById(questionId) {
       const connection = await connectionPromise;
       try {

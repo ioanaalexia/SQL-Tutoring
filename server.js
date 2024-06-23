@@ -18,7 +18,7 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' || pathname === '/api/user-statistics') {
         routeController(req, res, pathname, method);
-    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" || pathname==="/query" ){
+    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" ){
         questionController(req,res,pathname,method);
     }else if(pathname === '/import' || pathname === '/exportXml' || pathname === '/exportJson'){
       console.log("in server")
@@ -72,5 +72,5 @@ function serveStaticFile(res, pathname) {
 }
 
 server.listen(3800, () => {
-    console.log('Server is running on http://localhost:3600');
+    console.log('Server is running on http://localhost:3800');
 });

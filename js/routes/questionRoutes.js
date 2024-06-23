@@ -57,6 +57,7 @@ function handlePostRequest(req, res, pathname, userData,questionId) {
         } 
     else if(pathname === '/addQuestion')
             {
+                console.log("in ruta")
                 questionController.addQuestion(req, res,userData);
             }       
     else {
