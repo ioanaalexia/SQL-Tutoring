@@ -68,9 +68,7 @@ class IEModel{
                 };
         
         
-              
-                // Add the question to the database
-                const success = await this.questionModel.addQuestion(
+                    const success = await this.questionModel.addQuestion(
                     question.category._text,
                     question.questionText._text,
                     question.difficulty._text,

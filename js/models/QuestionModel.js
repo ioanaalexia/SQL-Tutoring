@@ -122,6 +122,7 @@ class QuestionModel{
         console.log("in model");
         try {
             const connection = await connectionPromise;
+            const dbConnectionPromise = await dbConnectionPromise;
             console.log('Conexiunea la baza de date este deschisă.');
     
             const sqlStm = `
@@ -133,7 +134,7 @@ class QuestionModel{
             if (role === 'student') {
                 try {
                     // Verificare validitate interogare SQL
-                    await connection.execute(raspuns);
+                    await dbConnectionPromise.execute(raspuns);
                     console.log('Interogarea SQL este validă.');
     
                     // Inserarea întrebării
