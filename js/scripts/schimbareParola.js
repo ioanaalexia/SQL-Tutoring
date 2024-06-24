@@ -8,8 +8,8 @@ document.getElementById('profile-form').addEventListener('submit', async functio
     console.log("Form data:", { name, formEmail, password });
 
 
-    //console.log("hei");
-    const response =  fetch('/api/update-profile', {
+    
+    fetch('/api/update-profile', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' 
@@ -19,11 +19,22 @@ document.getElementById('profile-form').addEventListener('submit', async functio
             formEmail,
             password
         })
-    });
+    }).then(response => response.json())
+    .then(data => {
+        console.log(data)
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+                title: 'Succes!',
+                text: 'Parola a fost schimbata!'
+            })
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+        }
+ })
 
-    if (response.ok) {
-        alert('Modificările au fost salvate cu succes.');
-    } else {
-        alert('A apărut o eroare la salvarea modificărilor.');
-    }
 });

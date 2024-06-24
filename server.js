@@ -19,7 +19,7 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname.startsWith('/api/') || pathname === '/api/user-statistics' || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile') {
         routeController(req, res, pathname, method);
-      } else if(pathname === '/' || pathname === '/questions' || pathname==='/answer' || pathname==='/rating' ||pathname==='/comment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" || pathname === '/incorrectProblem'){
+      } else if(pathname === '/' || pathname === '/question' || pathname === '/questions' || pathname==='/answer' || pathname==='/rating' ||pathname==='/comment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" || pathname === '/incorrectProblem'){
         console.log("Sunt in server..");
         questionController(req,res,pathname,method);
     }else if(pathname==='/scores'){
