@@ -250,8 +250,9 @@ i{
 }
 
 .side-nav{
+    flex: 0 0 200px; /* Set the width of the side-nav */
     width: 110px;
-    height: 97%;
+    height: 100%;
     position:fixed;
     top:0;
     left: 0;

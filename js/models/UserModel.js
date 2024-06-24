@@ -90,8 +90,8 @@ class UserModel {
             SELECT 
                 (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id AND is_correct = TRUE) AS scor,
                 (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id) AS rezolvate,
-                (SELECT COUNT(*) FROM user_questions WHERE created_by = u.user_id) AS propuse,
-                (SELECT COUNT(*) FROM attempts WHERE user_id = u.user_id AND is_correct = FALSE) AS marcate
+                (SELECT COUNT(*) FROM questions WHERE created_by = u.user_id) AS propuse,
+                (SELECT COUNT(*) FROM ratings WHERE user_id = u.user_id AND is_incorrect = TRUE) AS marcate
             FROM users u
             WHERE u.user_id = ?
         `;

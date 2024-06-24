@@ -76,7 +76,8 @@ class QuestionModel{
             return false; // Returnează false pentru eșec
         }
     }
-   async sendRating(questionId,userId,dificultate){
+
+    async sendRating(questionId,userId,dificultate){
         //interogarea in bd
         const connection = await connectionPromise;
         console.log("in model")
@@ -99,6 +100,7 @@ class QuestionModel{
             return false;
           } 
     }
+
 
     async addComment(comment,questionId,userId)
     {
@@ -170,6 +172,8 @@ class QuestionModel{
             return false;
         }
     }
+    
+
     
     async verifyCount(userId){
         const connection = await connectionPromise;

@@ -130,7 +130,7 @@ function fetchInnerPage(){
 
 function markWrong(){
    
-     fetch("/markIncorrect", {
+     fetch("/incorrectProblem", {
         method: 'POST'
     })
     .then(response => response.json())
