@@ -43,6 +43,10 @@ const server = http.createServer(async (req, res) => {
               serveStaticFile(res, pathname);
             }
         }
+        else {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Not Found');
+        }
     });
 
 
@@ -72,6 +76,6 @@ function serveStaticFile(res, pathname) {
     });
 }
 
-server.listen(3800, () => {
-    console.log('Server is running on http://localhost:3800');
+server.listen(3700, () => {
+    console.log('Server is running on http://localhost:3700');
 });

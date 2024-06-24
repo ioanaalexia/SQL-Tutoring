@@ -85,6 +85,8 @@ class QuestionModel{
             const query = `
               INSERT INTO ratings (question_id, user_id, difficulty_rating)
               VALUES (?, ?, ?)
+              ON DUPLICATE KEY UPDATE
+              difficulty_rating = VALUES(difficulty_rating)
             `;
         
             // Execută interogarea cu parametrii furnizați
@@ -121,10 +123,8 @@ class QuestionModel{
     async addQuestion(capitol, intrebare, dificultate, raspuns, userId) {
         console.log("in model");
         try {
-            const dbConnectionPromise=await dbConnectionPromise;
             const connection = await connectionPromise;
             console.log('Conexiunea la baza de date este deschisă.');
-    
             const sqlStm = `
                 SELECT role FROM users WHERE user_id = ?
             `;
@@ -133,8 +133,9 @@ class QuestionModel{
     
             if (role === 'student') {
                 try {
+                    const dbconnection=await dbConnectionPromise;
                     // Verificare validitate interogare SQL
-                    await dbConnectionPromise.execute(raspuns);
+                    await dbconnection.execute(raspuns);
                     console.log('Interogarea SQL este validă.');
     
                     // Inserarea întrebării
@@ -302,7 +303,7 @@ class QuestionModel{
           return null;
       }
     }
-    
+
     async markQuestionAsIncorrect(questionId, userId) {
         const connection = await connectionPromise;
         const is_incorrect = true;
@@ -320,7 +321,6 @@ class QuestionModel{
             return false;
         }
     }
-
 }
 
   
