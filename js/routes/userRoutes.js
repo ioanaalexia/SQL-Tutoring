@@ -46,10 +46,8 @@ function handleGetRequest(req, res, pathname, userData) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'User not authenticated' }));
         }
-    }else if(pathname === '/api/scores'){
-        console.log("Scoruri din routes");
-        userController.getUserScore(req, res);
-    }else if (pathname === '/api/problems') {
+    }
+    else if (pathname === '/api/problems') {
         if (userData) {
             console.log(userData);
             req.userData = userData;

@@ -6,7 +6,8 @@ const cookie = require('cookie');
 const routeController = require('./js/routes/userRoutes');
 const questionController = require('./js/routes/questionRoutes');
 const ieController=require('./js/routes/ieRoutes');
-const middleware=require('./js/middleware/AuthMiddleware')
+const adminController=require('./js/routes/adminRoutes');
+const middleware=require('./js/middleware/AuthMiddleware');
 
 
 const server = http.createServer(async (req, res) => {
@@ -16,11 +17,13 @@ const server = http.createServer(async (req, res) => {
     const method = req.method;
     const ext = path.extname(pathname);
 
-    if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' || pathname === '/api/user-statistics') {
+    if (pathname.startsWith('/api/') || pathname === '/api/user-statistics' || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile') {
         routeController(req, res, pathname, method);
-      } else if(pathname === '/question' || pathname === '/questions' || pathname==='/answer' || pathname==='/rating' ||pathname==='/comment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" || pathname === '/incorrectProblem'){
+      } else if(pathname === '/' || pathname === '/questions' || pathname==='/answer' || pathname==='/rating' ||pathname==='/comment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" || pathname === '/incorrectProblem'){
         console.log("Sunt in server..");
         questionController(req,res,pathname,method);
+    }else if(pathname==='/scores'){
+        adminController(req,res,pathname,method);
     }else if(pathname === '/import' || pathname === '/exportXml' || pathname === '/exportJson'){
       console.log("in server")
         ieController(req,res,pathname,method);
@@ -76,6 +79,6 @@ function serveStaticFile(res, pathname) {
     });
 }
 
-server.listen(3800, () => {
+server.listen(3900, () => {
     console.log('Server is running on http://localhost:3700');
 });

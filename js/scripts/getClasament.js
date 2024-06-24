@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    fetch('/api/scores', {
+    fetch('/scores', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
