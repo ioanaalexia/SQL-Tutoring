@@ -135,6 +135,11 @@ class QuestionModel{
     
             if (role === 'student') {
                 try {
+                    const forbiddenPatterns = /(?:DELETE|INSERT|UPDATE|DROP|ALTER|TRUNCATE)\s/i;
+                    if (forbiddenPatterns.test(raspuns)) {
+                        console.error('Interogarea SQL conține comenzi periculoase.');
+                        return false;
+                    }
                     const dbconnection=await dbConnectionPromise;
                     // Verificare validitate interogare SQL
                     await dbconnection.execute(raspuns);
