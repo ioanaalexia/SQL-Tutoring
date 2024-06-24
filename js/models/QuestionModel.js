@@ -121,6 +121,7 @@ class QuestionModel{
     async addQuestion(capitol, intrebare, dificultate, raspuns, userId) {
         console.log("in model");
         try {
+            const dbConnectionPromise=await dbConnectionPromise;
             const connection = await connectionPromise;
             console.log('Conexiunea la baza de date este deschisă.');
     
@@ -133,7 +134,7 @@ class QuestionModel{
             if (role === 'student') {
                 try {
                     // Verificare validitate interogare SQL
-                    await connection.execute(raspuns);
+                    await dbConnectionPromise.execute(raspuns);
                     console.log('Interogarea SQL este validă.');
     
                     // Inserarea întrebării
