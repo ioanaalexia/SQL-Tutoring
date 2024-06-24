@@ -18,7 +18,8 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname.startsWith('/api/') || pathname === '/login' || pathname === '/signup' || pathname === '/logout' || pathname === '/api/update-profile' || pathname === '/api/user-statistics') {
         routeController(req, res, pathname, method);
-    } else if(pathname === '/getQuestion' || pathname === '/questions' || pathname==='/addAnswer' || pathname==='/sendRating' ||pathname==='/addComment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" ){
+      } else if(pathname === '/question' || pathname === '/questions' || pathname==='/answer' || pathname==='/rating' ||pathname==='/comment' || pathname==="/verifyCount" || pathname==="/query" || pathname==="/addQuestion" || pathname === '/markIncorrect'){
+        console.log("Sunt in server..");
         questionController(req,res,pathname,method);
     }else if(pathname === '/import' || pathname === '/exportXml' || pathname === '/exportJson'){
       console.log("in server")

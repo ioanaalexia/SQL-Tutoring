@@ -57,7 +57,7 @@ function fetchQuestion(){//iau intrebarea din baza de date
     const addAnswerForm=document.forms[0];
     addAnswerForm.querySelector('input[type="text"]').value="";
     const chapterTitle=document.getElementById("title");
-    const url="/getQuestion?"+"chapter="+chapterTitle.textContent;
+    const url="/question?"+"chapter="+chapterTitle.textContent;
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -114,6 +114,13 @@ function fetchInnerPage(){
     getChapter();
     fetchQuestion();
     fetchComment();
+    const markButton=document.getElementById("markIncorrectButton")
+    console.log(markButton)
+    markButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        markWrong();
+    });
+    
     })
     .catch(error => {
     console.error('Error loading the chapter:', error);
@@ -121,10 +128,28 @@ function fetchInnerPage(){
     });
 }
 
+function markWrong(){
+   
+     fetch("/markIncorrect", {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire('Success', 'Question marked as incorrect successfully.', 'success');
+        } else {
+            Swal.fire('Error', data.message, 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error marking question incorrect:', error);
+        Swal.fire('Error', 'Failed to send the request.', 'error');
+    });
+}
 function sendAnswer(answer) {
     console.log("se trimite raspunsul")
     try {
-    fetch("/addAnswer", {
+    fetch("/answer", {
     method: 'POST',
     headers: {
     'Content-Type': 'text/plain' // Am schimbat 'text' în 'text/plain'
@@ -150,7 +175,7 @@ function sendAnswer(answer) {
                             showLoaderOnConfirm: true,
                             preConfirm: async (login) => {
                               try {
-                                const response = await fetch(`/sendRating?dificultate=${login}`);
+                                const response = await fetch(`/rating?dificultate=${login}`);
                                 if (!response.ok) {
                                   return Swal.showValidationMessage(`
                                     ${JSON.stringify(await response.json())}
@@ -199,7 +224,7 @@ function fetchComment(){
 function sendComment(comment)
 {
     try {
-        fetch("/addComment", {
+        fetch("/comment", {
         method: 'POST',
         headers: {
         'Content-Type': 'text/plain' // Am schimbat 'text' în 'text/plain'
@@ -226,6 +251,7 @@ function sendComment(comment)
         concole.log("There s been an error with fetching the comment")
     }
 
+    
 }
 
 

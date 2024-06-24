@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2vw;
     padding-left: calc(110px + 5vw);
-    margin-top: -7vh;
+    margin-top: 0vh;
     overflow-x: auto;
 }
 
@@ -94,8 +94,8 @@ footer {
     flex-shrink: 0;
     position:relative;
     padding: 5px;
-   
   }
+
 .lista-descarcari li, #mytag li {
     padding-left: 30px;
     line-height: 30px;

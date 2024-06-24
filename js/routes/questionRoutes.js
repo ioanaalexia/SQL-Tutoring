@@ -27,10 +27,10 @@ function questionRoutes(req, res, pathname, method) {
 
 function handleGetRequest(req, res, pathname, userData,questionId) {
     console.log(userData)
-    if (pathname === '/getQuestion') {
+    if (pathname === '/question') {
         questionController.getQuestion(req, res,userData);
     }
-    else if(pathname === '/sendRating'){
+    else if(pathname === '/rating'){
         questionController.sendRating(req, res,questionId,userData);
     }
     else if(pathname === '/query'){
@@ -48,10 +48,11 @@ function handleGetRequest(req, res, pathname, userData,questionId) {
 }
 
 function handlePostRequest(req, res, pathname, userData,questionId) {
-    if (pathname === '/addAnswer') {
+
+    if (pathname === '/answer') {
         questionController.verifyAnswer(req, res,questionId,userData);
     } 
-    else if(pathname === '/addComment')
+    else if(pathname === '/comment')
         {
             questionController.addComment(req, res,questionId,userData);
         } 
@@ -60,7 +61,10 @@ function handlePostRequest(req, res, pathname, userData,questionId) {
                 console.log("in ruta")
                 questionController.addQuestion(req, res,userData);
             }       
-    else {
+    else if(pathname === '/markIncorrect') {
+            console.log("sunt in markedIncorrect");
+            questionController.markIncorrect(req, res, questionId, userData);
+    }else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
     }

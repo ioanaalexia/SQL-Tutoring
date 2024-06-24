@@ -1,4 +1,5 @@
 const form = document.forms[0];
+const mainPage = document.getElementById("mainPage");
 const mainContent = document.querySelector('main.main-content');
 
 function generateUrl(base, params) {
@@ -50,7 +51,7 @@ form.addEventListener("submit", (event) => {
         fetch('administrareDate.html')
         .then(response => response.text())
         .then(html => {
-          mainContent.innerHTML = html;
+          mainPage.innerHTML = html;
        
         const tabel=document.querySelector('.problemsTable');
 

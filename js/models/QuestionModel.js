@@ -302,6 +302,25 @@ class QuestionModel{
           return null;
       }
     }
+    
+    async markQuestionAsIncorrect(questionId, userId) {
+        const connection = await connectionPromise;
+        const is_incorrect = true;
+        try {
+            const sql = `
+            INSERT INTO ratings (question_id, user_id, is_incorrect)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE
+            is_incorrect = VALUES(is_incorrect)
+          `;
+          const [result] = await connection.execute(sql, [questionId, userId, is_incorrect]);
+          return true;
+        } catch (error) {
+            console.error('Error marking question as incorrect:', error);
+            return false;
+        }
+    }
+
 }
 
   
