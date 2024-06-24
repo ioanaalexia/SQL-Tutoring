@@ -61,7 +61,7 @@ function handlePostRequest(req, res, pathname, userData,questionId) {
                 console.log("in ruta")
                 questionController.addQuestion(req, res,userData);
             }       
-    else if(pathname === '/markIncorrect') {
+    else if(pathname === '/incorrectProblem') {
             console.log("sunt in markedIncorrect");
             questionController.markIncorrect(req, res, questionId, userData);
     }else {
