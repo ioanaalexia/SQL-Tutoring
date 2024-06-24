@@ -80,5 +80,5 @@ function serveStaticFile(res, pathname) {
 }
 
 server.listen(3900, () => {
-    console.log('Server is running on http://localhost:3700');
+    console.log('Server is running on http://localhost:3900');
 });
