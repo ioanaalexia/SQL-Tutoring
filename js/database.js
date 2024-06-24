@@ -21,4 +21,3 @@ module.exports = {
     connectionPromise,
     dbConnectionPromise
 }
-//module.exports = connectionPromise2;

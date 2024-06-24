@@ -307,7 +307,7 @@ class QuestionModel{
           return null;
       }
     }
-    
+
     async markQuestionAsIncorrect(questionId, userId) {
         const connection = await connectionPromise;
         const is_incorrect = true;
@@ -325,7 +325,6 @@ class QuestionModel{
             return false;
         }
     }
-
 }
 
   

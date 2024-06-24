@@ -13,10 +13,9 @@ body,html{
     background:#968dda;
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 .header{
-    width: 100%;
+    width: 90%;
     height: 100vh;
     flex-shrink: 0;
     flex-grow: 0;
@@ -299,20 +298,27 @@ a{
     color:black;
   }
 
+div .containers
+{
+    width: 100%;
+}
+
 div .pagina{
     display: flex;
     flex-direction: column;
     align-items: center; 
     width:100%; 
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 
   }
+
+
   
   main{
     
+   
     flex: 1;
   }
   

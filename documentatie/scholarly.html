@@ -11,6 +11,14 @@
         body{
             font-family: Arial,sans-serif;
         }
+        img{
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 990px;  /* Sau dimensiunea dorită */
+        }
     </style>
 
     <script src="https://w3c.github.io/scholarly-html/js/scholarly.min.js"></script>
@@ -52,23 +60,30 @@
             </p>
         </section>
 
-        <section id="purpose">
-            <h3>Scopul</h3>
-            <p>
-                Scopul aplicației este de a facilita învățarea și exersarea limbajului SQL prin rezolvarea și crearea unor exerciții
-                aferente domeniului.
-            </p>
-        </section>
-
         <section id="intended-audience">
             <h3>Publicul țintă</h3>
             <p>
-                Documentul este destinat celor ce vor sa invețe limbajului SQL , folosind 
-                aplicația SQL-Tutoring, precum și eventualilor dezvoltatori software care vor dori extinderea
-                functionalitatilor aplicatiei.Aplicația este ideală pentru cei care caută să înțeleagă mai bine
-                modul în care se realizeaza interogările în mediul SQL.Aceasta oferă un mediu de lucru interactiv
-                și personalizat facilitând învățarea practică și eficientă.
+                Acest document de Specificații pentru Cerințele Software (SRS) pentru aplicația SQL-Two este destinat următoarelor tipuri de cititori:
+                <ol>
+                <li><h3>Dezvoltatori</h3><p>Dezvoltatorii responsabili pentru proiectarea, dezvoltarea și întreținerea aplicației SQL-Two, vor folosi acest document pentru a înțelege cerințele funcționale și nefuncționale ale aplicației. </p></li>
+                <li><h3>Utilizatori (Elevi și Administratori)</h3><p>Elevii pot utiliza acest document pentru a înțelege posibilitățile pe care le ofera aplicația și în cazul în care au nevoie de ajutor pentru accesarea anumitor funcționalități. Iar administratorii gestionează întrebările și aplicația în sine.</p></li>
+                <li><h3>Testeri</h3><p>Testerii QA pot folosi acest document pentrua dezvolta și executa teste care să verifice dacă aplicația funcționează conform cerințelor specificate.</p></li>
+                <li><h3>Scriitori de documentație</h3><p>Persoane care vor crea și întreține documentația utilizatorului și ghidurile de utilizare pentru aplicația SQL-Two.</p></li>
+                <ol>
             </p>
+        </section>
+
+        <section id="purpose">
+            <h3>Scopul</h3>
+            <p>
+                SQL-Two este o aplicație web concepută pentru a facilita învățarea limbajului SQL de către începători.
+                Aplicația oferă o platformă interactivă unde utilizatorii pot răspunde la întrebări SQL, crea propriile probleme
+                și verifica răspunsurile corecte prin intermediul unui serviciu web.<p> Administratorii aplicației au posibilitatea
+                de a introduce întrebări SQL din diverse capitole esențiale, iar restul utilizatorilor (elevii) pot interacționa
+                cu aceste întrebări pentru a-și îmbunătăți cunoștințele SQL.</p>
+            </p>
+            <h2>Obiective<h2>
+                <img src="../images/obiective.png">
         </section>
 
     </section>
@@ -76,7 +91,7 @@
     <section id="paleta-culori">
         <h3>Paleta culori</h3>
         <p>
-            Suntem adeptele unui design cât mai minimalist, motiv pentru care folosim in mod predoominant culori
+            Suntem adeptele unui design cât mai minimalist, motiv pentru care folosim in mod predominant culori
          deschise si pastelate pentru a le oferi utilizatorilor un mediu cât mai prietenos și nu unul asociat cu învățatul.
         </p>
     <img src="../images/paletaCulori.png">
@@ -89,7 +104,7 @@
         <p>Aplicația este optimizată pentru eficiența prelucrării datelor, utilizând funcții node.js dedicate 
            pentru gestionarea informațiilor. Aceste funcții asigură administrarea eficientă a datelor legate de 
            utilizatori, problemele din baza de date, sarcinile soluționate de elevi, și facilități de import-export
-           pentru probleme. În plus, aplicația permite adăugarea și actualizarea utilizatorilor, modificarea 
+           pentru probleme. În plus, aplicația permite adăugarea și actualizarea informațiilor utilizatorilor, modificarea 
            profilurilor și gestionarea problemelor.</p>
         <section id="users-functionalities">
             <h2>Functionalitățile utilizatorilor</h2>
@@ -97,33 +112,50 @@
                 Functionalitățile aplicației diferă în funcție de rolul cu care se va face logarea, respectiv cel de 
                 admin și utilizator.
             </p>
-            <h2>Functionalitățile utilizatorilor</h2>
+            <h2>Funcționalitățile utilizatorilor</h2>
             <p>
-                Functionalitățile aplicației sunt în funcție de rol.
+                În funcție de rolul utilizatorului ()
             </p>
             <section id="student-functionality">
                 <h3>Functionalitățile elevului</h3>
-                <ol>
-                    <li>Crearea unui cont</li>
-                    <li>Logarea în cont</li>
-                    <li>Modificarea datelor contului (schimbarea usernameului, parolei și a emailului)</li>
-                    <li>Rezolvarea unor exerciții, marcarea lor și adăugarea de comentarii</li>
-                    <li>Adăugarea unor noi exerciții</li>
-                    <li>Vizualizarea exercițiilor rezolvate și adăugate</li>
-                    <li>Vizualizarea unor statistici despre exercițiile propuse</li>
-                </ol>
+                <ul>
+                    Din pagina principala putem face, prin intermediul butonului Login/sign-up:
+                    <li><b>Crearea unui cont</b></li>
+                    <li><b>Logarea în cont</b></li>
+                    <img src="./docImages/firstPage.png">
+                    Aceasta acțiune ne va duce catre pagina ce conține formularul de logare si cel de sign-up.
+                    <img a href="../html/login_signup.html" src="./docImages/login_signup.png">
+                    In aceasta pagină putem sa vizulizăm atât <i>scorul utilizatorului,numărul de probleme rezolvate,numărul de probleme marcate, propuse</i>, cât și anumite opțiuni de 
+                    <li><b>Modificarea datelor contului (schimbarea parolei)</b></li>
+                    <img a href="../html/setari.html" src="./docImages/schimbareParola.png" >
+                    <li><b>Statistici</b></li>
+                    <img a href="../html/statistici.html" src="./docImages/statisticiUser.png">
+                    <li><b>Rezolvarea unor exerciții, marcarea lor(ca greșite/dificultatea) și adăugarea de comentarii</b></li>
+                    <img a href="../html/questions.html" src="./docImages/intrebari.png">
+                    <li><b>Adăugarea unor noi exerciții </b>( după rezolvare a 20 de intrebări)</li>
+                    <img a href="../html/adaugaIntrebare.html" src="./docImages/adaugaIntrebare.png">
+                </ul>
             </section>
 
             <section id="admin-functionality">
                 <h3>
                     Functionalitatile administratorului:
                 </h3>
-                <ol>
+                <ul>
                     <li>Logare</li>
-                    <li>Administrarea conturilor si a exercitiilor</li>
-                    <li>Vizualizarea unor statistici despre toate exercitiile</li>
-                    <li>Importarea si exportarea exercitiilor</li>
-                </ol>
+                    <p>Logarea se face similar cu cea a userului normal,însă acesta are funcționalități speciale</p>
+                    <img a href="../html/admin.html" src="./docImages/adminProfile.png">
+                    Acesta are următoarele functionalități specifice:
+                    <ol>
+                    <li><b>Schimbarea parolei</b></li>
+                    <li><b>Vizualizarea clasamentului studenților</b></li>
+                    <img a href="../html/clasament.html" src="./docImages/clasament.png">
+                    <li><b>Administrarea problemelor</b></li>
+                    <li><b>Importarea si exportarea exercitiilor</b></li>
+                    <img a href="../html/administrareProbleme.html" src="./docImages/administrareProbleme.png">
+                    <li><b>Adăugarea unei probleme noi</b></li>
+                    </ol>
+                </ul>
             </section>
         </section>
         <section id="implementation-details">
