@@ -3,8 +3,7 @@ const UserModel = require('../models/UserModel');
 const AuthService=require('../services/AuthService');
 const utils=require('../utils')
 const cookie=require('cookie')
-//@desc signing up a user
-//@route POST /signup
+
 
 class UserController extends BaseController {
     constructor() {
@@ -77,10 +76,7 @@ class UserController extends BaseController {
 
     async updateProfile(req, res, userData) {
         try {
-            //console.log(this.getPostData(req));
-           // Presupunem că getPostData(req) îți returnează un string JSON
             const profileDataString = await this.getPostData(req);
-            // Parsează string-ul JSON într-un obiect
             const profileData = JSON.parse(profileDataString);
             console.log('Profile data received:', profileData);
 

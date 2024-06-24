@@ -7,8 +7,6 @@ document.getElementById('profile-form').addEventListener('submit', async functio
 
     console.log("Form data:", { name, formEmail, password });
 
-
-    //console.log("hei");
     const response =  fetch('/api/update-profile', {
         method: 'POST',
         headers: {

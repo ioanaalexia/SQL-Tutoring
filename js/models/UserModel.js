@@ -143,13 +143,11 @@ class UserModel {
         values.push(hashedPass);
     }
 
-    // Dacă nu există câmpuri de actualizat, ieșim din funcție
     if (updateFields.length === 0) {
         console.log("No fields to update");
         return false;
     }
 
-    // Adăugăm userId la finalul array-ului de valori pentru condiția WHERE
     values.push(userId);
     const sql = `UPDATE users SET ${updateFields.join(', ')} WHERE user_id = ?`;
 

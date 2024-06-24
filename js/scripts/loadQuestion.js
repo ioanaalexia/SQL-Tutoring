@@ -16,11 +16,9 @@ function verifyCount() {
     .then(response => {
         console.log("Statusul răspunsului:", response.status);
         if (response.status === 201) {
-            // Redirecționare, urmează URL-ul din headerul Location
             window.location.href = 'adaugaIntrebare.html' ;
             return;
         } else if (response.status === 200) {
-            // Verifică tipul de conținut
             const contentType = response.headers.get("Content-Type");
             if (contentType && contentType.includes("application/json")) {
                 fetchQuestion();
@@ -45,14 +43,12 @@ function verifyCount() {
 
 function exit(){
     document.querySelector('.exit a').addEventListener('click', function(event) {
-    // Opțiunea implicită de redirectionare a link-ului este oprită
     event.preventDefault();
-    // Redirecționează utilizatorul către pagina dorită
     window.location.href = 'elev.html';
     });
 }
 
-function fetchQuestion(){//iau intrebarea din baza de date
+function fetchQuestion(){
     console.log("fetchQuestion")
     const addAnswerForm=document.forms[0];
     addAnswerForm.querySelector('input[type="text"]').value="";
@@ -86,7 +82,7 @@ function getChapter(){
 
 function getAnswer() {
     const submitButton = document.querySelector(".verifyButton");
-    submitButton.removeEventListener("click", handleAnswerSubmission); // Elimina ascultatorul daca exista
+    submitButton.removeEventListener("click", handleAnswerSubmission);
     submitButton.addEventListener("click", handleAnswerSubmission);
 }
 
@@ -152,7 +148,7 @@ function sendAnswer(answer) {
     fetch("/answer", {
     method: 'POST',
     headers: {
-    'Content-Type': 'text/plain' // Am schimbat 'text' în 'text/plain'
+    'Content-Type': 'text/plain'
     },
     body: answer
     }).then(response => response.json())
@@ -227,7 +223,7 @@ function sendComment(comment)
         fetch("/comment", {
         method: 'POST',
         headers: {
-        'Content-Type': 'text/plain' // Am schimbat 'text' în 'text/plain'
+        'Content-Type': 'text/plain'
         },
         body: comment
         }).then(response => response.json())

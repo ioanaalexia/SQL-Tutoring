@@ -2,12 +2,6 @@ DROP DATABASE IF EXISTS `myapp`;
 CREATE DATABASE `myapp`;
 USE `myapp`;
 
-INSERT INTO users (username, email, password, role) VALUES 
-('admin', 'admin@example.com', 'adminpassword', 'admin')
-('user1', 'user1@example.com', 'pass1', 'student'),
-('student2', 'student2@example.com', 'student2password', 'student');
-
-drop table qustions;
 INSERT INTO questions (question_id, category, question_text, correct_answer, difficulty, created_by, attempts) VALUES 
 (1, 'JOIN', 'Afisati profesorii (numele si prenumele) impreuna cu cursurile pe care fiecare le tin.', 'SELECT nume, prenume, titlu_curs FROM profesori p JOIN didactic d ON p.id_prof = d.id_prof JOIN cursuri c ON d.id_curs = c.id_curs;', 'usoara', 1, 0),
 (2, 'JOIN', 'Afisati studentii si notele pe care le au luat si profesorii care le-au pus acele note.', 'SELECT s.nume, s.prenume, n.valoare, p.nume, p.prenume FROM studenti s JOIN note n ON s.nr_matricol=n.nr_matricol JOIN cursuri c ON n.id_curs=c.id_curs JOIN didactic d ON c.id_curs=d.id_curs JOIN profesori p ON d.id_prof=p.id_prof;', 'medie', 1, 0),
@@ -24,20 +18,6 @@ INSERT INTO questions (question_id, category, question_text, correct_answer, dif
 (13, 'Functii de agregare', ' Afisati valoarea bursei/cap de student (se considera ca studentii care nu sunt bursieri primesc 0 RON);', 'SELECT AVG(NVL(bursa, ''0'')) FROM Studenti;', 'medie', 1, 0),
 (14, 'Functii de agregare', 'Afisati numarul de studenti din fiecare grupa a fiecarui an de studiu si specificati cati dintre acestia sunt bursieri.', 'SELECT an, grupa, COUNT(*), COUNT(bursa) FROM Studenti GROUP BY an, grupa;', 'grea', 1, 0);
 
-INSERT INTO attempts (question_id, user_id, user_answer, is_correct) VALUES 
-(1, 944569, 'SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.foreign_id;', FALSE),
-(2, 944569, 'SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.id;', TRUE),
-(2, 944569, 'A subquery is a SELECT query that is nested within another query;', TRUE),
-(3, 944569, 'SELECT category, COUNT(*) FROM products GROUP BY category;', TRUE);
-
-SELECT q.question_id, q.question_text
-FROM questions AS q
-LEFT JOIN attempts AS a ON q.question_id = a.question_id AND a.user_id = ?
-WHERE q.category = ?
-  AND a.attempt_id IS NULL
-ORDER BY q.difficulty ASC, q.attempts ASC;
-
-
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -46,10 +26,8 @@ CREATE TABLE users (
     role ENUM('admin', 'student') NOT NULL
 );
 
-
-
 CREATE TABLE questions (
-    question_id INT PRIMARY KEY,
+    question_id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(255) NOT NULL,
     question_text TEXT NOT NULL,
     correct_answer TEXT NOT NULL,
@@ -75,40 +53,10 @@ CREATE TABLE ratings (
     question_id INT,
     user_id INT,
     difficulty_rating VARCHAR(10) CHECK (difficulty_rating IN ('usoara', 'medie', 'grea')),
+    is_incorrect BOOLEAN DEFAULT FALSE,
     comment TEXT,
     FOREIGN KEY (question_id) REFERENCES questions(question_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 ALTER TABLE ratings ADD UNIQUE KEY unique_rating (question_id, user_id);
-
-
-select * from ratings;
-
-CREATE TABLE reports (
-    report_id SERIAL PRIMARY KEY,
-    report_type VARCHAR(255),
-    content TEXT,
-    generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE user_questions (
-    user_question_id SERIAL PRIMARY KEY,
-    question_text TEXT NOT NULL,
-    correct_answer TEXT NOT NULL,
-    created_by INT,
-    reviewed BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (created_by) REFERENCES users(user_id)
-);
-
-
-CREATE TABLE table1 (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    flowers VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE table2 (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    animals VARCHAR(255) NOT NULL
-);

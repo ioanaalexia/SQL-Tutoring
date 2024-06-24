@@ -66,7 +66,6 @@ class IEController extends BaseController {
                     res.end(JSON.stringify({ success: false, message: "Unsupported file type"}));
                 }
 
-                // Clean up the uploaded file after processing
                 fs.unlink(filePath, (err) => {
                     if (err) console.error('Error deleting file:', err);
                 });
@@ -98,7 +97,6 @@ class IEController extends BaseController {
         const xmlContent = json2xml({ questions: questions });
         const filePath = path.join(__dirname, 'questions.xml');
 
-        // Write XML content to a file
         fs.writeFile(filePath, xmlContent, 'utf8', (err) => {
             if (err) {
                 console.error('An error occurred while writing XML Object to File:', err);
@@ -107,11 +105,9 @@ class IEController extends BaseController {
                 return;
             }
 
-            // Set headers to force download
             res.setHeader('Content-Disposition', 'attachment; filename="questions.xml"');
             res.setHeader('Content-Type', 'application/xml');
 
-            // Create a read stream and pipe it to the response
             const readStream = fs.createReadStream(filePath);
             readStream.pipe(res);
         });

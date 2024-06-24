@@ -57,7 +57,7 @@ exportJson.addEventListener("click",(event)=>{
             const a = document.createElement('a');
             a.style.display = 'none';
             a.href = url;
-            a.download = 'questions.json';  // Numele fișierului
+            a.download = 'questions.json';
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
@@ -71,7 +71,7 @@ exportXml.addEventListener("click", (event) => {
     fetch("/exportXml")
         .then(response => {
             if (response.ok) {
-                return response.blob();  // Convertim răspunsul în blob
+                return response.blob();
             }
             throw new Error('Network response was not ok.');
         })
@@ -80,7 +80,7 @@ exportXml.addEventListener("click", (event) => {
             const a = document.createElement('a');
             a.style.display = 'none';
             a.href = url;
-            a.download = 'questions.xml';  // Numele fișierului
+            a.download = 'questions.xml';
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
