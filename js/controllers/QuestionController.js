@@ -178,6 +178,21 @@ class QuestionController extends BaseController {
 
             }
     }
+
+    async markIncorrect(req, res, questionId, userData) {
+        try {
+            const result = await this.questionModel.markQuestionAsIncorrect(questionId, userData.id);
+            if (result) {
+                this.sendJsonResponse(res, 200, { success: true, message: "Question marked as incorrect successfully" });
+            } else {
+                this.sendJsonResponse(res, 500, { success: false, message: "Failed to mark the question as incorrect" });
+            }
+        } catch (err) {
+            console.error('Error in markIncorrect:', err);
+            this.sendJsonResponse(res, 400, { success: false, message: "Invalid JSON input or server error" });
+        }
+    }
+    
     
 }
 
