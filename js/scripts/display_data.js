@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json(); // Aici parsăm direct JSON-ul
+        return response.json(); 
     })
     .then(data => {
-        console.log('Received data:', data); // Debugging
+        console.log('Received data:', data);
         document.getElementById('scor_value').innerText = data.scor;
         document.getElementById('rezolvate_value').innerText = data.rezolvate;
         document.getElementById('propuse_value').innerText = data.propuse;

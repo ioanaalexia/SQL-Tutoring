@@ -51,7 +51,6 @@ class QuestionController extends BaseController {
     async sendRating(req, res,questionId,userData){
         const parsedUrl = url.parse(req.url, true);
         console.log("in controler")
-        // Extrage valoarea parametrului "dificultate"
         const dificultate = parsedUrl.query.dificultate;
 
         const result=await this.questionModel.sendRating(questionId,userData.id,dificultate);
@@ -106,9 +105,7 @@ class QuestionController extends BaseController {
         console.log(queryString)
         const parsedData = querystring.parse(queryString);
 
-        console.log(parsedData.dificultate)
-        // Extrage fiecare dată din obiectul rezultat
-       
+        console.log(parsedData.dificultate)       
        
         const result=await this.questionModel.addQuestion(parsedData.capitol,parsedData.intrebare,parsedData.dificultate,parsedData.raspuns,userData.id)
         if (result) {
@@ -130,7 +127,6 @@ class QuestionController extends BaseController {
         const parsedUrl = url.parse(req.url, true);
         console.log("in controler");
         
-        // Extrage valoarea parametrului "dificultate"
         const id = parsedUrl.query.id;
         const category = parsedUrl.query.category;
         console.log(id, category);
@@ -153,7 +149,7 @@ class QuestionController extends BaseController {
     
         } else if (category) {
             try {
-                const result = await this.questionModel.getQueryByCategory(category); // Ar trebui să fie 'category' în loc de 'id' aici
+                const result = await this.questionModel.getQueryByCategory(category);
                 if (result) {
                     res.writeHead(200, { 'Content-Type': 'application/json' });
                     res.end(JSON.stringify(result));
@@ -167,7 +163,7 @@ class QuestionController extends BaseController {
                 res.end(JSON.stringify({ success: false, message: "Eroare interna de server" }));
             }
         } else {
-            const result = await this.questionModel.getQueries(); // Ar trebui să fie 'category' în loc de 'id' aici
+            const result = await this.questionModel.getQueries();
             if (result) {
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify(result));

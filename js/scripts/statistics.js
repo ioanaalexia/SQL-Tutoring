@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
         .then(response => response.json())
         .then(problems => {
-            console.log('Fetched problems:', problems); // Log the fetched data
+            console.log('Fetched problems:', problems);
             const tableBody = document.querySelector('#problemsTable tbody');
             tableBody.innerHTML = '';
 
-            if (Array.isArray(problems)) { // Check if problems is an array
+            if (Array.isArray(problems)) {
                 problems.forEach(problem => {
                     const row = document.createElement('tr');
                     const nameCell = document.createElement('td');

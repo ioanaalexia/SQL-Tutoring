@@ -23,7 +23,7 @@ document.getElementById('signup-form').addEventListener('submit', function(event
                 text: 'You are now logged in!'
             }).then((result) => {
                 if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
-                    window.location.href = '/html/elev.html'; // URL-ul către care să redirecționați
+                    window.location.href = '/html/elev.html';
                 }
             });
         } else {

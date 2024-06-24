@@ -25,7 +25,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             }).then((result) => {
                 if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
                     
-                    window.location.href = '/html/admin.html'; // URL-ul către care să redirecționați
+                    window.location.href = '/html/admin.html';
                 }
             });
         } else if(data.success && data.redirectUrl==='/html/elev.html')
@@ -37,7 +37,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
                 }).then((result) => {
                     if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
                         
-                        window.location.href = '/html/elev.html'; // URL-ul către care să redirecționați
+                        window.location.href = '/html/elev.html';
                     }
                 });
             }

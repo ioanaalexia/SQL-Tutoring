@@ -40,13 +40,13 @@ class IEModel{
 
         const data = {
             questions: {
-              questionId: [ /* Array of Objects */ ],
-              category: [ /* Array of Objects */ ],
-              questionText: [ /* Array of Objects */ ],
-              correctAnswer: [ /* Array of Objects */ ],
-              difficulty: [ /* Array of Objects */ ],
-              createdBy: [ /* Array of Objects */ ],
-              attempts: [ /* Array of Objects */ ]
+              questionId: [ ],
+              category: [ ],
+              questionText: [ ],
+              correctAnswer: [ ],
+              difficulty: [ ],
+              createdBy: [ ],
+              attempts: [ ]
             }
           };
         console.log("in model importXml")

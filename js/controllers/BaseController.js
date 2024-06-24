@@ -29,7 +29,6 @@ async parseFormData(formDataString) {
     // Parsarea datelor primite în formă de șir de interogare
     const formData = querystring.parse(formDataString);
     console.log(formData)
-    // Rezultatul este un obiect cu chei corespunzătoare datelor primite
     return formData;
    
 }

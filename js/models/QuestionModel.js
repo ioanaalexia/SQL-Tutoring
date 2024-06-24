@@ -50,39 +50,33 @@ class QuestionModel{
             try{
                const [results1,fields1] = await connection.query(correctAnswer);
                const [results2,fields2] = await connection.query(answer);
-               // Comparare rezultate
                console.log(fields1)
                console.log(fields2)
             if (results1[0] && results2[0] && fields1 === fields2) {
                
                 await connection.execute(insertSql, [questionId, userId, answer, isCorrect]);
-               // await connection.end();
                 return true; 
             } else {
                 console.log("Răspuns incorect!");
                 return false;
             }
     
-            // Închidere conexiune
-           // Returnează true pentru succes
             }catch(err){
                 console.error('Eroare la executarea interogării:', err);
                 console.log("eroare")
-                return false; // Returnează false în caz de eroare
+                return false;
          }
             
         } catch (err) {
             console.error('Eroare la verificarea răspunsului:', err.message);
-            return false; // Returnează false pentru eșec
+            return false;
         }
     }
 
     async sendRating(questionId,userId,dificultate){
-        //interogarea in bd
         const connection = await connectionPromise;
         console.log("in model")
         try {
-            // Interogare SQL pentru inserarea unui nou rating
             const query = `
               INSERT INTO ratings (question_id, user_id, difficulty_rating)
               VALUES (?, ?, ?)
@@ -90,7 +84,6 @@ class QuestionModel{
               difficulty_rating = VALUES(difficulty_rating)
             `;
         
-            // Execută interogarea cu parametrii furnizați
             const [result] = await connection.execute(query, [questionId, userId,dificultate]);
             
             console.log('Rating added successfully:', result);
@@ -141,11 +134,9 @@ class QuestionModel{
                         return false;
                     }
                     const dbconnection=await dbConnectionPromise;
-                    // Verificare validitate interogare SQL
                     await dbconnection.execute(raspuns);
                     console.log('Interogarea SQL este validă.');
     
-                    // Inserarea întrebării
                     const sql = `
                         INSERT INTO questions (category, question_text, correct_answer, difficulty, created_by)
                         VALUES (?, ?, ?, ?, ?)
@@ -158,7 +149,6 @@ class QuestionModel{
                     return false;
                 }
             } else {
-                // Inserarea întrebării fără verificarea interogării pentru alte roluri
                 try {
                     const sql = `
                         INSERT INTO questions (category, question_text, correct_answer, difficulty, created_by)
@@ -221,10 +211,9 @@ class QuestionModel{
           const [rows] = await connection.execute(sql, [questionId]);
   
           if (rows.length === 0) {
-              return null; // Returnează null dacă nu există întrebare cu ID-ul respectiv
+              return null;
           }
   
-          // Transformă rândul din baza de date într-un obiect JSON cu proprietăți personalizate
           const question = {
               questionId: rows[0].question_id,
               category: rows[0].category,
@@ -234,7 +223,7 @@ class QuestionModel{
               attempts: rows[0].attempts,
               comments: rows.map(row => ({
                   comment: row.comment
-              })).filter(comment => comment.comment !== null) // Filtrare pentru a elimina comentariile nule
+              })).filter(comment => comment.comment !== null)
           };
   
           return question;

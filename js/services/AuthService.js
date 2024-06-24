@@ -17,7 +17,6 @@ class AuthService {
   };
   console.log(payload)
 
-  // Crearea token-ului
   const token = jwt.sign(payload, this.secret, { expiresIn: '1h' });
 
   return token;
