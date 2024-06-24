@@ -244,7 +244,7 @@ function sendComment(comment)
      })
     }catch(err)
     {
-        concole.log("There s been an error with fetching the comment")
+        console.log("There s been an error with fetching the comment")
     }
 
     
