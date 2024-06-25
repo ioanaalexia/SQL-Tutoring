@@ -7,6 +7,7 @@ class QuestionModel{
     }
 
     async load(cap,userId) {
+        console.log("in load question");
         const connection = await connectionPromise;
         const sql = `
           SELECT q.question_id, q.question_text
